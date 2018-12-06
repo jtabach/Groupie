@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './PostField.module.scss';
 
 import Textarea from 'react-textarea-autosize';
-import Button from 'components/common/Button';
+import Button from '../../common/Button';
 
 class PostField extends Component {
   static propTypes = {

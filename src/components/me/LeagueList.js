@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import LinkCard from 'components/common/LinkCard';
+import LinkCard from '..//common/LinkCard';
 
 class LeagueList extends Component {
   renderLeagues() {
