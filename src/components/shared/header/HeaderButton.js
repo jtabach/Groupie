@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
-import styles from './HeaderButton.scss';
+import styles from './HeaderButton.module.scss';
 
 class HeaderButton extends Component {
   static propTypes = {
@@ -15,9 +14,9 @@ class HeaderButton extends Component {
   render() {
     const { icon, badge, actionList, onHandleClick, buttonType } = this.props;
     return (
-      <div styleName="header-button-wrapper">
+      <div className={styles["header-button-wrapper"]}>
         <div
-          styleName="header-button"
+          className={styles["header-button"]}
           onClick={() => onHandleClick(buttonType)}
         >
           {icon}
@@ -29,4 +28,4 @@ class HeaderButton extends Component {
   }
 }
 
-export default CSSModules(HeaderButton, styles);
+export default HeaderButton;

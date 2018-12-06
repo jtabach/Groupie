@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
-import styles from './Notification.scss';
+import styles from './Notification.module.scss';
 
 class Notification extends Component {
   static propTypes = {
@@ -13,7 +12,7 @@ class Notification extends Component {
     switch (notification.verb) {
       case 'post':
         return (
-          <div styleName="notification-buffer">
+          <div className={styles["notification-buffer"]}>
             <p>
               <strong>{notification.actor.email}</strong> posted in{' '}
               <strong>{notification.league.name}</strong> aksdhf oaioie asydg
@@ -33,7 +32,7 @@ class Notification extends Component {
     return (
       <div
         onClick={() => onHandleClick(notification)}
-        styleName={`notification ${hasViewed}`}
+        className={`${styles["notification"]} ${styles["hasViewed"]}`}
       >
         {this.renderNotification(notification)}
       </div>
@@ -41,4 +40,4 @@ class Notification extends Component {
   }
 }
 
-export default CSSModules(Notification, styles, { allowMultiple: true });
+export default Notification;

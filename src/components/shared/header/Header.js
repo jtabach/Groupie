@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CSSModules from 'react-css-modules';
-import styles from './Header.scss';
+import styles from './Header.module.scss';
 
 import LoginButton from '../../buttons/LoginButton';
 import RegisterButton from '../../buttons/RegisterButton';
@@ -150,14 +149,14 @@ class Header extends Component {
 
   render() {
     return (
-      <div styleName="header">
-        <div styleName="contain">
-          <div styleName="navigation">
+      <div className={styles["header"]}>
+        <div className={styles["contain"]}>
+          <div className={styles["navigation"]}>
             <DrawerToggleButton click={this.props.handleDrawerToggleClick} />
-            <div styleName="logo">
+            <div className={styles["logo"]}>
               <Link to="/me">GFFL</Link>
             </div>
-            <div styleName="navigation-items">{this.renderAuthLinks()}</div>
+            <div className={styles["navigation-items"]}>{this.renderAuthLinks()}</div>
           </div>
         </div>
       </div>
@@ -169,6 +168,4 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps, { dismissNotifications })(
-  CSSModules(Header, styles)
-);
+export default connect(mapStateToProps, { dismissNotifications })(Header);

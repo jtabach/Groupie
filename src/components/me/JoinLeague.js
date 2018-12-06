@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CSSModules from 'react-css-modules';
-import styles from './JoinLeague.scss';
+import styles from './JoinLeague.module.scss';
 
 import JoinLeagueForm from '../forms/JoinLeagueForm';
 import Card from '../common/Card';
@@ -16,10 +15,10 @@ class JoinLeague extends Component {
   render() {
     return (
       <Card>
-        <div styleName="header">
-          <h2 styleName="test">Join a League</h2>
+        <div className={styles["header"]}>
+          <h2 className={styles["test"]}>Join a League</h2>
         </div>
-        <div styleName="card-content">
+        <div className={styles["card-content"]}>
           <JoinLeagueForm onSubmit={this.handleSubmit} />
         </div>
       </Card>
@@ -27,4 +26,4 @@ class JoinLeague extends Component {
   }
 }
 
-export default connect(null, { joinLeague })(CSSModules(JoinLeague, styles));
+export default connect(null, { joinLeague })(JoinLeague);

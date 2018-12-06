@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
-import styles from './SideDrawer.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import styles from './SideDrawer.module.scss';
 
 import LoginButton from '../../buttons/LoginButton';
 import LogoutButton from '../../buttons/LogoutButton';
@@ -36,7 +35,7 @@ class SideDrawer extends Component {
   render() {
     const { isVisible } = this.props;
     return (
-      <div styleName={isVisible ? 'side-drawer-open' : 'side-drawer'}>
+      <div className={isVisible ? styles['side-drawer-open'] : styles['side-drawer']}>
         <ul>{this.renderAuthLinks()}</ul>
       </div>
     );
@@ -47,4 +46,4 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps)(CSSModules(SideDrawer, styles));
+export default connect(mapStateToProps)(SideDrawer);

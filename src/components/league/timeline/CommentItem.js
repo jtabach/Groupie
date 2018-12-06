@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
-import styles from './CommentItem.scss';
+import styles from './CommentItem.module.scss';
 
 class CommentItem extends Component {
   static propTypes = {
@@ -13,9 +12,9 @@ class CommentItem extends Component {
     const { comment } = this.props;
 
     return (
-      <li styleName="comment-item">
+      <li className={styles["comment-item"]}>
         <p>
-          <strong styleName="team-name">{comment.team.name}</strong>{' '}
+          <strong className={styles["team-name"]}>{comment.team.name}</strong>{' '}
           {comment.text}
         </p>
       </li>
@@ -23,4 +22,4 @@ class CommentItem extends Component {
   }
 }
 
-export default CSSModules(CommentItem, styles);
+export default CommentItem;

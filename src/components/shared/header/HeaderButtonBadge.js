@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
-import styles from './HeaderButtonBadge.scss';
+import styles from './HeaderButtonBadge.module.scss';
 
 class HeaderButtonBadge extends Component {
   static propTypes = {
@@ -19,14 +18,14 @@ class HeaderButtonBadge extends Component {
       return null;
     } else if (notificationCount < 10) {
       return (
-        <div styleName="badge">
-          <div styleName="count">{notificationCount}</div>
+        <div className={styles["badge"]}>
+          <div className={styles["count"]}>{notificationCount}</div>
         </div>
       );
     } else {
       return (
-        <div styleName="badge">
-          <div styleName="count">!</div>
+        <div className={styles["badge"]}>
+          <div className={styles["count"]}>!</div>
         </div>
       );
     }
@@ -37,4 +36,4 @@ class HeaderButtonBadge extends Component {
   }
 }
 
-export default CSSModules(HeaderButtonBadge, styles);
+export default HeaderButtonBadge;

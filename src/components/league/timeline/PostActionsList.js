@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
 import onClickOutside from 'react-onclickoutside';
-import styles from './PostActionsList.scss';
+import styles from './PostActionsList.module.scss';
 
 class PostActions extends Component {
   static propTypes = {
@@ -18,11 +17,11 @@ class PostActions extends Component {
 
   render() {
     return (
-      <div styleName="actions">
-        <ul styleName="actions__list">
+      <div className={styles["actions"]}>
+        <ul className={styles["actions__list"]}>
           {this.props.children.map(child => {
             return (
-              <li styleName="actions__list--item" key={Math.random()}>
+              <li className={styles["actions__list--item"]} key={Math.random()}>
                 {child}
               </li>
             );
@@ -33,4 +32,4 @@ class PostActions extends Component {
   }
 }
 
-export default onClickOutside(CSSModules(PostActions, styles));
+export default onClickOutside(PostActions);

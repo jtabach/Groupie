@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import onClickOutside from 'react-onclickoutside';
-import styles from './NotificationsActionList.scss';
+import styles from './NotificationsActionList.module.scss';
 
 import Notification from './Notification';
 
@@ -57,20 +56,20 @@ class NotificationsActionList extends Component {
     const { onHandleClickOutside, buttonType, user } = this.props;
 
     return (
-      <div styleName="notifications">
-        <div styleName="notifications__header">
-          <p styleName="notifications__header--title">Notifications</p>
+      <div className={styles["notifications"]}>
+        <div className={styles["notifications__header"]}>
+          <p className={styles["notifications__header--title"]}>Notifications</p>
           <div
-            styleName="notifications__header--button"
+            className={styles["notifications__header--button"]}
             onClick={this.handleViewAllNotificationsClick}
           >
             Mark All as Read
           </div>
         </div>
-        <ul styleName="notifications__list">
+        <ul className={styles["notifications__list"]}>
           {[...user.notifications].reverse().map(notification => {
             return (
-              <li styleName="notifications__list--item" key={notification._id}>
+              <li className={styles["notifications__list--item"]} key={notification._id}>
                 <Notification
                   notification={notification}
                   onHandleClick={this.handleNotificationClick}
@@ -91,4 +90,4 @@ function mapStateToProps({ user }) {
 export default connect(mapStateToProps, {
   viewNotification,
   viewAllNotifications
-})(withRouter(onClickOutside(CSSModules(NotificationsActionList, styles))));
+})(withRouter(onClickOutside(NotificationsActionList)));

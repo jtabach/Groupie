@@ -1,13 +1,12 @@
 import React from 'react';
-import CSSModules from 'react-css-modules';
-import styles from './DrawerToggleButton.scss';
+import styles from './DrawerToggleButton.module.scss';
 
 const DrawerToggleButton = props => (
-  <button styleName="toggle-button" onClick={props.click}>
-    <div styleName="toggle-button__line" />
-    <div styleName="toggle-button__line" />
-    <div styleName="toggle-button__line" />
+  <button className={styles["toggle-button"]} onClick={props.click}>
+    <div className={styles["toggle-button__line"]} />
+    <div className={styles["toggle-button__line"]} />
+    <div className={styles["toggle-button__line"]} />
   </button>
 );
 
-export default CSSModules(DrawerToggleButton, styles);
+export default DrawerToggleButton;

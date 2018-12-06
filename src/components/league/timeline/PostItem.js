@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import ReactTooltip from 'react-tooltip';
-import styles from './PostItem.scss';
+import styles from './PostItem.module.scss';
 
 import CommentList from './CommentList';
 import CommentField from './CommentField';
@@ -176,7 +175,7 @@ class PostItem extends Component {
             </PostActionsList>
           ) : null}
 
-          <img src={threeDots} alt="" styleName="dots" />
+          <img src={threeDots} alt="" className={styles["dots"]} />
         </div>
       );
     } else {
@@ -188,7 +187,7 @@ class PostItem extends Component {
     const { post } = this.props;
 
     return (
-      <div styleName="post-item__summary">
+      <div className={styles["post-item__summary"]}>
         <div data-tip data-for={`likes-${post._id}`}>
           likes: {post.likes.length}
         </div>
@@ -243,24 +242,24 @@ class PostItem extends Component {
     const { post, league } = this.props;
 
     return (
-      <li styleName="post-item">
-        <div styleName="post-item__header">
-          <div styleName="post-item__header--content">
+      <li className={styles["post-item"]}>
+        <div className={styles["post-item__header"]}>
+          <div className={styles["post-item__header--content"]}>
             <h5>{post.team.name}</h5>
             <p>{post.text}</p>
           </div>
-          <div styleName="post-item__header--actions">
+          <div className={styles["post-item__header--actions"]}>
             {this.renderPostActions()}
           </div>
         </div>
-        <div styleName="post-item__spacer" />
+        <div className={styles["post-item__spacer"]} />
         {this.renderPostSummary()}
-        <div styleName="post-item__spacer" />
-        <div styleName="post-item__reaction">
+        <div className={styles["post-item__spacer"]} />
+        <div className={styles["post-item__reaction"]}>
           {this.renderPostLikeButton()}
           <div onClick={this.focusCommentInput}>CommentHere</div>
         </div>
-        <div styleName="post-item__spacer" />
+        <div className={styles["post-item__spacer"]} />
         <CommentList post={post} />
         <CommentField
           onCommentInputChange={this.handleCommentInputChange}
@@ -283,4 +282,4 @@ export default connect(mapStateToProps, {
   editPost,
   likePost,
   deleteLikePost
-})(CSSModules(PostItem, styles));
+})(PostItem);

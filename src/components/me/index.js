@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
@@ -9,7 +8,7 @@ import LeagueList from './LeagueList';
 import LeagueButtons from './LeagueButtons';
 import Friends from './Friends';
 
-import styles from './index.scss';
+import styles from './index.module.scss';
 
 import { fetchUser } from '../../actions/authActions';
 
@@ -23,15 +22,15 @@ class App extends Component {
 
     return (
       <NavLayout>
-        <div styleName="me">
-          <div styleName="contain">
-            <div styleName="col-left">
+        <div className={styles["me"]}>
+          <div className={styles["contain"]}>
+            <div className={styles["col-left"]}>
               <LeagueList />
             </div>
-            <div styleName="col-center">
+            <div className={styles["col-center"]}>
               <Routes match={match} />
             </div>
-            <div styleName="col-right">
+            <div className={styles["col-right"]}>
               <LeagueButtons match={match} />
               <Friends />
             </div>
@@ -43,5 +42,5 @@ class App extends Component {
 }
 
 export default hot(module)(
-  connect(null, { fetchUser })(CSSModules(App, styles))
+  connect(null, { fetchUser })(App)
 );

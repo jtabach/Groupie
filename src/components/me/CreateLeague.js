@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CSSModules from 'react-css-modules';
-import styles from './CreateLeague.scss';
+import styles from './CreateLeague.module.scss';
 
 import CreateLeagueForm from '../forms/CreateLeagueForm';
 import Card from '../common/Card';
@@ -27,6 +26,4 @@ class CreateLeague extends Component {
   }
 }
 
-export default connect(null, { createLeague })(
-  CSSModules(CreateLeague, styles)
-);
+export default connect(null, { createLeague })(CreateLeague, styles);

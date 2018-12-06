@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
-import styles from './MenuList.scss';
+import styles from './MenuList.module.scss';
 
 import MenuItem from './MenuItem';
 
@@ -28,8 +27,8 @@ class MenuList extends Component {
   }
 
   render() {
-    return <ul styleName="menu-list">{this.renderMenuItems()}</ul>;
+    return <ul className={styles["menu-list"]}>{this.renderMenuItems()}</ul>;
   }
 }
 
-export default CSSModules(MenuList, styles);
+export default MenuList;
