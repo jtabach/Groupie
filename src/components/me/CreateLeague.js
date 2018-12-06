@@ -16,7 +16,7 @@ class CreateLeague extends Component {
     return (
       <Card>
         <div className={styles["header"]}>
-          <h2 className={stlyes["test"]}>Create Your League</h2>
+          <h2 className={styles["test"]}>Create Your League</h2>
         </div>
         <div className={styles["card-content"]}>
           <CreateLeagueForm onSubmit={this.handleSubmit} />
