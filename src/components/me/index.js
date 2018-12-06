@@ -22,14 +22,14 @@ class App extends Component {
     return (
       <NavLayout>
         <div className={styles["me"]}>
-          <div className={styles["contain"]}>
-            <div className={styles["col-left"]}>
+          <div className={`styles["contain"] row`}>
+            <div className="col-3">
               <LeagueList />
             </div>
-            <div className={styles["col-center"]}>
+            <div className="col-6">
               <Routes match={match} />
             </div>
-            <div className={styles["col-right"]}>
+            <div className="col-3">
               <LeagueButtons match={match} />
               <Friends />
             </div>

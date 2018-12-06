@@ -25,14 +25,14 @@ class League extends Component {
       <div>
         <NavLayout>
           <div className={styles["league"]}>
-            <div className={styles["contain"]}>
-              <div className={styles["col-left"]}>
+            <div className={`styles["contain"] row`}>
+              <div className="col-3">
                 <LeagueMenu match={match} league={league} />
               </div>
-              <div className={styles["col-center"]}>
+              <div className="col-6">
                 <LeagueRoutes match={match} />
               </div>
-              <div className={styles["col-left"]}>
+              <div className="col-3">
                 <LeagueFeed />
               </div>
             </div>
