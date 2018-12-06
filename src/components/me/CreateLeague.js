@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styles from './CreateLeague.module.scss';
 
 import CreateLeagueForm from '../forms/CreateLeagueForm';
-import Card from '..//common/Card';
+import Card from '../common/Card';
 
 import { createLeague } from '../../actions/leagueActions';
 
@@ -15,10 +15,10 @@ class CreateLeague extends Component {
   render() {
     return (
       <Card>
-        <div styleName="header">
-          <h2 styleName="test">Create Your League</h2>
+        <div className={styles["header"]}>
+          <h2 className={stlyes["test"]}>Create Your League</h2>
         </div>
-        <div styleName="card-content">
+        <div className={styles["card-content"]}>
           <CreateLeagueForm onSubmit={this.handleSubmit} />
         </div>
       </Card>
@@ -26,4 +26,4 @@ class CreateLeague extends Component {
   }
 }
 
-export default connect(null, { createLeague })(CreateLeague, styles);
+export default connect(null, { createLeague })(CreateLeague);
