@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import styles from './Form.module.scss';
 
 import RenderField from './RenderField';
-import Button from '..//common/Button';
+import Button from '../common/Button';
 import { validate } from './validation/createLeague';
 
 let CreateLeagueForm = props => {
