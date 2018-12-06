@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import Textarea from 'react-textarea-autosize';
 
-import Button from '../../common/Button';
+import Button from 'components/common/Button';
 
 Modal.setAppElement('#root'); // for screen readers
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../../common/Button';
+import Button from 'components/common/Button';
 
 class PostLikeButton extends Component {
   static propTypes = {

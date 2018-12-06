@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styles from './CreateLeague.module.scss';
 
 import CreateLeagueForm from '../forms/CreateLeagueForm';
-import Card from '../common/Card';
+import Card from 'components/common/Card';
 
 import { createLeague } from '../../actions/leagueActions';
 

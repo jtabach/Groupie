@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './CommentField.module.scss';
 
 import Textarea from 'react-textarea-autosize';
-import Button from '../../common/Button';
+import Button from 'components/common/Button';
 
 class CommentField extends Component {
   static propTypes = {

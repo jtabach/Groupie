@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './LeagueButtons.module.scss';
 
-import Card from '../common/Card';
-import LinkButton from '../common/LinkButton';
+import Card from 'components/common/Card';
+import LinkButton from 'components/common/LinkButton';
 
 class LeagueButtons extends Component {
   render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import RenderField from './RenderField';
-import Button from '../common/Button';
+import Button from 'components/common/Button';
 import { validate } from './validation/joinLeague';
 
 let JoinLeague = props => {
