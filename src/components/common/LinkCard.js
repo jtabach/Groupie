@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import { Link } from 'react-router-dom';
-import styles from './Card.scss';
+import styles from './Card.module.scss';
 
 class LinkCard extends Component {
   static propTypes = {
@@ -27,7 +26,7 @@ class LinkCard extends Component {
       return (
         <a
           href={path}
-          styleName={`link-card-${variant}`}
+          className={styles[`link-card-${variant}`]}
           target={isNewTab ? '_blank' : null}
         >
           {children}
@@ -35,7 +34,7 @@ class LinkCard extends Component {
       );
     } else {
       return (
-        <Link to={path} styleName={`link-card-${variant}`}>
+        <Link to={path} className={styles[`link-card-${variant}`]}>
           {children}
         </Link>
       );
@@ -43,4 +42,4 @@ class LinkCard extends Component {
   }
 }
 
-export default CSSModules(LinkCard, styles);
+export default LinkCard;

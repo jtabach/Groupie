@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 import { Link } from 'react-router-dom';
-import styles from './Button.scss';
+import styles from './Button.module.scss';
 
 class LinkButton extends Component {
   static propTypes = {
@@ -49,7 +48,7 @@ class LinkButton extends Component {
       return (
         <a
           href={path}
-          styleName={variant + ' ' + size}
+          className={`${styles.variant} ${styles.size}`}
           target={isNewTab ? '_blank' : null}
         >
           {label || children}
@@ -57,7 +56,7 @@ class LinkButton extends Component {
       );
     } else {
       return (
-        <Link to={path} styleName={variant + ' ' + size}>
+        <Link to={path} className={`${styles.variant} ${styles.size}`}>
           {label || children}
         </Link>
       );
@@ -65,4 +64,4 @@ class LinkButton extends Component {
   }
 }
 
-export default CSSModules(LinkButton, styles, { allowMultiple: true });
+export default LinkButton;

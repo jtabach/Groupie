@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
 
-import styles from './Card.scss';
+import styles from './Card.module.scss';
 
 class Card extends Component {
   static propTypes = {
@@ -18,8 +17,8 @@ class Card extends Component {
   render() {
     const { variant } = this.props;
 
-    return <div styleName={`card-${variant}`}>{this.props.children}</div>;
+    return <div className={styles[`card-${variant}`]}>{this.props.children}</div>;
   }
 }
 
-export default CSSModules(Card, styles);
+export default Card;

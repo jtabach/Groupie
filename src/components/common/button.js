@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
-import styles from './Button.scss';
+import styles from './Button.module.scss';
 import _ from 'lodash';
 
 class Button extends Component {
@@ -38,7 +37,7 @@ class Button extends Component {
     return (
       <button
         type={type}
-        styleName={variant + ' ' + size}
+        className={`${styles.variant} ${styles.size}`}
         onClick={type == 'submit' ? () => _.noop() : onClick}
       >
         {label || children}
@@ -47,4 +46,4 @@ class Button extends Component {
   }
 }
 
-export default CSSModules(Button, styles, { allowMultiple: true });
+export default Button;

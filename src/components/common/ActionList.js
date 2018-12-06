@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
 import onClickOutside from 'react-onclickoutside';
-import styles from './ActionList.scss';
+import styles from './ActionList.module.scss';
 
 class ActionList extends Component {
   static propTypes = {
@@ -27,11 +26,11 @@ class ActionList extends Component {
     const childrenArray = [].concat(children);
 
     return (
-      <div styleName={listType}>
-        <ul styleName={`${listType}__list`}>
+      <div className={styles["listType"]}>
+        <ul className={styles[`${listType}__list`]}>
           {childrenArray.map(child => {
             return (
-              <li styleName={`${listType}__list--item`} key={Math.random()}>
+              <li className={styles[`${listType}__list--item`]} key={Math.random()}>
                 {child}
               </li>
             );
@@ -42,4 +41,4 @@ class ActionList extends Component {
   }
 }
 
-export default onClickOutside(CSSModules(ActionList, styles));
+export default onClickOutside(ActionList);
