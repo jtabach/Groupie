@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import styles from './CommentItem.module.scss';
 

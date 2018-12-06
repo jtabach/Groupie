@@ -14,49 +14,49 @@ export default class Typography extends Component {
         <h6>This is an h6</h6>
         <Button
           type="button"
-          style="primary"
+          variant="primary"
           size="large"
           label="primary button"
           onClick={() => null}
         />
         <Button
           type="button"
-          style="primary-inverse"
+          variant="primary-inverse"
           size="large"
           label="primary inverse"
           onClick={() => null}
         />
         <Button
           type="button"
-          style="secondary"
+          variant="secondary"
           size="large"
           label="secondary button"
           onClick={() => null}
         />
         <Button
           type="button"
-          style="secondary-inverse"
+          variant="secondary-inverse"
           size="large"
           label="secondary inverse"
           onClick={() => null}
         />
         <Button
           type="button"
-          style="outline"
+          variant="outline"
           size="large"
           label="outline button"
           onClick={() => null}
         />
         <Button
           type="button"
-          style="green"
+          variant="green"
           size="large"
           label="green button"
           onClick={() => null}
         />
         <Button
           type="button"
-          style="green-inverse"
+          variant="green-inverse"
           size="large"
           label="green inverse"
           onClick={() => null}

@@ -44,11 +44,11 @@ class LinkButton extends Component {
       children
     } = this.props;
 
-    if (destination == 'external') {
+    if (destination === 'external') {
       return (
         <a
           href={path}
-          className={`${styles.variant} ${styles.size}`}
+          className={`${styles[variant]} ${styles[size]}`}
           target={isNewTab ? '_blank' : null}
         >
           {label || children}
@@ -56,7 +56,7 @@ class LinkButton extends Component {
       );
     } else {
       return (
-        <Link to={path} className={`${styles.variant} ${styles.size}`}>
+        <Link to={path} className={`${styles[variant]} ${styles[size]}`}>
           {label || children}
         </Link>
       );

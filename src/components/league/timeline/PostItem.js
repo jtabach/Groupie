@@ -145,7 +145,7 @@ class PostItem extends Component {
       likePost(likeData);
     } else {
       likeData._id = post.likes.find(like => {
-        return like.team.id == team.id;
+        return like.team.id === team.id;
       })._id;
 
       deleteLikePost(likeData);
@@ -227,7 +227,7 @@ class PostItem extends Component {
     const { post, team } = this.props;
 
     const hasPostBeenLikedByTeam = post.likes.some(like => {
-      return like.team._id == team._id;
+      return like.team._id === team._id;
     });
 
     return (
@@ -239,7 +239,7 @@ class PostItem extends Component {
   }
 
   render() {
-    const { post, league } = this.props;
+    const { post } = this.props;
 
     return (
       <li className={styles["post-item"]}>

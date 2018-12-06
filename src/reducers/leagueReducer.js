@@ -6,7 +6,6 @@ import {
 import {
   CREATE_POST_COMPLETED,
   DELETE_POST_COMPLETED,
-  EDIT_POST,
   EDIT_POST_COMPLETED
 } from '../types/postTypes';
 
@@ -42,7 +41,7 @@ export default (state = initialState, action) => {
       state = {
         ...state,
         posts: state.posts.filter(post => {
-          return post._id != action.payload.data.post._id;
+          return post._id !== action.payload.data.post._id;
         })
       };
       break;
@@ -51,7 +50,7 @@ export default (state = initialState, action) => {
       state = {
         ...state,
         posts: state.posts.map(post => {
-          return post._id != action.payload.data.post._id
+          return post._id !== action.payload.data.post._id
             ? post
             : action.payload.data.post;
         })
@@ -60,7 +59,7 @@ export default (state = initialState, action) => {
 
     case CREATE_COMMENT_COMPLETED:
       const postArray = state.posts.map(post => {
-        if (post._id != action.payload.data.comment.post) {
+        if (post._id !== action.payload.data.comment.post) {
           return post;
         }
         return {
@@ -73,7 +72,7 @@ export default (state = initialState, action) => {
 
     case LIKE_POST_COMPLETED:
       const postArrayWithLikes = state.posts.map(post => {
-        if (post._id != action.payload.data.like.post) {
+        if (post._id !== action.payload.data.like.post) {
           return post;
         }
         return {
@@ -86,18 +85,20 @@ export default (state = initialState, action) => {
 
     case DELETE_LIKE_POST_COMPLETED:
       const postArrayWithDeletedLikes = state.posts.map(post => {
-        if (post._id != action.payload.data.like.post) {
+        if (post._id !== action.payload.data.like.post) {
           return post;
         }
         return {
           ...post,
           likes: post.likes.filter(like => {
-            return like._id != action.payload.data.like._id;
+            return like._id !== action.payload.data.like._id;
           })
         };
       });
       state = { ...state, posts: postArrayWithDeletedLikes };
       break;
+    default:
+      return state;
   }
 
   return state;

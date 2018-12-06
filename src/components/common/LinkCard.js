@@ -22,7 +22,7 @@ class LinkCard extends Component {
   render() {
     const { destination, path, variant, isNewTab, children } = this.props;
 
-    if (destination == 'external') {
+    if (destination === 'external') {
       return (
         <a
           href={path}

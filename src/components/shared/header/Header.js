@@ -14,7 +14,7 @@ import NotificationsActionList from './NotificationsActionList';
 
 import { dismissNotifications } from '../../../actions/notificationActions';
 
-import { FaCaretDown, FaBell } from 'react-icons/fa';
+import { FaBell } from 'react-icons/fa';
 import { MdSettings } from 'react-icons/md';
 
 const SETTINGS_BUTTON = 'settings';

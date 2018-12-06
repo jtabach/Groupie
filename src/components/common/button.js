@@ -37,8 +37,8 @@ class Button extends Component {
     return (
       <button
         type={type}
-        className={`${styles.variant} ${styles.size}`}
-        onClick={type == 'submit' ? () => _.noop() : onClick}
+        className={`${styles[variant]} ${styles[size]}`}
+        onClick={type === 'submit' ? () => _.noop() : onClick}
       >
         {label || children}
       </button>

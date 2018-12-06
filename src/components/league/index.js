@@ -19,20 +19,20 @@ class League extends Component {
   };
 
   render() {
-    const { match, league, user } = this.props;
+    const { match, league } = this.props;
 
     return (
       <div>
         <NavLayout>
-          <div className={["league"]}>
-            <div className={["contain"]}>
-              <div className={["col-left"]}>
+          <div className={styles["league"]}>
+            <div className={styles["contain"]}>
+              <div className={styles["col-left"]}>
                 <LeagueMenu match={match} league={league} />
               </div>
-              <div className={["col-center"]}>
+              <div className={styles["col-center"]}>
                 <LeagueRoutes match={match} />
               </div>
-              <div className={["col-left"]}>
+              <div className={styles["col-left"]}>
                 <LeagueFeed />
               </div>
             </div>

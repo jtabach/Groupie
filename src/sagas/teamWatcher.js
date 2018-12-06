@@ -1,5 +1,5 @@
-import { put, takeLatest, all, call } from 'redux-saga/effects';
-import { getRequest, postRequest } from './helpers/request';
+import { put, takeLatest, call } from 'redux-saga/effects';
+import { getRequest } from './helpers/request';
 
 import {
   FETCH_TEAM,

@@ -20,8 +20,8 @@ class Notification extends Component {
             </p>
           </div>
         );
-        break;
       default:
+        return null;
     }
   }
 
@@ -32,7 +32,7 @@ class Notification extends Component {
     return (
       <div
         onClick={() => onHandleClick(notification)}
-        className={`${styles["notification"]} ${styles["hasViewed"]}`}
+        className={`${styles["notification"]} ${styles[hasViewed]}`}
       >
         {this.renderNotification(notification)}
       </div>

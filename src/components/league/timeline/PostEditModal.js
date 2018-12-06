@@ -24,7 +24,6 @@ class PostEditModal extends Component {
 
   render() {
     const {
-      post,
       isOpen,
       onHandleClose,
       onPostEditInputChange,

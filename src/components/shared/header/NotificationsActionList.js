@@ -53,7 +53,7 @@ class NotificationsActionList extends Component {
   }
 
   render() {
-    const { onHandleClickOutside, buttonType, user } = this.props;
+    const { user } = this.props;
 
     return (
       <div className={styles["notifications"]}>

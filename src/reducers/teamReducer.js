@@ -16,6 +16,8 @@ export default (state = initialState, action) => {
     case CLEAR_TEAM_COMPLETED:
       state = initialState;
       break;
+    default:
+      return state;
   }
 
   return state;

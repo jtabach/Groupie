@@ -78,7 +78,7 @@ export default (state = initialState, action) => {
       state = {
         ...state,
         notifications: state.notifications.map(notification => {
-          if (notification._id == action.payload.data.notification._id) {
+          if (notification._id === action.payload.data.notification._id) {
             notification.hasViewed = true;
           }
           return notification;
@@ -114,6 +114,8 @@ export default (state = initialState, action) => {
         _id: false
       };
       break;
+    default:
+      return state;
   }
   return state;
 };

@@ -1,7 +1,6 @@
-import _ from 'lodash';
 import axios from 'axios';
 
-import { createAction, createAsyncAction } from '../helpers/async';
+import { createAsyncAction } from '../helpers/async';
 import {
   FETCH_WORKER_DEMO,
   FETCH_WORKER_DEMO_COMPLETED,
