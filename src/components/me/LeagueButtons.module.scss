@@ -1,0 +1,21 @@
+@import '../../assets/styles/helpers/all';
+
+.card-content {
+  padding: $medium-spacing $base-spacing;
+}
+
+.title,
+.copy {
+  color: $white;
+  text-align: center;
+}
+
+.button {
+  margin-bottom: $small-spacing;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  a {
+    margin: 0 auto;
+  }
+}

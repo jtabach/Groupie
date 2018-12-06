@@ -1,0 +1,87 @@
+// base: forms
+// ========================================================
+
+%form,
+form,
+input,
+textarea,
+select[multiple] {
+  width: 100%;
+  outline: none;
+  color: $gray-medium;
+  vertical-align: top;
+  height: $form-height;
+  border: $base-border;
+  padding: $form-padding;
+  box-sizing: border-box;
+  font-size: $form-font-size;
+  box-shadow: $form-drop-shadow;
+  border-radius: $form-border-radius;
+  transition: box-shadow $base-duration $base-timing,
+    border $base-duration $base-timing;
+  &:hover {
+    box-shadow: $form-drop-shadow-hover;
+  }
+  &:focus {
+    border-color: $blue-gffl;
+    box-shadow: $form-drop-shadow-focus;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    &:hover {
+      box-shadow: $form-drop-shadow;
+    }
+  }
+}
+
+fieldset {
+  @include margin-bottom();
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+legend {
+  @include margin-bottom();
+  padding: 0;
+}
+
+label {
+  display: block;
+}
+
+textarea {
+  padding: rem(11) rem(11);
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+// hide spinner button for input[type=number] elements
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+[type='search'] {
+  appearance: none;
+}
+
+[type='radio'] {
+  display: inline;
+  margin-right: $small-spacing;
+}
+
+[type='file'] {
+  @include margin-bottom();
+  width: 100%;
+}
+
+select {
+  @include margin-bottom();
+  max-width: 100%;
+  width: auto;
+}

@@ -1,0 +1,90 @@
+// base: typography
+// ========================================================
+
+// Body text
+// ========================================================
+body {
+  color: $base-font-color;
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  @include margin-bottom-base(0,0);
+  @include type-settings(16,14);
+  color: $base-font-color;
+  font-weight: $font-regular;
+}
+
+// Links
+// ========================================================
+a {
+  border-bottom: none;
+  text-decoration: none;
+  color: $base-font-color;
+  transition: color $base-duration $base-timing;
+  &:active,
+  &:focus,
+  &:hover {
+    color: darken($base-font-color, 20%);
+  }
+  [data-page-scroller] {
+    cursor: pointer;
+  }
+}
+
+blockquote {
+  @include margin-bottom();
+}
+
+// Headings
+// ========================================================
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include margin-bottom-base(0,0);
+  color: $heading-font-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  @include type-settings(40, 32);
+  font-weight: $font-light;
+  &--headline {
+    @include type-settings(48, 32);
+  }
+}
+
+h2 {
+  @include type-settings(32, 28);
+  font-weight: $font-light;
+}
+
+h3 {
+  @include type-settings(28, 24);
+  font-weight: $font-light;
+}
+
+h4 {
+  @include type-settings(24, 18);
+  font-weight: $font-regular;
+}
+
+h5 {
+  @include type-settings(18, 16);
+  font-weight: $font-semibold;
+}
+
+h6 {
+  @include type-settings(13, 13);
+  color: $gray-medium;
+  text-transform: uppercase;
+  font-weight: $font-semibold;
+  letter-spacing: $base-letter-spacing;
+}

@@ -1,0 +1,30 @@
+// -------------------------------------------------------------------
+// mixin: button variants
+// -------------------------------------------------------------------
+
+@mixin button-variant($color, $background-color, $border-color: transparent) {
+  color: $color;
+  background-color: $background-color;
+  border: $button-border-width solid $border-color;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    color: lighten($color, 10%);
+    border-color: $border-color;
+    background-color: darken($background-color, 5%);
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    box-shadow: none;
+    cursor: not-allowed;
+    border-color: $gray-light;
+    background-color: $gray-light;
+  }
+
+  // icons within buttons - WIP
+  > svg {
+    fill: currentcolor;
+  }
+}

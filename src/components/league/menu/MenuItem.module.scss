@@ -1,0 +1,15 @@
+@import '../../../assets/styles/helpers/variables';
+
+.menu-item {
+  border-bottom: 1px solid $gray-light;
+  &:last-of-type {
+    border-bottom: none;
+  }
+  :hover {
+    background: $blue-white;
+  }
+  a {
+    display: block;
+    padding: $small-spacing;
+  }
+}

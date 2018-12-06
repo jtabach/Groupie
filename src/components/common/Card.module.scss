@@ -1,0 +1,45 @@
+@import '../../assets/styles/app';
+
+%card {
+  display: block;
+  text-align: left;
+  position: relative;
+  box-shadow: $card-box-shadow;
+  border-radius: $card-border-radius;
+  transition: all $base-duration $base-timing;
+  overflow: hidden;
+  &.no-hover:hover {
+    cursor: default !important;
+    box-shadow: $card-box-shadow !important;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+%card-hover {
+  &:hover {
+    box-shadow: $card-box-shadow-hover;
+  }
+}
+
+.card-light {
+  @extend %card;
+  background: $white;
+}
+
+.card-dark {
+  @extend %card;
+  background: $gray-medium;
+}
+
+.link-card-light {
+  @extend %card;
+  @extend %card-hover;
+  background: $white;
+}
+.link-card-dark {
+  @extend %card;
+  @extend %card-hover;
+  background: $gray-medium;
+}

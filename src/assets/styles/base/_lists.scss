@@ -1,0 +1,25 @@
+// base: lists
+// ========================================================
+
+ul,
+ol {
+  padding: 0;
+  list-style-type: none;
+  @include margin-bottom-base(0,0);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+dl {
+  @include margin-bottom();
+}
+
+dt {
+  @include margin-bottom();
+  font-weight: $font-semibold;
+}
+
+dd {
+  @include margin-bottom($large-spacing);
+}

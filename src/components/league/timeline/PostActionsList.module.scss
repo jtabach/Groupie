@@ -1,0 +1,26 @@
+@import '../../../assets/styles/helpers/variables';
+
+.actions {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  padding: 6px 0;
+  border: $base-border;
+  background: $white;
+  border-radius: 4px;
+  box-shadow: $card-box-shadow;
+  &__list {
+    width: 140px;
+    &--item {
+      margin-bottom: 6px;
+      padding: 0 12px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &:hover {
+        background: $blue-light;
+        color: white;
+      }
+    }
+  }
+}

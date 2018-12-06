@@ -1,0 +1,24 @@
+@import '../../../assets/styles/helpers/variables';
+
+.post-field {
+  background: $white;
+  padding: $small-spacing;
+  border-radius: 4px;
+  border: $base-border;
+  margin-bottom: $base-spacing;
+
+  textarea {
+    margin-bottom: $small-spacing;
+    padding-bottom: $base-spacing;
+    border: none;
+
+    box-shadow: none;
+    resize: none;
+  }
+
+  button {
+    // acts as a float right
+    margin-left: auto;
+    margin-right: 0;
+  }
+}

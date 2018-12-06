@@ -1,0 +1,50 @@
+// default grid settings
+// ========================================================
+$column:          80px;
+$gutter:          20px;
+$grid-columns:    12;
+$max-width:       rem(1180);
+$max-outer-width: rem(1440);
+
+// flex-grid settings
+// ========================================================
+$fg-column:     $column;
+$fg-gutter:     $gutter;
+
+// visual grid - don't forget to turn off!
+// default: false
+// ========================================================
+$toggle:        false;
+$visual-grid:   $toggle;
+$baseline-grid: $toggle;
+
+// visual grid options - don't edit these
+// ========================================================
+$visual-grid-index:   front;
+$visual-grid-color:   red;
+$visual-grid-opacity: 0.05;
+
+// breakpoints defined - mobile first
+// ========================================================
+$size-xs: rem(320);
+$size-sm: rem(480);
+$size-md: rem(768);
+$size-lg: rem(992);
+$size-xl: rem(1180);
+
+$screen-xs: new-breakpoint(max-width $size-xs);
+$screen-sm: new-breakpoint(min-width $size-sm);
+$screen-md: new-breakpoint(min-width $size-md);
+$screen-lg: new-breakpoint(min-width $size-lg);
+$screen-xl: new-breakpoint(min-width $size-xl);
+
+// visibility utilities breakpoints defined
+// mixins/_visibility-utilities
+// ========================================================
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 992px,
+  xl: 1180px
+) !default;

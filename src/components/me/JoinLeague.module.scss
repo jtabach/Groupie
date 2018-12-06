@@ -1,0 +1,16 @@
+@import '../../assets/styles/app';
+
+.header {
+  height: $header-spacing;
+  background-color: $blue-gffl;
+}
+
+.card-content {
+  padding: $medium-spacing;
+}
+
+.test {
+  color: $white;
+  @include vertical-align;
+  text-align: center;
+}

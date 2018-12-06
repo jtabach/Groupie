@@ -1,0 +1,128 @@
+// Fonts
+// ========================================================
+$base-font-family: 'Open Sans', sans-serif;
+
+// Font Sizes
+// ========================================================
+$base-font-size: 16px;
+$base-letter-spacing: rem(3/2);
+
+// Baseline
+// ========================================================
+$baseline-ratio: 1.5;
+$baseline: $base-font-size * $baseline-ratio; // 24
+
+// Line Heights
+// ========================================================
+$base-line-height: $base-font-size * $baseline-ratio; // rem(24)
+
+// Font Weights (for Open Sans)
+// ========================================================
+$font-light: 300; // light
+$font-regular: 400; // normal
+$font-semibold: 600; // semibold
+
+// Main Palette: highlights, backgrounds, objects
+// ========================================================
+$red-gffl: #d50a0a;
+$red-light: #f54444;
+$red-lightest: #ff6c6c;
+$red-medium: #b40a0a;
+$red-dark: #8a0000;
+
+$blue-gffl: #013469;
+$blue-light: #03468c;
+$blue-lightest: #0657ac;
+$blue-white: #cee5fd;
+$blue-medium: #012b57;
+$blue-dark: #001a36;
+
+$gray-medium: #333333;
+$gray: #7f7f7f;
+$gray-light: #cccccc;
+$gray-lightest: #eeeeee;
+$gray-dark: #0a0a0a;
+
+$white: #ffffff;
+$black: #000000;
+
+// Extra Colors
+// ========================================================
+$green: #15c26b;
+$green-medium: #0f8a4d;
+$green-dark: #084526;
+
+// Font Colors
+// ========================================================
+$base-font-color: $gray-dark;
+$base-link-color: $blue-gffl;
+$heading-font-color: $gray-dark;
+$max-text-width: rem(780); // 8 cols
+$max-hero-text-width: rem(580); // 6 cols
+
+// Spacing + Padding
+// ========================================================
+$small-spacing: $base-line-height / 2; // 12px
+$base-spacing: $base-line-height; // 24px
+$medium-spacing: $base-line-height * (3/2); // 36px;
+$large-spacing: $base-line-height * 2; // 48px;
+$xlarge-spacing: $base-line-height * (5/2); // 60px;
+
+$header-spacing: $base-line-height * 4; // 96px;
+
+// Animations
+// ========================================================
+$base-duration: 0.3s;
+$base-timing: ease;
+
+// Borders
+// ========================================================
+$base-border-color: $gray-light;
+$base-border: 1px solid $base-border-color;
+$dark-border-color: $gray-medium;
+$dark-border: 1px solid $dark-border-color;
+
+// Border Radius
+// ========================================================
+$base-border-radius: rem(6);
+$secondary-border-radius: rem(4);
+
+// Shadows
+// ========================================================
+$drop-shadow-center: 0px 1px 20px 0px rgba($gray-medium, 0.2);
+$drop-shadow-right: 5px 5px 25px 0px rgba($gray-medium, 0.2);
+$drop-shadow-hover: 2px 4px 8px 0px rgba($gray-medium, 0.2);
+$drop-shadow-footer: 12px 16px 20px 0px rgba($gray-medium, 0.2);
+
+// Buttons
+// ========================================================
+$button-size-sm: rem(180);
+$button-size-reg: rem(220);
+$button-size-lg: rem(280);
+$button-height: rem(48);
+$button-padding: 0 rem(8);
+$button-font-size: rem(13);
+$button-line-height: rem(42);
+$button-border-width: rem(2);
+$button-border-radius: $secondary-border-radius;
+$button-letter-spacing: $base-letter-spacing;
+$button-drop-shadow: 8px 10px 20px 0px rgba($gray-medium, 0.15);
+$button-drop-shadow-hover: 2px 4px 8px 0px rgba($gray-medium, 0.2);
+
+// Cards
+// ========================================================
+$card-box-shadow: $drop-shadow-right;
+$card-box-shadow-hover: $drop-shadow-hover;
+$card-border-radius: $base-border-radius;
+
+// Forms
+// ========================================================
+$form-font-size: rem(14);
+$form-font-color: $gray-medium;
+$form-height: rem(42);
+$form-padding: 0 rem(10);
+$form-border-radius: $secondary-border-radius;
+$form-drop-shadow: 5px 5px 10px 0 rgba($gray-medium, 0.05);
+$form-drop-shadow-hover: 0 4px 8px 0 rgba($gray-medium, 0.12);
+$form-drop-shadow-focus: 5px 5px 10px 0 rgba($gray-medium, 0.05);
+$form-element-drop-shadow: 0 2px 5px 0 rgba($gray-medium, 0.08);

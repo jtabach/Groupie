@@ -1,0 +1,102 @@
+// @import '../../assets/styles/layout/grid-settings';
+// @import '../../assets/styles/helpers/all';
+// @import '../../assets/styles/base/all';
+@import '../../assets/styles/app';
+
+%button,
+%Link,
+%a {
+  display: block;
+  cursor: pointer;
+  appearance: none;
+  user-select: none;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: top;
+  text-decoration: none;
+  vertical-align: middle;
+  padding: $button-padding;
+  text-transform: uppercase;
+  font-size: $base-font-size;
+  font-weight: $font-semibold;
+  font-size: $button-font-size;
+  -webkit-font-smoothing: antialiased;
+  border-radius: $button-border-radius;
+  letter-spacing: $button-letter-spacing;
+  transition: all $base-duration $base-timing;
+}
+
+%button-shadow {
+  box-shadow: $button-drop-shadow;
+  &:hover {
+    box-shadow: $button-drop-shadow-hover;
+  }
+}
+
+.primary {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($white, $blue-gffl);
+}
+
+.primary-inverse {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($blue-gffl, $white);
+}
+
+.secondary {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($white, $gray-light);
+}
+
+.secondary-inverse {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($gray-light, $white);
+}
+
+.outline {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($white, transparent, $white);
+}
+
+.green {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($white, $green);
+}
+.green-inverse {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($green, $white);
+}
+
+.red {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($white, $red-gffl);
+}
+
+.red-inverse {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($red-gffl, $white);
+}
+
+// TODO: refactor to not use mutiple clases for button
+.large {
+  height: $button-height;
+  line-height: $button-line-height;
+  max-width: $button-size-reg;
+  min-width: $button-size-sm;
+  width: 100%;
+}
+
+// TODO: create variables for small buttons
+.small {
+  height: 32px;
+  padding: 0 20px;
+}

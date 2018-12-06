@@ -1,0 +1,52 @@
+// vendor component: remodal
+// defaults
+
+// remodal close
+// ========================================================
+.remodal-close {
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  width: rem(24);
+  height: rem(24);
+  cursor: pointer;
+  borderradius: '5px';
+  position: absolute;
+  &:before {
+    content: url('/assets/images/icon_close_dark.svg');
+  }
+  :hover {
+    opacity: 0.7;
+  }
+}
+
+// overlay
+// ========================================================
+.remodal-overlay {
+  background: rgba($gray-dark, 0.95);
+  &.remodal-is-opening,
+  &.remodal-is-closing {
+    animation-duration: $base-duration;
+    animation-fill-mode: forwards;
+  }
+  &.remodal-is-opening {
+    animation-name: remodal-overlay-opening-keyframes;
+  }
+  &.remodal-is-closing {
+    animation-name: remodal-overlay-closing-keyframes;
+  }
+}
+
+// content
+// ========================================================
+.remodal-content {
+  max-width: rem(780);
+  p {
+    @include type-settings(14,13);
+  }
+  ul {
+    @include type-settings(14,13);
+    list-style-type: disc;
+    margin-left: $base-spacing;
+  }
+}

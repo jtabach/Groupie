@@ -1,0 +1,20 @@
+@import '../../../assets/styles/helpers/variables';
+
+.notification {
+  height: 100%;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.notification-buffer {
+  padding: 4px 8px;
+  > p {
+    font-size: 13px;
+  }
+}
+
+.highlight {
+  background: $gray-lightest;
+}
