@@ -6,7 +6,7 @@ import Textarea from 'react-textarea-autosize';
 
 import Button from '../../common/Button';
 
-Modal.setAppElement('#app'); // for screen readers
+Modal.setAppElement('#root'); // for screen readers
 
 class PostEditModal extends Component {
   static propTypes = {
