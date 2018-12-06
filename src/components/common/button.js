@@ -33,12 +33,10 @@ class Button extends Component {
 
   render() {
     const { type, variant, size, onClick, label, children } = this.props;
-    console.log(`${styles[variant]} ${styles[size]}`);
 
     return (
       <button
         type={type}
-        className={`${styles[variant]} ${styles[size]}`}
         onClick={type === 'submit' ? () => _.noop() : onClick}
       >
         {label || children}
