@@ -1,0 +1,24 @@
+@import '../../../assets/styles/helpers/variables';
+
+.badge {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: red;
+  top: 0px;
+  right: 0px;
+  pointer-events: none;
+  text-align: center;
+}
+
+.count {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  color: $white;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  line-height: 8px;
+}

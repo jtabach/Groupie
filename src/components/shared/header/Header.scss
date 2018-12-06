@@ -1,0 +1,52 @@
+@import '../../../assets/styles/app';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $green;
+  height: $large-spacing;
+}
+
+.contain {
+  @include outer-container();
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+  @media ($screen-xl) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.navigation {
+  height: $large-spacing; // duplicate height set, used for vertical align
+}
+
+.logo {
+  @include vertical-align;
+  float: left;
+  a {
+    color: $white;
+  }
+}
+.navigation-items {
+  display: none;
+  @media ($screen-sm) {
+    display: block;
+    @include vertical-align;
+    float: right;
+    > ul {
+      > li {
+        display: inline-block;
+        padding: 0 $small-spacing;
+        a {
+          color: $white;
+          &:hover {
+            color: $gray-lightest;
+          }
+        }
+      }
+    }
+  }
+}

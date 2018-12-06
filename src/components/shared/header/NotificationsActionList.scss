@@ -1,0 +1,47 @@
+@import '../../../assets/styles/helpers/variables';
+
+.notifications {
+  position: absolute;
+  top: 37px;
+  right: -4px;
+  border: $base-border;
+  background: $white;
+  border-radius: 4px;
+  box-shadow: $card-box-shadow;
+  max-height: 70vh;
+  overflow: scroll;
+  z-index: 5000;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 8px;
+    border-bottom: 1px solid $gray-light;
+    &--title {
+      font-weight: $font-semibold;
+      font-size: 13px;
+    }
+    &--button {
+      color: $blue-light;
+      text-decoration: underline;
+      font-size: 13px;
+      line-height: 28px;
+      cursor: pointer;
+      &:hover {
+        color: $blue-dark;
+      }
+    }
+  }
+  &__list {
+    width: 280px;
+    &--item {
+      width: 100%;
+      display: block;
+      text-align: left;
+      height: 64px;
+      border-bottom: 1px solid $gray-light;
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../assets/styles/app';
+
+.field {
+  margin-bottom: $base-spacing;
+}
+
+label {
+  margin-bottom: $small-spacing;
+}
+
+.button {
+  button {
+    margin: 0 auto;
+  }
+}

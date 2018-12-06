@@ -1,0 +1,11 @@
+@import '../../../assets/styles/app';
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3); // TODO: create variable for this background
+  z-index: 100; // TODO: create variable for this z-index
+}

@@ -1,0 +1,21 @@
+// -------------------------------------------------------------------
+// mixin: margin-bottom
+// -------------------------------------------------------------------
+
+@mixin margin-bottom($spacing: $base-spacing) {
+  margin-top: 0;
+  margin-bottom: ($spacing/2);
+  @media ($screen-md) {
+    margin-bottom: $spacing;
+  }
+}
+
+// calculate margin-bottom based on # of baselines it spans
+// -------------------------------------------------------------------
+@mixin margin-bottom-base($number-desktop-baselines: 1, $number-mobile-baselines: ($number-desktop-baselines/2), $breakpoint: $screen-md) {
+  margin-top: 0;
+  margin-bottom: $number-mobile-baselines * $base-spacing;
+  @media ($breakpoint) {
+    margin-bottom: $number-desktop-baselines * $base-spacing;
+  }
+}

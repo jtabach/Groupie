@@ -1,0 +1,15 @@
+// -------------------------------------------------------------------
+// mixin: height-base
+// -------------------------------------------------------------------
+
+@mixin height-base($number: 1) {
+  height: $number * $base-line-height;
+}
+
+@mixin min-height-base($number: 1) {
+  min-height: $number * $base-line-height;
+}
+
+@mixin max-height-base($number: 1) {
+  max-height: $number * $base-line-height;
+}

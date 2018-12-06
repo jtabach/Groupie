@@ -1,0 +1,23 @@
+// base: tables
+// ========================================================
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  margin: $small-spacing 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+ padding: $small-spacing;
+  @media ($screen-md) {
+    padding: $small-spacing $base-spacing;
+  }
+}
+
+tr,
+td,
+th {
+  vertical-align: middle;
+}

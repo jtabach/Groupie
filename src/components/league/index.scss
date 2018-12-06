@@ -1,0 +1,34 @@
+@import '../../assets/styles/app';
+
+.league {
+  padding-top: $small-spacing; // TODO: remove margin top and set margin in layout
+  background-color: $gray-lightest;
+  padding-bottom: $medium-spacing;
+}
+
+.contain {
+  @include outer-container();
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+  margin-top: $base-spacing;
+
+  @media ($screen-xl) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.col-left {
+  // TODO: include span-columns(3);
+  display: block;
+}
+
+.col-center {
+  // TODO: include span-columns(6);
+  display: block;
+}
+
+.col-right {
+  // TODO: include span-columns(3);
+  display: block;
+}
