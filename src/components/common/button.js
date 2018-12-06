@@ -33,6 +33,7 @@ class Button extends Component {
 
   render() {
     const { type, variant, size, onClick, label, children } = this.props;
+    console.log(`${styles[variant]} ${styles[size]}`);
 
     return (
       <button
