@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -63,13 +62,11 @@ function mapStateToProps({ league, user, team }) {
   return { league, user, team };
 }
 
-export default hot(module)(
-  connect(mapStateToProps, {
-    fetchLeague,
-    fetchUser,
-    fetchTeam,
-    clearLeague,
-    clearTeam,
-    fetchNotifications
-  })(League)
-);
+export default connect(mapStateToProps, {
+  fetchLeague,
+  fetchUser,
+  fetchTeam,
+  clearLeague,
+  clearTeam,
+  fetchNotifications
+})(League);

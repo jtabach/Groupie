@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
 
@@ -25,4 +24,4 @@ class Register extends Component {
   }
 }
 
-export default hot(module)(connect(null, { registerUser })(Register));
+export default connect(null, { registerUser })(Register);

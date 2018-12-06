@@ -26,7 +26,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>{routes}</BrowserRouter>
   </Provider>,
-  document.querySelector('#app')
+  document.querySelector('#root')
 );
 
 // If you want your app to work offline and load faster, you can change

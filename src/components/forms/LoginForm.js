@@ -31,10 +31,8 @@ let LoginForm = props => {
   );
 };
 
-LoginForm = reduxForm({
+export default reduxForm({
   form: 'login',
   validate,
   warn
 })(LoginForm);
-
-export default LoginForm;

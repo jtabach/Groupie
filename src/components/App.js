@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
 import DemoWorker from './demos/DemoWorker';
@@ -21,4 +20,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(connect(null, { fetchUser })(App));
+export default connect(null, { fetchUser })(App);
