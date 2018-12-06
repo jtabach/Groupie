@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import styles from './Form.module.scss';
 
 import RenderField from './RenderField';
-import Button from '../common/Button';
+import ButtonTest from '../common/ButtonTest';
 import { validate } from './validation/createLeague';
 
 let CreateLeagueForm = props => {
@@ -28,7 +28,7 @@ let CreateLeagueForm = props => {
         />
       </div>
       <div className={styles["button"]}>
-        <Button
+        <ButtonTest
           label="Create League"
           type="submit"
           size="large"

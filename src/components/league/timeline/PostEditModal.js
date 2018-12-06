@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import Textarea from 'react-textarea-autosize';
 
-import Button from '../../common/Button';
+import ButtonTest from '../../common/ButtonTest';
 
 Modal.setAppElement('#root'); // for screen readers
 
@@ -40,14 +40,14 @@ class PostEditModal extends Component {
           value={text}
           onChange={() => onPostEditInputChange(this.textarea.value)}
         />
-        <Button
+        <ButtonTest
           type="button"
           variant="primary"
           size="small"
           label="post"
           onClick={() => onPostEditInputSubmit(this.textarea.value)}
         />
-        <Button
+        <ButtonTest
           type="button"
           variant="red"
           size="small"

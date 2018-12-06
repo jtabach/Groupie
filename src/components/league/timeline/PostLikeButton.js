@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../../common/Button';
+import ButtonTest from '../../common/ButtonTest';
 
 class PostLikeButton extends Component {
   static propTypes = {
@@ -16,7 +16,7 @@ class PostLikeButton extends Component {
     const likeStr = !isLiked ? 'like' : 'unlike';
 
     return (
-      <Button
+      <ButtonTest
         type="button"
         variant={!isLiked ? 'primary' : 'secondary'}
         size="small"

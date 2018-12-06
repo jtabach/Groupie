@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import RenderField from './RenderField';
-import Button from '../common/Button';
+import ButtonTest from '../common/ButtonTest';
 import { validate, warn } from './validation/register';
 
 let RegisterForm = props => {
@@ -49,7 +49,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <Button label="Register" type="submit" size="large" variant="primary" />
+      <ButtonTest label="Register" type="submit" size="large" variant="primary" />
     </form>
   );
 };

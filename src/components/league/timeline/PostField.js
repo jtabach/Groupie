@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './PostField.module.scss';
 
 import Textarea from 'react-textarea-autosize';
-import Button from '../../common/Button';
+import ButtonTest from '../../common/ButtonTest';
 
 class PostField extends Component {
   static propTypes = {
@@ -24,7 +24,7 @@ class PostField extends Component {
           value={this.props.text}
           onChange={() => onPostInputChange(this.textarea.value)}
         />
-        <Button
+        <ButtonTest
           type="button"
           variant="primary"
           size="small"

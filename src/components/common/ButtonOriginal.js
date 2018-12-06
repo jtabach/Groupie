@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
 
-class TestButton extends Component {
+class ButtonOriginal extends Component {
 
   render() {
     return <div>test</div>
   }
 }
-export default TestButton;
+export default ButtonOriginal;
 // import PropTypes from 'prop-types';
 // import styles from './Button.module.scss';
 // import _ from 'lodash';
 //
-// class Button extends Component {
+// class ButtonTestextends Component {
 //   static propTypes = {
 //     type: PropTypes.oneOf(['button', 'submit']),
 //     variant: PropTypes.oneOf([
