@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegCommentAlt, FaFootballBall, FaRegNewspaper, FaConnectdevelop } from 'react-icons/fa';
+import { FaConnectdevelop } from 'react-icons/fa';
 import styles from './Ready.module.scss';
 
 import ButtonTest from '../common/ButtonTest';
