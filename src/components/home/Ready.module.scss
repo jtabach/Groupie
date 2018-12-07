@@ -1,0 +1,38 @@
+.ready {
+  background: lightblue;
+  padding: 96px 0;
+
+  &__content {
+    display: flex;
+
+    &--image {
+      height: 72px;
+      width: 72px;
+      margin-right: 48px;
+
+      svg {
+        height: 48px;
+        width: 48px;
+      }
+    }
+
+    &--description {
+      color: black;
+
+      h4 {
+        margin-bottom: 24px;
+      }
+      p {
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+  &__cta {
+    display: flex;
+
+    &--copy {
+      margin-right: 96px;
+    }
+  }
+}
