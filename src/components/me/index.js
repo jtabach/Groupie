@@ -21,7 +21,7 @@ class App extends Component {
 
     return (
       <NavLayout>
-        <div className={styles["me"]}>
+        <div className={`styles["me"] container`}>
           <div className={`styles["contain"] row`}>
             <div className="col-3">
               <LeagueList />
