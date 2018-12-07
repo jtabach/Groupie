@@ -5,15 +5,3 @@
   background-color: $gray-lightest;
   padding-bottom: $medium-spacing;
 }
-
-.contain {
-  @include outer-container();
-  padding-left: $base-spacing;
-  padding-right: $base-spacing;
-  margin-top: $base-spacing;
-
-  @media ($screen-xl) {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}

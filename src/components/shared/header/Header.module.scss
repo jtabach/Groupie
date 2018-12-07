@@ -33,7 +33,7 @@
 }
 .navigation-items {
   display: none;
-  @media ($screen-sm) {
+  @media (min-width: $size-sm) {
     display: block;
     @include vertical-align;
     float: right;

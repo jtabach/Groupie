@@ -24,16 +24,18 @@ class League extends Component {
     return (
       <div>
         <NavLayout>
-          <div className={`styles["league"] container`}>
-            <div className={`styles["contain"] row`}>
-              <div className="col-3">
-                <LeagueMenu match={match} league={league} />
-              </div>
-              <div className="col-6">
-                <LeagueRoutes match={match} />
-              </div>
-              <div className="col-3">
-                <LeagueFeed />
+          <div className={`${styles["league"]}`}>
+            <div className="container">
+              <div className="row">
+                <div className="col-3">
+                  <LeagueMenu match={match} league={league} />
+                </div>
+                <div className="col-6">
+                  <LeagueRoutes match={match} />
+                </div>
+                <div className="col-3">
+                  <LeagueFeed />
+                </div>
               </div>
             </div>
           </div>

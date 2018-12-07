@@ -26,11 +26,11 @@ $visual-grid-opacity: 0.05;
 
 // breakpoints defined - mobile first
 // ========================================================
-$size-xs: rem(320);
-$size-sm: rem(480);
-$size-md: rem(768);
-$size-lg: rem(992);
-$size-xl: rem(1180);
+$size-xs: 320px;
+$size-sm: 480px;
+$size-md: 768px;
+$size-lg: 992px;
+$size-xl: 1180px;
 
 $screen-xs: new-breakpoint(max-width $size-xs);
 $screen-sm: new-breakpoint(min-width $size-sm);
