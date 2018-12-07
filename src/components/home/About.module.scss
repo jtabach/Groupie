@@ -1,0 +1,30 @@
+@import '../../assets/styles/helpers/variables';
+
+.about {
+  background: lightgray;
+  padding: 96px 0;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  &__item {
+    text-align: center;
+
+    &--image {
+      height: 48px;
+      margin-bottom: 24px;
+
+      svg {
+        height: 48px;
+        width: 48px;
+        color: $blue-gffl;
+      }
+    }
+
+    &--description {
+      color: $blue-gffl;
+    }
+  }
+}
