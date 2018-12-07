@@ -7,6 +7,7 @@
   width: 100%;
   background-color: $green;
   height: $large-spacing;
+  z-index: 150;
 }
 
 .contain {
@@ -32,7 +33,7 @@
 }
 .navigation-items {
   display: none;
-  @media ($screen-sm) {
+  @media (min-width: $size-sm) {
     display: block;
     @include vertical-align;
     float: right;

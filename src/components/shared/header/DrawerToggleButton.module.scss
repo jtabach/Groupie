@@ -2,7 +2,6 @@
 
 .toggle-button {
   @include vertical-align;
-  margin-left: $small-spacing;
   margin-right: $header-spacing;
   float: left;
   background: transparent;
