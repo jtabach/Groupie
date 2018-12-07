@@ -150,7 +150,7 @@ class Header extends Component {
   render() {
     return (
       <div className={styles["header"]}>
-        <div className={styles["contain"]}>
+        <div className={`styles["contain"] container`}>
           <div className={styles["navigation"]}>
             <DrawerToggleButton click={this.props.handleDrawerToggleClick} />
             <div className={styles["logo"]}>
