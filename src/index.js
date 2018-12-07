@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { BrowserRouter } from 'react-router-dom';
-// import './index.css';
+import './index.scss';
 
 import routes from './routes';
 import reducers from './reducers';

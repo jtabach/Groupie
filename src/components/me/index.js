@@ -11,7 +11,7 @@ import styles from './index.module.scss';
 
 import { fetchUser } from '../../actions/authActions';
 
-class App extends Component {
+class Me extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
@@ -42,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, { fetchUser })(App);
+export default connect(null, { fetchUser })(Me);
