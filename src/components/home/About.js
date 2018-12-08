@@ -6,7 +6,7 @@ import { FaRegCommentAlt, FaFootballBall, FaRegNewspaper } from 'react-icons/fa'
 class About extends Component {
   render() {
     return (
-      <div className={styles["about"]}>
+      <div id="about" className={styles["about"]}>
         <div className="container">
           <div className="row">
             <h2 className={`${styles["about__title"]} col-12`}>Stay up to date with friends and player news</h2>

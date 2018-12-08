@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import Scrollchor from 'react-scrollchor';
+import { Link } from 'react-router-dom';
 import styles from './Hero.module.scss';
 
 import ButtonTest from '../common/ButtonTest';
+import LinkButton from '../common/LinkButton';
+
+const SCROLL_ANIMATION_DURATION = 500;
 
 class Hero extends Component {
   render() {
@@ -13,22 +18,27 @@ class Hero extends Component {
             <p className={`${styles["hero__description"]} col-6`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur sit, voluptate minima tempora id labore quisquam unde minus nisi possimus.</p>
             <div className={`${styles["hero__buttons"]} col-12`}>
               <div className={styles["hero__buttons--wrapper"]}>
-                <ButtonTest
-                  type="button"
+                <LinkButton
+                  path="/register"
                   variant="green"
                   size="small"
                   label="create account"
-                  onClick={() => console.log('create')}
                 />
               </div>
               <div className={styles["hero__buttons--wrapper"]}>
-                <ButtonTest
-                  type="button"
-                  variant="green-inverse"
-                  size="small"
-                  label="learn more"
-                  onClick={() => console.log('learn')}
-                />
+                <Scrollchor
+                  to="#about"
+                  animate={{ duration: SCROLL_ANIMATION_DURATION }}
+                  disableHistory={true}
+                >
+                  <ButtonTest
+                    type="button"
+                    variant="green-inverse"
+                    size="small"
+                    label="learn more"
+                    onClick={() => {}}
+                  />
+               </Scrollchor>
               </div>
             </div>
           </div>

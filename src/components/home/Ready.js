@@ -2,7 +2,7 @@ import React from 'react';
 import { FaConnectdevelop } from 'react-icons/fa';
 import styles from './Ready.module.scss';
 
-import ButtonTest from '../common/ButtonTest';
+import LinkButton from '../common/LinkButton';
 
 const Ready = () => {
   return (
@@ -21,12 +21,11 @@ const Ready = () => {
                   Let's get started!
                 </h5>
                 <div className={styles["ready__cta--button"]}>
-                  <ButtonTest
-                    type="button"
+                  <LinkButton
+                    path="/register"
                     variant="primary"
                     size="small"
                     label="create account"
-                    onClick={() => console.log('create')}
                   />
                 </div>
               </div>
