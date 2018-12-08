@@ -5,11 +5,13 @@ import demoReducer from './demoReducer';
 import userReducer from './userReducer';
 import leagueReducer from './leagueReducer';
 import teamReducer from './teamReducer';
+import newsReducer from './newsReducer';
 
 export default combineReducers({
   demo: demoReducer,
   form: formReducer,
   user: userReducer,
   league: leagueReducer,
-  team: teamReducer
+  team: teamReducer,
+  news: newsReducer
 });
