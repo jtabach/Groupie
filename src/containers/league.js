@@ -6,6 +6,7 @@ import { fetchLeague, clearLeague } from '../actions/leagueActions';
 import { fetchTeam, clearTeam } from '../actions/teamActions';
 import { fetchUser } from '../actions/authActions';
 import { fetchNotifications } from '../actions/notificationActions';
+import { fetchPlayerNews } from '../actions/newsActions';
 
 import LeagueComponent from '../components/league';
 
@@ -24,6 +25,7 @@ class League extends Component {
     this.props.fetchUser();
     this.props.fetchLeague(leagueId);
     this.props.fetchTeam(leagueId);
+    this.props.fetchPlayerNews();
 
     setInterval(() => {
       this.props.fetchNotifications();
@@ -68,5 +70,6 @@ export default connect(mapStateToProps, {
   fetchTeam,
   clearLeague,
   clearTeam,
-  fetchNotifications
+  fetchNotifications,
+  fetchPlayerNews
 })(League);

@@ -12,7 +12,6 @@ function* fetchPlayerNewsRequest(action) {
     "http://localhost:5000/api/news/players"
   );
   if (response.news) {
-    console.log(response.news);
     yield put({ type: FETCH_PLAYER_NEWS_COMPLETED, payload: { data: response } });
   } else {
     console.log('handle failed to fetch player news');
