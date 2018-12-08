@@ -1,0 +1,23 @@
+.hero {
+  height: 600px;
+  background: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    margin-bottom: 36px;
+  }
+
+  &__description {
+    margin-bottom: 60px;
+  }
+
+  &__buttons {
+    display: flex;
+
+    &--wrapper {
+      margin-right: 12px;
+    }
+  }
+}
