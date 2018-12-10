@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Scrollchor from 'react-scrollchor';
-import { Link } from 'react-router-dom';
 import styles from './Hero.module.scss';
 
 import ButtonTest from '../common/ButtonTest';
