@@ -6,6 +6,7 @@ import { postWatcher } from './postWatcher';
 import { commentWatcher } from './commentWatcher';
 import { likeWatcher } from './likeWatcher';
 import { notificationWatcher } from './notificationWatcher';
+import { newsWatcher } from './newsWatcher';
 
 export default function* rootSaga() {
   yield all([
@@ -15,6 +16,7 @@ export default function* rootSaga() {
     postWatcher(),
     commentWatcher(),
     likeWatcher(),
-    notificationWatcher()
+    notificationWatcher(),
+    newsWatcher()
   ]);
 }
