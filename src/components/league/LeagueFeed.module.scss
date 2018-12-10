@@ -1,0 +1,24 @@
+.league-feed {
+  &__header {
+    margin-bottom: 12px;
+  }
+  &__list {
+
+    &--item {
+      margin-bottom: 12px;
+    }
+    &--card {
+      padding: 12px;
+    }
+    &--name {
+      padding-bottom: 6px;
+    }
+    &--headline {
+      line-height: 22px;
+      padding-bottom: 6px;
+    }
+    &--body {
+
+    }
+  }
+}

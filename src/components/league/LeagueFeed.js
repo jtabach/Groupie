@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styles from './LeagueFeed.module.scss';
+
+import Card from '../common/Card';
 
 class LeagueFeed extends Component {
   renderPlayerNews() {
@@ -9,12 +12,14 @@ class LeagueFeed extends Component {
     }
     return news.map(item => {
       return (
-        <li key={item.id}>
-          <div>
-            <h6>{item.firstName} {item.lastName}</h6>
-            <p>{item.headline}</p>
-            <p>{this._replaceHTMLCharRef(item.body)}</p>
-          </div>
+        <li key={item.id} className={styles["league-feed__list--item"]}>
+          <Card>
+            <div className={styles["league-feed__list--card"]}>
+              <h6 className={styles["league-feed__list--name"]}>{item.firstName} {item.lastName}</h6>
+              <h5 className={styles["league-feed__list--headline"]}>{item.headline}</h5>
+              <p className={styles["league-feed__list--body"]}>{this._replaceHTMLCharRef(item.body)}</p>
+            </div>
+          </Card>
         </li>
       );
     });
@@ -26,9 +31,9 @@ class LeagueFeed extends Component {
 
   render() {
     return (
-      <div>
-        <h5>Player News</h5>
-        <ul>{this.renderPlayerNews()}</ul>
+      <div className={styles["league-feed"]}>
+        <h5 className={styles["league-feed__header"]}>Player News</h5>
+        <ul className={styles["league-feed__list"]}>{this.renderPlayerNews()}</ul>
       </div>
     );
   }
