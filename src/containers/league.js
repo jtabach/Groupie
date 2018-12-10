@@ -31,19 +31,6 @@ class League extends Component {
       this.props.fetchNotifications();
       console.log('fetching notifications');
     }, 30000);
-
-    // var socket = io.connect('http://localhost:5000');
-    // socket.on('news', function (data) {
-    //   console.log(data);
-    //
-    //   // setTimeout(function() {
-    //   //   socket.disconnect();
-    //   // }, 5000)
-    // });
-    //
-    // socket.on('updated news', function(updatedNews) {
-    //   console.log(updatedNews);
-    // });
   }
 
   componentWillUnmount() {
