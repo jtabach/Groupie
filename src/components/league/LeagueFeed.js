@@ -15,7 +15,7 @@ class LeagueFeed extends Component {
         <li key={item.id} className={styles["league-feed__list--item"]}>
           <Card>
             <div className={styles["league-feed__list--card"]}>
-              <h6 className={styles["league-feed__list--name"]}>{item.firstName} {item.lastName}</h6>
+              <h6 className={styles["league-feed__list--name"]}>{item.teamAbbr} - {item.position} - {item.firstName} {item.lastName}</h6>
               <h5 className={styles["league-feed__list--headline"]}>{item.headline}</h5>
               <p className={styles["league-feed__list--body"]}>{this._replaceHTMLCharRef(item.body)}</p>
             </div>
