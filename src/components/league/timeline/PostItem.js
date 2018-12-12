@@ -145,7 +145,7 @@ class PostItem extends Component {
       likePost(likeData);
     } else {
       likeData._id = post.likes.find(like => {
-        return like.team.id === team.id;
+        return like.team._id === team._id;
       })._id;
 
       deleteLikePost(likeData);
