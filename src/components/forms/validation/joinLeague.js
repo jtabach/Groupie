@@ -1,8 +1,9 @@
 export const validate = values => {
   const errors = {};
+  console.log(values);
 
   if (!values.leagueId) {
-    errors.leagueName = 'League Name required';
+    errors.leagueId = 'League ID required';
   }
 
   if (!values.teamName) {

@@ -43,7 +43,6 @@ class League extends Component {
 
   render() {
     const { match, league, user, team } = this.props;
-    console.log(league._id, user._id, team._id);
 
     if (user._id === false) {
       return <Redirect to="/" />;

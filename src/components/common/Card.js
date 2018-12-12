@@ -16,7 +16,6 @@ class Card extends Component {
 
   render() {
     const { variant } = this.props;
-    console.log(styles[`card-${variant}`]);
 
     return <div className={styles[`card-${variant}`]}>{this.props.children}</div>;
   }
