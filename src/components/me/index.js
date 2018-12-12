@@ -18,6 +18,7 @@ class Me extends Component {
 
   render() {
     const { match } = this.props;
+    console.log(process.env);
 
     return (
       <NavLayout>

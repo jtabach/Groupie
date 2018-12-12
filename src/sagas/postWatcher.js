@@ -1,5 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { postRequest } from './helpers/request';
+import CONFIG from '../config';
 
 import {
   CREATE_POST,
@@ -13,7 +14,7 @@ import {
 function* createPostRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/post',
+    `${CONFIG.serverUrl}/post`,
     action.payload
   );
   if (response.post) {
