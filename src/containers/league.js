@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import { fetchLeague, clearLeague } from '../actions/leagueActions';
 import { fetchTeam, clearTeam } from '../actions/teamActions';
@@ -42,21 +43,24 @@ class League extends Component {
 
   render() {
     const { match, league, user, team } = this.props;
+    console.log(league._id, user._id, team._id);
 
-    return (
-      <div>
-        {league._id && user._id && team._id ? (
-          <LeagueComponent
-            league={league}
-            user={user}
-            team={team}
-            match={match}
-          />
-        ) : (
-          <div>loading...</div>
-        )}
-      </div>
-    );
+    if (user._id === false) {
+      return <Redirect to="/" />;
+    } else if (league._id && user._id && team._id) {
+      return (
+        <LeagueComponent
+          league={league}
+          user={user}
+          team={team}
+          match={match}
+        />
+      );
+    } else {
+      return (
+        <div>loading...</div>
+      );
+    }
   }
 }
 
