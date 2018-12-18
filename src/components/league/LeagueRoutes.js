@@ -7,6 +7,7 @@ import Timeline from './timeline/Timeline';
 import Members from './Members';
 import MyTeam from './MyTeam';
 import LeagueInfo from './LeagueInfo';
+import Standings from './Standings';
 
 class LeagueRoutes extends Component {
   static propTypes = {
@@ -24,6 +25,7 @@ class LeagueRoutes extends Component {
         <Route exact path={`${match.url}/members`} component={Members} />
         <Route exact path={`${match.url}/myteam`} component={MyTeam} />
         <Route exact path={`${match.url}/leagueInfo`} component={LeagueInfo} />
+        <Route exact path={`${match.url}/standings`} component={Standings} />
         {/* TODO: wildcard may want to show 'error' page with redirect links */}
         <Route path={`${match.url}/*`} component={Timeline} />
       </Switch>

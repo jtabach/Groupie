@@ -18,7 +18,8 @@ class MenuList extends Component {
       { name: 'TimeLine', path: '' },
       { name: 'My Team', path: '/myteam' },
       { name: 'Members', path: '/members' },
-      { name: 'League Info', path: '/leagueinfo' }
+      { name: 'League Info', path: '/leagueinfo' },
+      { name: 'Standings', path: '/standings' }
     ];
 
     return menuItems.map((item, i) => {
