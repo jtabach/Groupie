@@ -6,6 +6,7 @@ import userReducer from './userReducer';
 import leagueReducer from './leagueReducer';
 import teamReducer from './teamReducer';
 import newsReducer from './newsReducer';
+import fantasyReducer from './fantasyReducer';
 
 export default combineReducers({
   demo: demoReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
   user: userReducer,
   league: leagueReducer,
   team: teamReducer,
-  news: newsReducer
+  news: newsReducer,
+  fantasy: fantasyReducer
 });

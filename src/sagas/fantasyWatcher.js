@@ -7,13 +7,13 @@ import { FETCH_FANTASY_STANDINGS, FETCH_FANTASY_STANDINGS_COMPLETE } from '../ty
 
 function* fetchFantasyStandingsRequest(action) {
   const fantasyLeagueId = action.payload;
-  console.log(fantasyLeagueId);
 
   const response = yield call(
     getRequest,
-    `${CONFIG}/standings?leagueId=${fantasyLeagueId}&seasonId=2018`
+    `${CONFIG.serverUrl}/fantasy/standings/${fantasyLeagueId}`
   );
-  if (response.comment) {
+  if (response.standings) {
+    console.log(response.standings);
     yield put({ type: FETCH_FANTASY_STANDINGS_COMPLETE, payload: { data: response } });
   } else {
     console.log('handle failed to fetch fantasy standings');
