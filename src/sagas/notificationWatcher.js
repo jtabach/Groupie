@@ -89,7 +89,8 @@ function* dismissNotificationsRequest(action) {
 
 export function* notificationWatcher() {
   yield takeLatest(CREATE_NOTIFICATION, notificationPostRequest);
-  yield takeLatest(FETCH_NOTIFICATIONS, fetchNotificationsRequest);
+  // yield takeLatest(FETCH_NOTIFICATIONS, fetchNotificationsRequest);
+  yield takeLatest(FETCH_NOTIFICATIONS, () => {});
   yield takeLatest(VIEW_NOTIFICATION, viewNotificationRequest);
   yield takeLatest(VIEW_ALL_NOTIFICATIONS, viewAllNotifications);
   yield takeLatest(DISMISS_NOTIFICATIONS, dismissNotificationsRequest);

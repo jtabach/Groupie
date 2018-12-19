@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import DivisionCard from './DivisionCard';
+import Division from './Division';
 
 import { fetchFantasyStandings } from '../../../actions/fantasyActions';
 
 class Standings extends Component {
   componentDidMount() {
-    this.props.fetchFantasyStandings('1943495');
+    this.props.fetchFantasyStandings('643894');
   }
 
   renderDivisions() {
@@ -17,12 +17,11 @@ class Standings extends Component {
     }
 
     return Object.keys(standings).map(division => {
-      return (<DivisionCard key={Math.random()} division={standings[division]} />)
+      return (<Division key={Math.random()} division={standings[division]} />)
     })
   }
 
   render() {
-    console.log(this.props.fantasy);
     return (
       <div>
         <h2>Standings</h2>

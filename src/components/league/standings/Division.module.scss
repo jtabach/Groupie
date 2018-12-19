@@ -1,0 +1,12 @@
+@import '../../../assets/styles/helpers/variables';
+
+.division {
+  width: 100%;
+  margin-top: 14px;
+
+  &__header {
+    margin: 0 10px 3px;
+    font-weight: bold;
+    color: $red-gffl;
+  }
+}
