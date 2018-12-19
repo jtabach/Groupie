@@ -7,7 +7,7 @@ import Timeline from './timeline/Timeline';
 import Members from './Members';
 import MyTeam from './MyTeam';
 import LeagueInfo from './LeagueInfo';
-import Standings from './Standings';
+import Standings from './standings/Standings';
 
 class LeagueRoutes extends Component {
   static propTypes = {
