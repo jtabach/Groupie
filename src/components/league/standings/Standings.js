@@ -7,7 +7,7 @@ import { fetchFantasyStandings } from '../../../actions/fantasyActions';
 
 class Standings extends Component {
   componentDidMount() {
-    this.props.fetchFantasyStandings('643894');
+    this.props.fetchFantasyStandings('1943495');
   }
 
   renderDivisions() {

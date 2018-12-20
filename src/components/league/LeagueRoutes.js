@@ -8,6 +8,7 @@ import Members from './Members';
 import MyTeam from './MyTeam';
 import LeagueInfo from './LeagueInfo';
 import Standings from './standings/Standings';
+import Scoreboard from './scoreboard/Scoreboard';
 
 class LeagueRoutes extends Component {
   static propTypes = {
@@ -26,6 +27,7 @@ class LeagueRoutes extends Component {
         <Route exact path={`${match.url}/myteam`} component={MyTeam} />
         <Route exact path={`${match.url}/leagueInfo`} component={LeagueInfo} />
         <Route exact path={`${match.url}/standings`} component={Standings} />
+        <Route exact path={`${match.url}/scoreboard`} component={Scoreboard} />
         {/* TODO: wildcard may want to show 'error' page with redirect links */}
         <Route path={`${match.url}/*`} component={Timeline} />
       </Switch>
