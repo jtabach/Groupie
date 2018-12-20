@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
       break;
 
     case FETCH_FANTASY_SCOREBOARD_COMPLETE:
-      state = { ...state, scoreboard: action.payload.data.scores };
+      state = { ...state, scores: action.payload.data.scores };
       break;
 
     default:

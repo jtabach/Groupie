@@ -11,13 +11,20 @@ class Scoreboard extends Component {
   }
 
   renderScoreCards() {
-    return (
-      <ScoreCard />
-    );
+    const { scores } = this.props.fantasy;
+    console.log(scores);
+    if (!scores) {
+      return null;
+    }
+
+    return scores.map(score => {
+      return (
+        <ScoreCard key={Math.random()} matchups={score.teams}/>
+      );
+    })
   }
 
   render() {
-    console.log(this.props.fantasy.scoreboard);
     return (
       <div>
         <h2>Scoreboard</h2>
