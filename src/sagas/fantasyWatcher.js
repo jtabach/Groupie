@@ -33,7 +33,6 @@ function* fetchFantasyScoresRequest(action) {
   );
 
   if (response.scores) {
-    console.log(response.scores);
     yield put({ type: FETCH_FANTASY_SCOREBOARD_COMPLETE, payload: { data: response } });
   } else {
     console.log('handle failed to fetch fantasy scores');

@@ -17,6 +17,7 @@ class Scoreboard extends Component {
   }
 
   render() {
+    console.log(this.props.fantasy.scoreboard);
     return (
       <div>
         <h2>Scoreboard</h2>
@@ -26,4 +27,8 @@ class Scoreboard extends Component {
   }
 }
 
-export default connect(null, { fetchFantasyScoreboard })(Scoreboard);
+function mapStateToProps({ fantasy }) {
+  return { fantasy };
+}
+
+export default connect(mapStateToProps, { fetchFantasyScoreboard })(Scoreboard);
