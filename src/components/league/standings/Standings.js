@@ -10,6 +10,20 @@ class Standings extends Component {
     this.props.fetchFantasyStandings(this.props.league.fantasyLeagueId);
   }
 
+
+  renderStandings() {
+    const { fantasyLeagueId } = this.props.league;
+
+    if (!fantasyLeagueId) {
+      return (
+        <div>Need Fantasy League Info</div>
+      );
+    }
+    return (
+      <ul>{this.renderDivisions()}</ul>
+    );
+  }
+
   renderDivisions() {
     const { standings } = this.props.fantasy;
     if (!standings) {
@@ -25,7 +39,7 @@ class Standings extends Component {
     return (
       <div>
         <h2>Standings</h2>
-        <ul>{this.renderDivisions()}</ul>
+        {this.renderStandings()}
       </div>
     )
   }
