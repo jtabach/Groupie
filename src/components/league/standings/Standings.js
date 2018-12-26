@@ -7,7 +7,7 @@ import { fetchFantasyStandings } from '../../../actions/fantasyActions';
 
 class Standings extends Component {
   componentDidMount() {
-    this.props.fetchFantasyStandings('1943495');
+    this.props.fetchFantasyStandings(this.props.league.fantasyLeagueId);
   }
 
   renderDivisions() {
@@ -31,8 +31,8 @@ class Standings extends Component {
   }
 }
 
-function mapStateToProps({ fantasy }) {
-  return { fantasy };
+function mapStateToProps({ fantasy,league }) {
+  return { fantasy, league };
 }
 
 export default connect(mapStateToProps, { fetchFantasyStandings })(Standings);
