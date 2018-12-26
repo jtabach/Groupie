@@ -4,24 +4,27 @@ import { Field, reduxForm } from 'redux-form';
 import RenderField from './RenderField';
 import ButtonTest from '../common/ButtonTest';
 import { validate } from './validation/joinLeague';
+import styles from './Form.module.scss';
 
 let JoinLeague = props => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className={styles["field"]}>
         <Field
           name="leagueId"
           type="text"
-          label="League ID"
+          label="League Id *"
+          placeholder="league id"
           component={RenderField}
         />
       </div>
-      <div>
+      <div className={styles["field"]}>
         <Field
-          name="teamName"
+          name="fantasyTeamId"
           type="text"
-          label="Team Name"
+          label="Fantasy Team Id"
+          placeholder="fantasy team id"
           component={RenderField}
         />
       </div>
