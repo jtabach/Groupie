@@ -1,6 +1,7 @@
 import {
   FETCH_FANTASY_STANDINGS_COMPLETE,
-  FETCH_FANTASY_SCOREBOARD_COMPLETE
+  FETCH_FANTASY_SCOREBOARD_COMPLETE,
+  CLEAR_FANTASY_DATA_COMPLETE
 } from '../types/fantasyTypes';
 
 const initialState = {};
@@ -13,6 +14,10 @@ export default (state = initialState, action) => {
 
     case FETCH_FANTASY_SCOREBOARD_COMPLETE:
       state = { ...state, scores: action.payload.data.scores };
+      break;
+
+    case CLEAR_FANTASY_DATA_COMPLETE:
+      state = initialState;
       break;
 
     default:

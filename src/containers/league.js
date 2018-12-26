@@ -8,6 +8,7 @@ import { fetchTeam, clearTeam } from '../actions/teamActions';
 import { fetchUser } from '../actions/authActions';
 import { fetchNotifications } from '../actions/notificationActions';
 import { fetchPlayerNews } from '../actions/newsActions';
+import { clearFantasyData } from '../actions/fantasyActions';
 
 import LeagueComponent from '../components/league';
 
@@ -39,6 +40,7 @@ class League extends Component {
     // so no flash in data when switching leagues
     this.props.clearLeague();
     this.props.clearTeam();
+    this.props.clearFantasyData();
   }
 
   render() {
@@ -73,6 +75,7 @@ export default connect(mapStateToProps, {
   fetchTeam,
   clearLeague,
   clearTeam,
+  clearFantasyData,
   fetchNotifications,
   fetchPlayerNews
 })(League);

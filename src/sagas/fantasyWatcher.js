@@ -7,7 +7,9 @@ import {
   FETCH_FANTASY_STANDINGS,
   FETCH_FANTASY_STANDINGS_COMPLETE,
   FETCH_FANTASY_SCOREBOARD,
-  FETCH_FANTASY_SCOREBOARD_COMPLETE
+  FETCH_FANTASY_SCOREBOARD_COMPLETE,
+  CLEAR_FANTASY_DATA,
+  CLEAR_FANTASY_DATA_COMPLETE
 } from '../types/fantasyTypes';
 
 function* fetchFantasyStandingsRequest(action) {
@@ -39,7 +41,12 @@ function* fetchFantasyScoresRequest(action) {
   }
 }
 
+function* clearFantasyDataRequest(action) {
+  yield put({ type: CLEAR_FANTASY_DATA_COMPLETE, payload: { data: {} } });
+}
+
 export function* fantasyWatcher() {
   yield takeLatest(FETCH_FANTASY_STANDINGS, fetchFantasyStandingsRequest);
   yield takeLatest(FETCH_FANTASY_SCOREBOARD, fetchFantasyScoresRequest);
+  yield takeLatest(CLEAR_FANTASY_DATA, clearFantasyDataRequest);
 }
