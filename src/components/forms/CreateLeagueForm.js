@@ -15,15 +15,26 @@ let CreateLeagueForm = props => {
         <Field
           name="leagueName"
           type="text"
-          label="League Name"
+          label="League Name *"
+          placeholder="league name"
           component={RenderField}
         />
       </div>
       <div className={styles["field"]}>
         <Field
-          name="teamName"
+          name="fantasyLeagueId"
           type="text"
-          label="Team Name"
+          placeholder="fantasy league id"
+          label="Fantasy League Id"
+          component={RenderField}
+        />
+      </div>
+      <div className={styles["field"]}>
+        <Field
+          name="fantasyTeamId"
+          type="text"
+          label="Fantasy Team Id"
+          placeholder="fantasy team id"
           component={RenderField}
         />
       </div>

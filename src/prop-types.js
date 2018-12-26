@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 
 const teamInLeague = PropTypes.shape({
-  name: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
   league: PropTypes.string.isRequired,
   user: PropTypes.object.isRequired
 });
 
 const teamInUser = PropTypes.shape({
-  name: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
   league: PropTypes.object.isRequired
@@ -24,21 +22,18 @@ const postInLeague = PropTypes.shape({
 
 // TODO: duplicate of teamInComment and teamInLike
 const teamInPost = PropTypes.shape({
-  name: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
   league: PropTypes.string.isRequired
 });
 
 const teamInComment = PropTypes.shape({
-  name: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
   league: PropTypes.string.isRequired
 });
 
 const teamInLike = PropTypes.shape({
-  name: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
   league: PropTypes.string.isRequired
@@ -78,7 +73,6 @@ const user = PropTypes.shape({
 });
 
 const team = PropTypes.shape({
-  name: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
   league: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired

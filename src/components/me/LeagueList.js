@@ -13,7 +13,6 @@ class LeagueList extends Component {
         <li key={team._id}>
           <LinkCard path={`/league/${team.league._id}`}>
             <p>{team.league.name}</p>
-            <p>{team.name}</p>
           </LinkCard>
         </li>
       );
