@@ -12,13 +12,32 @@ class Scoreboard extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchFantasyScoreboard('1943495', this.state.matchupPeriod)
+    this.props.fetchFantasyScoreboard(this.props.league.fantasyLeagueId, this.state.matchupPeriod)
   }
 
   handleMatchupPeriodChange(event) {
     this.setState(
       { matchupPeriod: event.target.value },
-      () => this.props.fetchFantasyScoreboard('1943495', this.state.matchupPeriod)
+      () => this.props.fetchFantasyScoreboard(this.props.league.fantasyLeagueId, this.state.matchupPeriod)
+    );
+  }
+
+  renderScoreboard() {
+    const { fantasyLeagueId } = this.props.league;
+
+    if (!fantasyLeagueId) {
+      return (
+        <div>Need Fantasy League Info</div>
+      );
+    }
+    return (
+      <div>
+        <ScoreWeekSelect
+          numWeeks={16}
+          onHandleChange={this.handleMatchupPeriodChange.bind(this)}
+        />
+        <ul>{this.renderScoreCards()}</ul>
+      </div>
     );
   }
 
@@ -39,18 +58,14 @@ class Scoreboard extends Component {
     return (
       <div>
         <h2>Scoreboard</h2>
-        <ScoreWeekSelect
-          numWeeks={16}
-          onHandleChange={this.handleMatchupPeriodChange.bind(this)}
-        />
-        <ul>{this.renderScoreCards()}</ul>
+        {this.renderScoreboard()}
       </div>
     );
   }
 }
 
-function mapStateToProps({ fantasy }) {
-  return { fantasy };
+function mapStateToProps({ fantasy, league }) {
+  return { fantasy, league };
 }
 
 export default connect(mapStateToProps, { fetchFantasyScoreboard })(Scoreboard);
