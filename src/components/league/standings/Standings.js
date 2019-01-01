@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Division from './Division';
+import FantasyLeagueIdPrompt from '../../common/FantasyLeagueIdPrompt';
 
 import { fetchFantasyStandings } from '../../../actions/fantasyActions';
 
@@ -16,7 +17,7 @@ class Standings extends Component {
 
     if (!fantasyLeagueId) {
       return (
-        <div>Need Fantasy League Info</div>
+        <FantasyLeagueIdPrompt />
       );
     }
     return (

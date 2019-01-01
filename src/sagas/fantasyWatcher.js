@@ -1,5 +1,5 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { getRequest } from './helpers/request';
+import { getRequest, postRequest } from './helpers/request';
 
 import CONFIG from '../config';
 
@@ -9,8 +9,13 @@ import {
   FETCH_FANTASY_SCOREBOARD,
   FETCH_FANTASY_SCOREBOARD_COMPLETE,
   CLEAR_FANTASY_DATA,
-  CLEAR_FANTASY_DATA_COMPLETE
+  CLEAR_FANTASY_DATA_COMPLETE,
 } from '../types/fantasyTypes';
+
+import {
+  SET_FANTASY_LEAGUE_ID,
+  SET_FANTASY_LEAGUE_ID_COMPLETED
+} from '../types/leagueTypes';
 
 function* fetchFantasyStandingsRequest(action) {
   const fantasyLeagueId = action.payload;
@@ -41,6 +46,22 @@ function* fetchFantasyScoresRequest(action) {
   }
 }
 
+function* setFantasyLeagueIdRequest(action) {
+  const { fantasyLeagueId, leagueId } = action.payload;
+  const response = yield call(
+    postRequest,
+    `${CONFIG.serverUrl}/league/setFantasyLeagueId/${leagueId}`,
+    fantasyLeagueId
+  );
+
+  if (response.fantasyLeagueId) {
+    console.log(response.fantasyLeagueId);
+    yield put({ type: SET_FANTASY_LEAGUE_ID_COMPLETED, payload: { data: response } });
+  } else {
+    console.log('handle failed to set fantasy league id');
+  }
+}
+
 function* clearFantasyDataRequest(action) {
   yield put({ type: CLEAR_FANTASY_DATA_COMPLETE, payload: { data: {} } });
 }
@@ -49,4 +70,5 @@ export function* fantasyWatcher() {
   yield takeLatest(FETCH_FANTASY_STANDINGS, fetchFantasyStandingsRequest);
   yield takeLatest(FETCH_FANTASY_SCOREBOARD, fetchFantasyScoresRequest);
   yield takeLatest(CLEAR_FANTASY_DATA, clearFantasyDataRequest);
+  yield takeLatest(SET_FANTASY_LEAGUE_ID, setFantasyLeagueIdRequest);
 }

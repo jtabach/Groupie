@@ -1,6 +1,7 @@
 import {
   FETCH_LEAGUE_COMPLETED,
-  CLEAR_LEAGUE_COMPLETED
+  CLEAR_LEAGUE_COMPLETED,
+  SET_FANTASY_LEAGUE_ID_COMPLETED
 } from '../types/leagueTypes';
 
 import {
@@ -97,6 +98,11 @@ export default (state = initialState, action) => {
       });
       state = { ...state, posts: postArrayWithDeletedLikes };
       break;
+
+    case SET_FANTASY_LEAGUE_ID_COMPLETED:
+      state = { ...state, fantasyLeagueId: action.payload.data.fantasyLeagueId }
+      break;
+
     default:
       return state;
   }
