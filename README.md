@@ -19,7 +19,37 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## How to Use
 
-WIP
+#### Register for a new account using email and password
+
+#### Create or Join a League
+
+- Creating a League
+
+Choose a league name, add your espn fantasy football league id (optional), and add your espn fantasy football team id (optional).
+
+Adding your espn fantasy football league Id will allow you to view information from your espn fantasy football league. You can add this at a later time.
+
+[How to figure out your espn league Id](#how-to-figure-out-your-espn-league-id)
+
+Adding your espn fantasy football team Id will allow you to view information from your espn fantasy football team. You can add this at a later time.
+
+[How to figure out your espn team Id](#how-to-figure-out-your-espn-team-id)
+
+- Joining a League
+
+Enter the league Id (the admin or creator of the league must share the league Id) and add your espn fantasy football team id (optional).
+
+[How to figure out your espn team Id](#how-to-figure-out-your-espn-team-id)
+
+#### Select a league to view
+
+#### Post, comment, and like on the league timeline
+
+#### Get notifications from other league members for posts, comments, and likes (Comments and Likes Notifications WIP)
+
+#### Read up to date player news 
+
+#### See fantasy scoreboard and standings
 
 ## Build Status
 
@@ -48,6 +78,14 @@ WIP
 - Create React App
 
 ## Testing
+
+WIP
+
+## How to figure out your espn league Id
+
+WIP
+
+## How to figure out your espn team Id
 
 WIP
 
