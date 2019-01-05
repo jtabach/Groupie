@@ -9,7 +9,9 @@ class Register extends Component {
   handleSubmit = values => {
     this.props.registerUser({
       email: values.email,
-      password: values.password1
+      password: values.password1,
+      firstName: values.firstName,
+      lastName: values.lastName
     });
   };
 

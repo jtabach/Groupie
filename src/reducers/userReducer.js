@@ -22,7 +22,8 @@ import {
 const initialState = {
   _id: null,
   email: null,
-  password: null,
+  firstName: null,
+  lastName: null,
   teams: [],
   notifications: []
 };
