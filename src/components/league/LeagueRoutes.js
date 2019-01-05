@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // import PropsRoute from '../PropsRoute';
 import Timeline from './timeline/Timeline';
 import Members from './Members';
-import MyTeam from './MyTeam';
+import MyTeam from './myteam/MyTeam';
 import LeagueInfo from './LeagueInfo';
 import Standings from './standings/Standings';
 import Scoreboard from './scoreboard/Scoreboard';
