@@ -1,44 +1,102 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Group Fantasy Football League
 
-## Available Scripts
+Social media platform for fantasy football. Talk fantasy football with your friends, track your team and player stats, and stay up to date with player news.
 
-In the project directory, you can run:
+## Motivation
 
-### `npm start`
+The current fantasy football ecosystem requires players to use mulitple platforms to keep up with their team (espn/yahoo/nfl), players news (rotoworld/rotowire), and friends (facebook/instagram). Group Fantasy Football League is intended to bring all of that together on a single platform where they can be notified of updates to their timeline, teams, and news.
 
+## How to Run
+
+GFFL client requires an API server to be run in parallel. For reference please see installation instructions for [gffl-backend](https://github.com/jtabach/gffl-backend).
+
+Once the backend is running, download or clone this repo and run:
+
+### `npm i`<br>
+### `npm run dev`<br>
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## How to Use
 
-### `npm test`
+#### Register for a new account using email and password
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Create or Join a League
 
-### `npm run build`
+- Creating a League
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Choose a league name, add your espn fantasy football league id (optional), and add your espn fantasy football team id (optional).
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Adding your espn fantasy football league Id will allow you to view information from your espn fantasy football league. You can add this at a later time.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[How to figure out your espn league Id](#how-to-figure-out-your-espn-league-id)
 
-### `npm run eject`
+Adding your espn fantasy football team Id will allow you to view information from your espn fantasy football team. You can add this at a later time.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[How to figure out your espn team Id](#how-to-figure-out-your-espn-team-id)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Joining a League
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Enter the league Id (the admin or creator of the league must share the league Id) and add your espn fantasy football team id (optional).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[How to figure out your espn team Id](#how-to-figure-out-your-espn-team-id)
 
-## Learn More
+#### Select a league to view
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Post, comment, and like on the league timeline
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Get notifications from other league members for posts, comments, and likes (Comments and Likes Notifications WIP)
+
+#### Read up to date player news 
+
+#### See fantasy scoreboard and standings
+
+## Build Status
+
+WIP
+
+## Code Style
+
+WIP
+
+## Screenshots
+
+WIP
+
+## Features
+
+WIP
+
+## Code Examples
+
+WIP
+
+## Tech
+
+#### Built with
+
+- Create React App
+
+## Testing
+
+WIP
+
+## How to figure out your espn league Id
+
+WIP
+
+## How to figure out your espn team Id
+
+WIP
+
+## Contribute
+
+WIP
+
+## Credit
+
+WIP
+
+## License
+
+MIT © Jeff Tabachnick
