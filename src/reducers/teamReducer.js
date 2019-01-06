@@ -1,8 +1,9 @@
 import { FETCH_TEAM_COMPLETED, CLEAR_TEAM_COMPLETED } from '../types/teamTypes';
+import { SET_FANTASY_TEAM_ID_COMPLETED } from '../types/fantasyTypes';
 
 const initialState = {
   _id: null,
-  name: null,
+  fantasyTeamId: null,
   user: null,
   league: null
 };
@@ -16,6 +17,11 @@ export default (state = initialState, action) => {
     case CLEAR_TEAM_COMPLETED:
       state = initialState;
       break;
+
+    case SET_FANTASY_TEAM_ID_COMPLETED:
+      state = { ...state, fantasyTeamId: action.payload.data.fantasyTeamId }
+      break;
+
     default:
       return state;
   }
