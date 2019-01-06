@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import FantasyLeagueIdPrompt from '../../common/FantasyLeagueIdPrompt';
+import FantasyTeamIdPrompt from '../../common/FantasyTeamIdPrompt';
 
 class MyTeam extends Component {
   componentDidMount() {
@@ -29,8 +30,7 @@ class MyTeam extends Component {
     } else if (!team.fantasyTeamId) {
       return (
         <div>
-          <p>You need to include your fantasy team id to see your roster</p>
-          <div>Some prompt for adding the fantasy team id</div>
+          <FantasyTeamIdPrompt teamId={team._id} />
           <div>Some instructions for figuring out the fantasy team id</div>
         </div>
       )

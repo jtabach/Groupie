@@ -1,7 +1,6 @@
 import {
   FETCH_LEAGUE_COMPLETED,
-  CLEAR_LEAGUE_COMPLETED,
-  SET_FANTASY_LEAGUE_ID_COMPLETED
+  CLEAR_LEAGUE_COMPLETED
 } from '../types/leagueTypes';
 
 import {
@@ -10,6 +9,7 @@ import {
   EDIT_POST_COMPLETED
 } from '../types/postTypes';
 
+import { SET_FANTASY_LEAGUE_ID_COMPLETED } from '../types/fantasyTypes';
 import { CREATE_COMMENT_COMPLETED } from '../types/commentTypes';
 import { LIKE_POST_COMPLETED, DELETE_LIKE_POST_COMPLETED } from '../types/likeTypes';
 

@@ -10,12 +10,11 @@ import {
   FETCH_FANTASY_SCOREBOARD_COMPLETE,
   CLEAR_FANTASY_DATA,
   CLEAR_FANTASY_DATA_COMPLETE,
-} from '../types/fantasyTypes';
-
-import {
   SET_FANTASY_LEAGUE_ID,
-  SET_FANTASY_LEAGUE_ID_COMPLETED
-} from '../types/leagueTypes';
+  SET_FANTASY_LEAGUE_ID_COMPLETED,
+  SET_FANTASY_TEAM_ID,
+  SET_FANTASY_TEAM_ID_COMPLETED
+} from '../types/fantasyTypes';
 
 function* fetchFantasyStandingsRequest(action) {
   const fantasyLeagueId = action.payload;
@@ -55,10 +54,25 @@ function* setFantasyLeagueIdRequest(action) {
   );
 
   if (response.fantasyLeagueId) {
-    console.log(response.fantasyLeagueId);
     yield put({ type: SET_FANTASY_LEAGUE_ID_COMPLETED, payload: { data: response } });
   } else {
     console.log('handle failed to set fantasy league id');
+  }
+}
+
+function* setFantasyTeamIdRequest(action) {
+  const { fantasyTeamId, teamId } = action.payload;
+  const response = yield call(
+    postRequest,
+    `${CONFIG.serverUrl}/team/setFantasyTeamId/${teamId}`,
+    fantasyTeamId
+  );
+
+  if (response.fantasyTeamId) {
+    console.log(response.fantasyTeamId);
+    yield put({ type: SET_FANTASY_TEAM_ID_COMPLETED, payload: { data: response } });
+  } else {
+    console.log('handle failed to set fantasy team id');
   }
 }
 
@@ -71,4 +85,5 @@ export function* fantasyWatcher() {
   yield takeLatest(FETCH_FANTASY_SCOREBOARD, fetchFantasyScoresRequest);
   yield takeLatest(CLEAR_FANTASY_DATA, clearFantasyDataRequest);
   yield takeLatest(SET_FANTASY_LEAGUE_ID, setFantasyLeagueIdRequest);
+  yield takeLatest(SET_FANTASY_TEAM_ID, setFantasyTeamIdRequest);
 }
