@@ -1,6 +1,7 @@
 import {
   FETCH_FANTASY_STANDINGS,
   FETCH_FANTASY_SCOREBOARD,
+  FETCH_FANTASY_ROSTER,
   CLEAR_FANTASY_DATA,
   SET_FANTASY_LEAGUE_ID,
   SET_FANTASY_TEAM_ID
@@ -14,6 +15,11 @@ export const fetchFantasyStandings = fantasyLeagueId => ({
 export const fetchFantasyScoreboard = (fantasyLeagueId, matchupPeriodId) => ({
   type: FETCH_FANTASY_SCOREBOARD,
   payload: { fantasyLeagueId, matchupPeriodId }
+});
+
+export const fetchFantasyRoster = (fantasyLeagueId, fantasyTeamId) => ({
+  type: FETCH_FANTASY_ROSTER,
+  payload: { fantasyLeagueId, fantasyTeamId }
 });
 
 export const clearFantasyData = () => ({
