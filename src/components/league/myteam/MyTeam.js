@@ -3,18 +3,10 @@ import { connect } from 'react-redux';
 
 import FantasyLeagueIdPrompt from '../../common/FantasyLeagueIdPrompt';
 import FantasyTeamIdPrompt from '../../common/FantasyTeamIdPrompt';
+import Roster from './Roster';
 
-import { fetchFantasyRoster } from '../../../actions/fantasyActions';
 
 class MyTeam extends Component {
-  componentDidMount() {
-    const { league, team } = this.props;
-
-    if (league.fantasyLeagueId && team.fantasyTeamId) {
-      this.props.fetchFantasyRoster(league.fantasyLeagueId, team.fantasyTeamId);
-    }
-  }
-
   renderMyTeam() {
     const { league, team } = this.props;
 
@@ -37,7 +29,7 @@ class MyTeam extends Component {
       )
     } else {
       return (
-        <div>The team roster</div>
+        <Roster league={league} team={team} />
       )
     }
   }
@@ -58,4 +50,4 @@ function mapStateToProps({ team, user, league }) {
   return { team, user, league }
 }
 
-export default connect(mapStateToProps, { fetchFantasyRoster })(MyTeam);
+export default connect(mapStateToProps)(MyTeam);
