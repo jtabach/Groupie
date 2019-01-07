@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Timeline from './timeline/Timeline';
 import Members from './members/Members';
 import MyTeam from './team/MyTeam';
+import OpposingTeam from './team/OpposingTeam';
 import LeagueInfo from './LeagueInfo';
 import Standings from './standings/Standings';
 import Scoreboard from './scoreboard/Scoreboard';
@@ -25,6 +26,7 @@ class LeagueRoutes extends Component {
         <Route exact path={`${match.url}`} component={Timeline} />
         <Route exact path={`${match.url}/members`} component={Members} />
         <Route exact path={`${match.url}/myteam`} component={MyTeam} />
+        <Route exact path={`${match.url}/team/:teamId`} component={OpposingTeam} />
         <Route exact path={`${match.url}/leagueInfo`} component={LeagueInfo} />
         <Route exact path={`${match.url}/standings`} component={Standings} />
         <Route exact path={`${match.url}/scoreboard`} component={Scoreboard} />

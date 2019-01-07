@@ -50,13 +50,10 @@ function* fetchFantasyScoresRequest(action) {
 function* fetchFantasyRosterRequest(action) {
   const { fantasyLeagueId, fantasyTeamId } = action.payload;
 
-  console.log('in saga');
   const response = yield call(
     getRequest,
     `${CONFIG.serverUrl}/fantasy/roster/${fantasyLeagueId}/${fantasyTeamId}`
   );
-
-  console.log(response);
 
   if (response.roster) {
     console.log(response.roster);
