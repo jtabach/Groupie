@@ -42,8 +42,6 @@ class OpposingTeam extends Component {
   }
 
   render() {
-    const { teamId } = this.props.match.params;
-
     return (
       <div>
         <h2>Opposing Team</h2>

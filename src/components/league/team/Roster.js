@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import RosterCard from './RosterCard';
+
 import { fetchFantasyRoster } from '../../../actions/fantasyActions';
 
 class Roster extends Component {
@@ -10,11 +12,36 @@ class Roster extends Component {
     fetchFantasyRoster(league.fantasyLeagueId, team.fantasyTeamId);
   }
 
-  render() {
+  renderRosterCards(roster) {
     return (
-      <div>Roster</div>
+      <div>
+        <RosterCard slots={roster.slots[0]} headerName={'Starters'} />
+        <RosterCard slots={roster.slots[1]} headerName={'Bench'} />
+      </div>
+    );
+  }
+
+  render() {
+    const { roster } = this.props.fantasy;
+
+    return (
+      <div>
+        { roster ?
+          <div>
+            <p>{roster.info.teamLocation} {roster.info.teamNickname}</p>
+            <p>Division Rank: {roster.info.divisionStanding} {roster.info.divisionName}</p>
+            <p>Overall Rank: {roster.info.overallStanding }</p>
+            {this.renderRosterCards(roster)}
+          </div>
+          : null
+        }
+      </div>
     )
   }
 }
 
-export default connect(null, {fetchFantasyRoster})(Roster);
+function mapStateToProps({ fantasy }) {
+  return { fantasy };
+}
+
+export default connect(mapStateToProps, {fetchFantasyRoster})(Roster);

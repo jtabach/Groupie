@@ -11,7 +11,6 @@ class Standings extends Component {
     this.props.fetchFantasyStandings(this.props.league.fantasyLeagueId);
   }
 
-
   renderStandings() {
     const { fantasyLeagueId } = this.props.league;
 

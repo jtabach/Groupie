@@ -35,7 +35,7 @@ class MyTeam extends Component {
   }
 
   render() {
-    const { user, team } = this.props;
+    const { user } = this.props;
     return (
       <div>
         <h2>My Team</h2>
