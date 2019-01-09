@@ -9,7 +9,7 @@ class Roster extends Component {
   componentDidMount() {
     const { fetchFantasyRoster, league, team } = this.props;
 
-    fetchFantasyRoster(league.fantasyLeagueId, team.fantasyTeamId);
+    fetchFantasyRoster(league.fantasyLeagueId, team._id);
   }
 
   renderRosterCards(roster) {

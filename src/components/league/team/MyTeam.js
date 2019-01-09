@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import FantasyLeagueIdPrompt from '../../common/FantasyLeagueIdPrompt';
-import FantasyTeamIdPrompt from '../../common/FantasyTeamIdPrompt';
+import FantasyEspnCookiePrompt from '../../common/FantasyEspnCookiePrompt';
 import Roster from './Roster';
 
 
@@ -20,10 +20,10 @@ class MyTeam extends Component {
           <div>The admin has not yet added the fantasy league id</div>
         )
       }
-    } else if (!team.fantasyTeamId) {
+    } else if (!team.espnCookieString) {
       return (
         <div>
-          <FantasyTeamIdPrompt teamId={team._id} />
+          <FantasyEspnCookiePrompt teamId={team._id} />
           <div>Some instructions for figuring out the fantasy team id</div>
         </div>
       )

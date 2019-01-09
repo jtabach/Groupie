@@ -3,27 +3,19 @@ import { Field, reduxForm } from 'redux-form';
 
 import RenderField from './RenderField';
 import ButtonTest from '../common/ButtonTest';
-import { validate } from './validation/joinLeague';
+import { validate } from './validation/fantasyEspnCookie';
 import styles from './Form.module.scss';
 
-let JoinLeague = props => {
+let FantasyEspnCookieForm = props => {
   const { handleSubmit } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles["field"]}>
         <Field
-          name="leagueId"
-          type="text"
-          label="League Id *"
-          placeholder="league id"
-          component={RenderField}
-        />
-      </div>
-      <div className={styles["field"]}>
-        <Field
           name="espnCookieS2"
           type="text"
-          label="ESPN S2 Cookie (optional)"
+          label="ESPN S2 Cookie *"
           placeholder="somehash"
           component={RenderField}
         />
@@ -32,13 +24,13 @@ let JoinLeague = props => {
         <Field
           name="espnCookieSwid"
           type="text"
-          label="ESPN SWID Cookie (optional)"
+          label="ESPN SWID Cookie *"
           placeholder="{somehash}"
           component={RenderField}
         />
       </div>
       <ButtonTest
-        label="Join League"
+        label="Submit ESPN Cookies"
         type="submit"
         size="large"
         variant="primary"
@@ -47,10 +39,9 @@ let JoinLeague = props => {
   );
 };
 
-JoinLeague = reduxForm({
-  // a unique name for the form
-  form: 'joinLeague',
+FantasyEspnCookieForm = reduxForm({
+  form: 'fantasyEspnCookie',
   validate
-})(JoinLeague);
+})(FantasyEspnCookieForm);
 
-export default JoinLeague;
+export default FantasyEspnCookieForm;
