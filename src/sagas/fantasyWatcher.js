@@ -48,15 +48,14 @@ function* fetchFantasyScoresRequest(action) {
 }
 
 function* fetchFantasyRosterRequest(action) {
-  const { fantasyLeagueId, fantasyTeamId } = action.payload;
+  const { fantasyLeagueId, teamId } = action.payload;
 
   const response = yield call(
     getRequest,
-    `${CONFIG.serverUrl}/fantasy/roster/${fantasyLeagueId}/${fantasyTeamId}`
+    `${CONFIG.serverUrl}/fantasy/roster/${fantasyLeagueId}/${teamId}`
   );
 
   if (response.roster) {
-    console.log(response.roster);
     yield put({ type: FETCH_FANTASY_ROSTER_COMPLETE, payload: { data: response } });
   } else {
     console.log('handle failed to fetch fantasy roster');
