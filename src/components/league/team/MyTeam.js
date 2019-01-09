@@ -20,7 +20,7 @@ class MyTeam extends Component {
           <div>The admin has not yet added the fantasy league id</div>
         )
       }
-    } else if (!team.fantasyTeamId) {
+    } else if (!team.fantasyEspnAuthHash) {
       return (
         <div>
           <FantasyEspnCookiePrompt teamId={team._id} />

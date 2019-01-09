@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
       break;
 
     case SET_FANTASY_ESPN_COOKIES_COMPLETED:
-      state = { ...state, fantasyTeamId: action.payload.data.fantasyEspnAuthHash }
+      state = { ...state, fantasyEspnAuthHash: action.payload.data.fantasyEspnAuthHash }
       break;
 
     default:

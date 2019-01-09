@@ -80,9 +80,10 @@ function* setFantasyLeagueIdRequest(action) {
 
 function* setFantasyEspnCookiesRequest(action) {
   const { fantasyEspnCookies, teamId } = action.payload;
+  console.log(fantasyEspnCookies);
   const response = yield call(
     postRequest,
-    `${CONFIG.serverUrl}/team/setFantasyTeamId/${teamId}`,
+    `${CONFIG.serverUrl}/team/setFantasyEspnCookies/${teamId}`,
     fantasyEspnCookies
   );
 
