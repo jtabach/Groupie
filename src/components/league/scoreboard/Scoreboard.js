@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchFantasyScoreboard } from '../../../actions/fantasyActions';
 
+import FantasyLeagueIdPrompt from '../../common/FantasyLeagueIdPrompt';
 import ScoreWeekSelect from './ScoreWeekSelect';
 import ScoreCard from './ScoreCard';
 
@@ -24,11 +25,18 @@ class Scoreboard extends Component {
 
   renderScoreboard() {
     const { fantasyLeagueId } = this.props.league;
+    const { league, user } = this.props;
 
     if (!fantasyLeagueId) {
-      return (
-        <div>Need Fantasy League Info</div>
-      );
+      if (user._id === league.admin) {
+        return (
+          <FantasyLeagueIdPrompt />
+        );
+      } else {
+        return (
+          <div>The admin has not yet added the fantasy league id</div>
+        );
+      }
     }
     return (
       <div>
@@ -64,8 +72,8 @@ class Scoreboard extends Component {
   }
 }
 
-function mapStateToProps({ fantasy, league }) {
-  return { fantasy, league };
+function mapStateToProps({ fantasy, league, user }) {
+  return { fantasy, league, user };
 }
 
 export default connect(mapStateToProps, { fetchFantasyScoreboard })(Scoreboard);

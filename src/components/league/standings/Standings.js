@@ -13,11 +13,18 @@ class Standings extends Component {
 
   renderStandings() {
     const { fantasyLeagueId } = this.props.league;
+    const { league, user } = this.props;
 
     if (!fantasyLeagueId) {
-      return (
-        <FantasyLeagueIdPrompt />
-      );
+      if (user._id === league.admin) {
+        return (
+          <FantasyLeagueIdPrompt />
+        );
+      } else {
+        return (
+          <div>The admin has not yet added the fantasy league id</div>
+        );
+      }
     }
     return (
       <ul>{this.renderDivisions()}</ul>
@@ -45,8 +52,8 @@ class Standings extends Component {
   }
 }
 
-function mapStateToProps({ fantasy,league }) {
-  return { fantasy, league };
+function mapStateToProps({ fantasy, league, user }) {
+  return { fantasy, league, user };
 }
 
 export default connect(mapStateToProps, { fetchFantasyStandings })(Standings);
