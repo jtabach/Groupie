@@ -3,10 +3,10 @@ import { Field, reduxForm } from 'redux-form';
 
 import RenderField from './RenderField';
 import ButtonTest from '../common/ButtonTest';
-import { validate } from './validation/fantasyTeamId';
+import { validate } from './validation/fantasyEspnCookie';
 import styles from './Form.module.scss';
 
-let FantasyTeamIdForm = props => {
+let FantasyEspnCookieForm = props => {
   const { handleSubmit } = props;
 
   return (
@@ -30,9 +30,9 @@ let FantasyTeamIdForm = props => {
   );
 };
 
-FantasyTeamIdForm = reduxForm({
-  form: 'fantasyTeamId',
+FantasyEspnCookieForm = reduxForm({
+  form: 'fantasyEspnCookie',
   validate
-})(FantasyTeamIdForm);
+})(FantasyEspnCookieForm);
 
-export default FantasyTeamIdForm;
+export default FantasyEspnCookieForm;

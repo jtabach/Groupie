@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import FantasyTeamIdForm from '../forms/FantasyTeamIdForm';
+import FantasyEspnCookieForm from '../forms/FantasyEspnCookieForm';
 
 import { setFantasyTeamId } from '../../actions/fantasyActions';
 
-class FantasyTeamIdPrompt extends Component {
+class FantasyEspnCookiePrompt extends Component {
   handleSubmit = values => {
     this.props.setFantasyTeamId(values, this.props.teamId);
   };
@@ -14,10 +14,10 @@ class FantasyTeamIdPrompt extends Component {
     return (
       <div>
         <h4>An ESPN Fantasy Team Id has not been entered yet</h4>
-        <FantasyTeamIdForm onSubmit={this.handleSubmit} />
+        <FantasyEspnCookieForm onSubmit={this.handleSubmit} />
       </div>
     );
   }
 }
 
-export default connect(null, { setFantasyTeamId })(FantasyTeamIdPrompt);
+export default connect(null, { setFantasyTeamId })(FantasyEspnCookiePrompt);
