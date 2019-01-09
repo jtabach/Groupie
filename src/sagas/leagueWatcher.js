@@ -1,6 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
 
+import history from '../history';
+
 import {
   FETCH_LEAGUE,
   FETCH_LEAGUE_COMPLETED,
@@ -38,6 +40,7 @@ function* createLeagueRequest(action) {
   // TODO: some conditional to show league created successfully
   if (response.team) {
     yield put({ type: CREATE_LEAGUE_COMPLETED, payload: { data: response } });
+    history.push(`/league/${response.team.league._id}`);
   } else {
     // invoke some other action
     console.log('handle failed league creation');
@@ -53,6 +56,7 @@ function* joinLeagueRequest(action) {
   // TODO: some conditional to show league was joined successfully
   if (response.team) {
     yield put({ type: JOIN_LEAGUE_COMPLETED, payload: { data: response } });
+    history.push(`/league/${response.team.league._id}`);
   } else {
     // invoke some other action
     console.log('handle failed join league');
