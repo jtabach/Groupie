@@ -3,7 +3,7 @@ import { SET_FANTASY_ESPN_COOKIES_COMPLETED } from '../types/fantasyTypes';
 
 const initialState = {
   _id: null,
-  espnAuthCookie: null,
+  espnCookieString: null,
   user: null,
   league: null
 };
@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
       break;
 
     case SET_FANTASY_ESPN_COOKIES_COMPLETED:
-      state = { ...state, espnAuthCookie: action.payload.data.espnAuthCookie }
+      state = { ...state, espnCookieString: action.payload.data.espnCookieString }
       break;
 
     default:

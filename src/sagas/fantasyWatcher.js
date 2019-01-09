@@ -87,7 +87,7 @@ function* setFantasyEspnCookiesRequest(action) {
     fantasyEspnCookies
   );
 
-  if (response.fantasyEspnAuthHash) {
+  if (response.espnCookieString) {
     yield put({ type: SET_FANTASY_ESPN_COOKIES_COMPLETED, payload: { data: response } });
   } else {
     console.log('handle failed to set fantasy espn cookies');
