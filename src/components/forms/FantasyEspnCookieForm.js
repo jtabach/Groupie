@@ -19,6 +19,8 @@ let FantasyEspnCookieForm = props => {
           placeholder="somehash"
           component={RenderField}
         />
+      </div>
+      <div className={styles["field"]}>
         <Field
           name="espnCookieSwid"
           type="text"
