@@ -4,7 +4,7 @@ import {
   FETCH_FANTASY_ROSTER,
   CLEAR_FANTASY_DATA,
   SET_FANTASY_LEAGUE_ID,
-  SET_FANTASY_TEAM_ID
+  SET_FANTASY_ESPN_COOKIES
 } from '../types/fantasyTypes';
 
 export const fetchFantasyStandings = fantasyLeagueId => ({
@@ -32,7 +32,7 @@ export const setFantasyLeagueId = (fantasyLeagueId, leagueId) => ({
   payload: { fantasyLeagueId, leagueId }
 });
 
-export const setFantasyTeamId = (fantasyTeamId, teamId) => ({
-  type: SET_FANTASY_TEAM_ID,
-  payload: { fantasyTeamId, teamId }
+export const setFantasyEspnCookies = (fantasyEspnCookies, teamId) => ({
+  type: SET_FANTASY_ESPN_COOKIES,
+  payload: { fantasyEspnCookies, teamId }
 });

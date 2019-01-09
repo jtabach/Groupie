@@ -14,8 +14,8 @@ import {
   CLEAR_FANTASY_DATA_COMPLETE,
   SET_FANTASY_LEAGUE_ID,
   SET_FANTASY_LEAGUE_ID_COMPLETED,
-  SET_FANTASY_TEAM_ID,
-  SET_FANTASY_TEAM_ID_COMPLETED
+  SET_FANTASY_ESPN_COOKIES,
+  SET_FANTASY_ESPN_COOKIES_COMPLETED
 } from '../types/fantasyTypes';
 
 function* fetchFantasyStandingsRequest(action) {
@@ -78,18 +78,18 @@ function* setFantasyLeagueIdRequest(action) {
   }
 }
 
-function* setFantasyTeamIdRequest(action) {
-  const { fantasyTeamId, teamId } = action.payload;
+function* setFantasyEspnCookiesRequest(action) {
+  const { fantasyEspnCookies, teamId } = action.payload;
   const response = yield call(
     postRequest,
     `${CONFIG.serverUrl}/team/setFantasyTeamId/${teamId}`,
-    fantasyTeamId
+    fantasyEspnCookies
   );
 
-  if (response.fantasyTeamId) {
-    yield put({ type: SET_FANTASY_TEAM_ID_COMPLETED, payload: { data: response } });
+  if (response.fantasyEspnAuthHash) {
+    yield put({ type: SET_FANTASY_ESPN_COOKIES_COMPLETED, payload: { data: response } });
   } else {
-    console.log('handle failed to set fantasy team id');
+    console.log('handle failed to set fantasy espn cookies');
   }
 }
 
@@ -103,5 +103,5 @@ export function* fantasyWatcher() {
   yield takeLatest(FETCH_FANTASY_ROSTER, fetchFantasyRosterRequest);
   yield takeLatest(CLEAR_FANTASY_DATA, clearFantasyDataRequest);
   yield takeLatest(SET_FANTASY_LEAGUE_ID, setFantasyLeagueIdRequest);
-  yield takeLatest(SET_FANTASY_TEAM_ID, setFantasyTeamIdRequest);
+  yield takeLatest(SET_FANTASY_ESPN_COOKIES, setFantasyEspnCookiesRequest);
 }
