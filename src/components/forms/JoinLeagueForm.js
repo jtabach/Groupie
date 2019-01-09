@@ -21,10 +21,19 @@ let JoinLeague = props => {
       </div>
       <div className={styles["field"]}>
         <Field
-          name="fantasyTeamId"
+          name="espnCookieS2"
           type="text"
-          label="Fantasy Team Id"
-          placeholder="fantasy team id"
+          label="ESPN S2 Cookie (optional)"
+          placeholder="somehash"
+          component={RenderField}
+        />
+      </div>
+      <div className={styles["field"]}>
+        <Field
+          name="espnCookieSwid"
+          type="text"
+          label="ESPN SWID Cookie (optional)"
+          placeholder="{somehash}"
           component={RenderField}
         />
       </div>
