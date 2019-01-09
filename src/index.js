@@ -4,9 +4,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import './index.scss';
 
+import history from './history';
 import routes from './routes';
 import reducers from './reducers';
 import rootSaga from './sagas';
@@ -26,7 +27,7 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>{routes}</BrowserRouter>
+    <Router history={history}>{routes}</Router>
   </Provider>,
   document.querySelector('#root')
 );
