@@ -20,7 +20,7 @@ class OpposingTeam extends Component {
       return (
         <div>This league has not yet been set up for fantasy</div>
       )
-    } else if (!team.fantasyEspnAuthHash) {
+    } else if (!team.espnAuthCookie) {
       return (
         <div>
           <div>This team has not yet added their fantasy espn auth</div>
