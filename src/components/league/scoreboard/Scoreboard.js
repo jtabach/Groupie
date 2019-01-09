@@ -13,7 +13,9 @@ class Scoreboard extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchFantasyScoreboard(this.props.league.fantasyLeagueId, this.state.matchupPeriod)
+    if (this.props.league.fantasyLeagueId) {
+      this.props.fetchFantasyScoreboard(this.props.league.fantasyLeagueId, this.state.matchupPeriod)
+    }
   }
 
   handleMatchupPeriodChange(event) {
@@ -38,6 +40,7 @@ class Scoreboard extends Component {
         );
       }
     }
+
     return (
       <div>
         <ScoreWeekSelect
