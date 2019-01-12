@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import ReactTooltip from 'react-tooltip';
+import moment from 'moment';
 import styles from './PostItem.module.scss';
 
 import CommentList from './CommentList';
@@ -246,6 +247,7 @@ class PostItem extends Component {
         <div className={styles["post-item__header"]}>
           <div className={styles["post-item__header--content"]}>
             <h5>{post.team.name}</h5>
+            <p>{moment(post.date).format('MMMM Do YYYY, h:mm:ss a')}</p>
             <p>{post.text}</p>
           </div>
           <div className={styles["post-item__header--actions"]}>
