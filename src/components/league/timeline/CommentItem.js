@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CustomPropTypes from '../../../prop-types';
+import moment from 'moment';
 import styles from './CommentItem.module.scss';
 
 class CommentItem extends Component {
@@ -16,6 +17,7 @@ class CommentItem extends Component {
           <strong className={styles["team-name"]}>{comment.team.name}</strong>{' '}
           {comment.text}
         </p>
+        <p>{moment(comment.date, "YYYYMMDD").fromNow()}</p>
       </li>
     );
   }
