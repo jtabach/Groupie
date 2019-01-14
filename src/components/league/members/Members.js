@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import MemberList from './MemberList';
 
 class Members extends Component {
-  renderLeagueMembers() {
-    const { league } = this.props;
-
-    return league.teams.map(team => {
-      return (
-        <li key={team._id}>
-          <Link to={`/league/${league._id}/team/${team._id}`}>{team.user.firstName} {team.user.lastName}</Link>
-        </li>
-      )
-    });
-  }
-
   render() {
+    const { league } = this.props;
 
     return (
       <div>
-        <h2>League Members</h2>
-        <ul>{this.renderLeagueMembers()}</ul>
+        <h2 style={{ marginBottom: '12px' }}>League Members</h2>
+        <MemberList league={league} />
       </div>
     );
   }
