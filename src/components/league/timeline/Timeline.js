@@ -34,7 +34,7 @@ class Timeline extends Component {
   }
 
   handlePostInputSubmit(text) {
-    const { league, team, createPost, createNotification } = this.props;
+    const { league, team, user, createPost, createNotification } = this.props;
     const postData = {
       text,
       leagueId: league._id,
@@ -47,6 +47,7 @@ class Timeline extends Component {
     });
 
     const notificationData = {
+      actor: user._id,
       verb: 'post',
       actingOn: 'timeline',
       leagueId: league._id

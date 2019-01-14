@@ -144,6 +144,13 @@ class PostItem extends Component {
 
     if (likeStr === 'like') {
       likePost(likeData);
+
+      // const notificationData = {
+      //   verb: 'like',
+      //   actingOn: 'post',
+      //   leagueId: league._id
+      // };
+      // createNotification(notificationData);
     } else {
       likeData._id = post.likes.find(like => {
         return like.team._id === team._id;
