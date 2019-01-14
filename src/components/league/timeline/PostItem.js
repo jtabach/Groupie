@@ -19,6 +19,7 @@ import threeDots from '../../../images/three-dots.png';
 import { deletePost, editPost } from '../../../actions/postActions';
 import { createComment } from '../../../actions/commentActions';
 import { likePost, deleteLikePost } from '../../../actions/likeActions';
+import { createNotification } from '../../../actions/notificationActions';
 
 class PostItem extends Component {
   static propTypes = {
@@ -135,7 +136,10 @@ class PostItem extends Component {
 
   // TODO: break into seperate functions
   onHandleLikeToggle(likeStr) {
-    const { league, team, post, likePost, deleteLikePost } = this.props;
+    const { league, team, post, likePost, deleteLikePost, createNotification } = this.props;
+    console.log('team', team);
+    console.log('post', post);
+    console.log(likeStr);
     const likeData = {
       leagueId: league._id,
       teamId: team._id,
@@ -145,12 +149,16 @@ class PostItem extends Component {
     if (likeStr === 'like') {
       likePost(likeData);
 
-      // const notificationData = {
-      //   verb: 'like',
-      //   actingOn: 'post',
-      //   leagueId: league._id
-      // };
-      // createNotification(notificationData);
+      const notificationData = {
+        variant: 'likeOnPost',
+        actor: team.user,
+        patient: post.team.user,
+        verb: 'like',
+        actingOn: 'post',
+        leagueId: league._id,
+        postId: post._id
+      };
+      createNotification(notificationData);
     } else {
       likeData._id = post.likes.find(like => {
         return like.team._id === team._id;
@@ -290,5 +298,6 @@ export default connect(mapStateToProps, {
   deletePost,
   editPost,
   likePost,
-  deleteLikePost
+  deleteLikePost,
+  createNotification
 })(PostItem);

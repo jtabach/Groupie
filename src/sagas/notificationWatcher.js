@@ -13,10 +13,10 @@ import {
   DISMISS_NOTIFICATIONS_COMPLETED
 } from '../types/notificationTypes';
 
-function* notificationPostRequest(action) {
+function* createNotificationRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/notification',
+    `http://localhost:5000/api/notification/${action.payload.variant}`,
     action.payload
   );
   if (!response.success) {
@@ -88,9 +88,9 @@ function* dismissNotificationsRequest(action) {
 }
 
 export function* notificationWatcher() {
-  yield takeLatest(CREATE_NOTIFICATION, notificationPostRequest);
+  yield takeLatest(CREATE_NOTIFICATION, createNotificationRequest);
   yield takeLatest(FETCH_NOTIFICATIONS, fetchNotificationsRequest);
-  yield takeLatest(FETCH_NOTIFICATIONS, () => {});
+  // yield takeLatest(FETCH_NOTIFICATIONS, () => {});
   yield takeLatest(VIEW_NOTIFICATION, viewNotificationRequest);
   yield takeLatest(VIEW_ALL_NOTIFICATIONS, viewAllNotifications);
   yield takeLatest(DISMISS_NOTIFICATIONS, dismissNotificationsRequest);

@@ -47,6 +47,7 @@ class Timeline extends Component {
     });
 
     const notificationData = {
+      variant: 'postOnTimeline',
       actor: user._id,
       verb: 'post',
       actingOn: 'timeline',
