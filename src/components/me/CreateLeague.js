@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from '../forms/FormWrapper.module.scss';
 
+import FormWrapper from '../forms/FormWrapper';
 import CreateLeagueForm from '../forms/CreateLeagueForm';
 import Card from '../common/Card';
 
@@ -15,12 +16,10 @@ class CreateLeague extends Component {
   render() {
     return (
       <Card>
-        <div className={styles["header"]}>
-          <h2 className={styles["title"]}>Create Your League</h2>
-        </div>
-        <div className={styles["card-content"]}>
-          <CreateLeagueForm onSubmit={this.handleSubmit} />
-        </div>
+        <FormWrapper
+          formTitle={'Create Your League'}
+          form={<CreateLeagueForm onSubmit={this.handleSubmit} />}
+        />
       </Card>
     );
   }

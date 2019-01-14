@@ -52,7 +52,7 @@ let RegisterForm = props => {
       </div>
       <div className={styles["button"]}>
         <ButtonTest
-          label="Login"
+          label="Register"
           type="submit"
           size="large"
           variant="primary"

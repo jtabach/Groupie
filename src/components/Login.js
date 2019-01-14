@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import FormWrapper from './forms/FormWrapper';
 import LoginForm from './forms/LoginForm';
 import Card from './common/Card';
-
-import styleFormWrapper from './forms/FormWrapper.module.scss';
-
 
 import { loginUser } from '../actions/authActions';
 
@@ -19,12 +17,10 @@ class Login extends Component {
       <div>
         <div className='offset-3 col-6'>
           <Card>
-            <div className={styleFormWrapper["header"]}>
-              <h2 className={styleFormWrapper["title"]}>Login</h2>
-            </div>
-            <div className={styleFormWrapper["card-content"]}>
-              <LoginForm onSubmit={this.handleSubmit} />
-            </div>
+            <FormWrapper
+              formTitle={'Login With Your Email'}
+              form={<LoginForm onSubmit={this.handleSubmit} />}
+            />
           </Card>
         </div>
       </div>
