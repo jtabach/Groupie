@@ -14,9 +14,8 @@ class Notification extends Component {
         return (
           <div className={styles["notification-buffer"]}>
             <p>
-              <strong>{notification.actor.email}</strong> posted in{' '}
-              <strong>{notification.league.name}</strong> aksdhf oaioie asydg
-              fiua
+              <strong>{notification.actor.firstName} {notification.actor.lastName}</strong> posted in{' '}
+              <strong>{notification.league.name}</strong>
             </p>
           </div>
         );

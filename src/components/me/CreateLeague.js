@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styles from '../forms/FormWrapper.module.scss';
 
 import FormWrapper from '../forms/FormWrapper';
 import CreateLeagueForm from '../forms/CreateLeagueForm';
