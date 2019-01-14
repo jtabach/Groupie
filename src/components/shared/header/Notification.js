@@ -9,12 +9,23 @@ class Notification extends Component {
   };
 
   renderNotification(notification) {
+    console.log(notification);
     switch (notification.verb) {
       case 'post':
         return (
           <div className={styles["notification-buffer"]}>
             <p>
               <strong>{notification.actor.firstName} {notification.actor.lastName}</strong> posted in{' '}
+              <strong>{notification.league.name}</strong>
+            </p>
+          </div>
+        );
+      case 'like':
+        return (
+          <div className={styles["notification-buffer"]}>
+            <p>
+              <strong>{notification.actor.firstName} {notification.actor.lastName}</strong>{' '}
+              liked your post in{' '}
               <strong>{notification.league.name}</strong>
             </p>
           </div>
