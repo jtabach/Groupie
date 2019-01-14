@@ -5,12 +5,12 @@
   background-color: $blue-gffl;
 }
 
-.card-content {
-  padding: $medium-spacing;
-}
-
-.test {
+.title {
   color: $white;
   @include vertical-align;
   text-align: center;
+}
+
+.card-content {
+  padding: $medium-spacing;
 }

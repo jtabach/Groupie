@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styles from './JoinLeague.module.scss';
+import styles from '../forms/FormWrapper.module.scss';
 
 import JoinLeagueForm from '../forms/JoinLeagueForm';
 import Card from '../common/Card';

@@ -4,12 +4,13 @@ import { Field, reduxForm } from 'redux-form';
 import RenderField from './RenderField';
 import ButtonTest from '../common/ButtonTest';
 import { validate, warn } from './validation/register';
+import styles from './Form.module.scss';
 
 let RegisterForm = props => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className={styles["field"]}>
         <Field
           name="firstName"
           type="text"
@@ -17,7 +18,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div>
+      <div className={styles["field"]}>
         <Field
           name="lastName"
           type="text"
@@ -25,7 +26,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div>
+      <div className={styles["field"]}>
         <Field
           name="email"
           type="email"
@@ -33,7 +34,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div>
+      <div className={styles["field"]}>
         <Field
           name="password1"
           type="password"
@@ -41,7 +42,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div>
+      <div className={styles["field"]}>
         <Field
           name="password2"
           type="password"
@@ -49,7 +50,14 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <ButtonTest label="Register" type="submit" size="large" variant="primary" />
+      <div className={styles["button"]}>
+        <ButtonTest
+          label="Login"
+          type="submit"
+          size="large"
+          variant="primary"
+        />
+      </div>
     </form>
   );
 };
