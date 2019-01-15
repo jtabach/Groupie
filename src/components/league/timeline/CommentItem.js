@@ -14,7 +14,7 @@ class CommentItem extends Component {
 
     return (
       <li className={styles["comment-item"]}>
-        <p>
+        <p className={styles["comment-text"]}>
           <strong className={styles["team-name"]}>
             {comment.team.user.firstName} {comment.team.user.lastName}
           </strong>{' '}
