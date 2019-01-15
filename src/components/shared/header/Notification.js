@@ -9,9 +9,8 @@ class Notification extends Component {
   };
 
   renderNotification(notification) {
-    console.log(notification);
-    switch (notification.verb) {
-      case 'post':
+    switch (notification.onModel) {
+      case 'PostOnTimeline':
         return (
           <div className={styles["notification-buffer"]}>
             <p>
@@ -20,7 +19,7 @@ class Notification extends Component {
             </p>
           </div>
         );
-      case 'like':
+      case 'LikeOnPost':
         return (
           <div className={styles["notification-buffer"]}>
             <p>
