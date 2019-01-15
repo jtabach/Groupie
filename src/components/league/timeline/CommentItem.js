@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import CustomPropTypes from '../../../prop-types';
-import moment from 'moment';
 import styles from './CommentItem.module.scss';
+
+import uiHelper from '../../../helpers/uiHelper';
 
 class CommentItem extends Component {
   static propTypes = {
@@ -19,7 +20,7 @@ class CommentItem extends Component {
           </strong>{' '}
           {comment.text}
         </p>
-        <p>{moment(comment.date, "YYYYMMDD").fromNow()}</p>
+        <p className={styles["comment-date"]}>{uiHelper.formatCommentDate(comment.date)}</p>
       </li>
     );
   }

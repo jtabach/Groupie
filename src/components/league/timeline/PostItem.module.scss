@@ -24,6 +24,9 @@
     &--content {
       color: blue;
     }
+    &--date {
+      color: $gray;
+    }
     &--actions {
       position: relative;
       cursor: pointer;

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import ReactTooltip from 'react-tooltip';
-import moment from 'moment';
 import styles from './PostItem.module.scss';
 
 import CommentList from './CommentList';
@@ -13,6 +12,8 @@ import PostDeleteButton from './PostDeleteButton';
 import PostEditButton from './PostEditButton';
 import PostEditModal from './PostEditModal';
 import PostActionsList from './PostActionsList';
+
+import uiHelper from '../../../helpers/uiHelper';
 
 import threeDots from '../../../images/three-dots.png';
 
@@ -271,7 +272,7 @@ class PostItem extends Component {
         <div className={styles["post-item__header"]}>
           <div className={styles["post-item__header--content"]}>
             <h5>{post.team.user.firstName} {post.team.user.lastName}</h5>
-            <p>{moment(post.date).format('MMMM Do YYYY, h:mm:ss a')}</p>
+            <p className={styles["post-item__header--date"]}>{uiHelper.formatPostDate(post.date)}</p>
             <p>{post.text}</p>
           </div>
           <div className={styles["post-item__header--actions"]}>
