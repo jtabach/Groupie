@@ -65,7 +65,7 @@ class PostItem extends Component {
   }
 
   handleCommentInputSubmit(text) {
-    const { league, team, post, createComment } = this.props;
+    const { league, team, post, createComment, createNotification } = this.props;
     const commentData = {
       text,
       leagueId: league._id,
@@ -77,6 +77,17 @@ class PostItem extends Component {
     this.setState({
       commentText: ''
     });
+
+    const notificationData = {
+      variant: 'commentOnPost',
+      actor: team.user,
+      patient: post.team.user,
+      verb: 'comment',
+      actingOn: 'post',
+      leagueId: league._id,
+      postId: post._id
+    };
+    createNotification(notificationData);
   }
 
   focusCommentInput() {
