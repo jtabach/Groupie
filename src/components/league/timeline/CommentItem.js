@@ -14,7 +14,9 @@ class CommentItem extends Component {
     return (
       <li className={styles["comment-item"]}>
         <p>
-          <strong className={styles["team-name"]}>{comment.team.name}</strong>{' '}
+          <strong className={styles["team-name"]}>
+            {comment.team.user.firstName} {comment.team.user.lastName}
+          </strong>{' '}
           {comment.text}
         </p>
         <p>{moment(comment.date, "YYYYMMDD").fromNow()}</p>

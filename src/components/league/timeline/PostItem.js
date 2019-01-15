@@ -81,7 +81,7 @@ class PostItem extends Component {
     const notificationData = {
       variant: 'commentOnPost',
       actor: team.user,
-      patient: post.team.user,
+      patient: post.team.user._id,
       verb: 'comment',
       actingOn: 'post',
       leagueId: league._id,
@@ -148,9 +148,7 @@ class PostItem extends Component {
   // TODO: break into seperate functions
   onHandleLikeToggle(likeStr) {
     const { league, team, post, likePost, deleteLikePost, createNotification } = this.props;
-    console.log('team', team);
-    console.log('post', post);
-    console.log(likeStr);
+
     const likeData = {
       leagueId: league._id,
       teamId: team._id,
@@ -163,7 +161,7 @@ class PostItem extends Component {
       const notificationData = {
         variant: 'likeOnPost',
         actor: team.user,
-        patient: post.team.user,
+        patient: post.team.user._id,
         verb: 'like',
         actingOn: 'post',
         leagueId: league._id,
@@ -222,7 +220,7 @@ class PostItem extends Component {
           <ReactTooltip id={`likes-${post._id}`} effect="solid">
             <ul>
               {post.likes.map(like => {
-                return <li key={like._id}>{like.team.name}</li>;
+                return <li key={like._id}>{like.team.user.firstName} {like.team.user.lastName}</li>;
               })}
             </ul>
           </ReactTooltip>
@@ -235,7 +233,7 @@ class PostItem extends Component {
             <ul>
               {post.comments
                 .map(comment => {
-                  return comment.team.name;
+                  return `${comment.team.user.firstName} ${comment.team.user.lastName}`;
                 })
                 .filter((value, index, self) => {
                   return self.indexOf(value) === index;
@@ -272,7 +270,7 @@ class PostItem extends Component {
       <li className={styles["post-item"]}>
         <div className={styles["post-item__header"]}>
           <div className={styles["post-item__header--content"]}>
-            <h5>{post.team.name}</h5>
+            <h5>{post.team.user.firstName} {post.team.user.lastName}</h5>
             <p>{moment(post.date).format('MMMM Do YYYY, h:mm:ss a')}</p>
             <p>{post.text}</p>
           </div>

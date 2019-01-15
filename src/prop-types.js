@@ -23,19 +23,19 @@ const postInLeague = PropTypes.shape({
 // TODO: duplicate of teamInComment and teamInLike
 const teamInPost = PropTypes.shape({
   _id: PropTypes.string.isRequired,
-  user: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   league: PropTypes.string.isRequired
 });
 
 const teamInComment = PropTypes.shape({
   _id: PropTypes.string.isRequired,
-  user: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   league: PropTypes.string.isRequired
 });
 
 const teamInLike = PropTypes.shape({
   _id: PropTypes.string.isRequired,
-  user: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   league: PropTypes.string.isRequired
 });
 
