@@ -29,6 +29,16 @@ class Notification extends Component {
             </p>
           </div>
         );
+      case 'CommentOnPost':
+        return (
+          <div className={styles["notification-buffer"]}>
+            <p>
+              <strong>{notification.actor.firstName} {notification.actor.lastName}</strong>{' '}
+              commented on your post in{' '}
+              <strong>{notification.league.name}</strong>
+            </p>
+          </div>
+        );
       default:
         return null;
     }
