@@ -20,7 +20,7 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <div className='offset-3 col-6'>
+        <div className='offset-4 col-4'>
           <Card>
             <FormWrapper
               formTitle={'Register With Your Email'}

@@ -1,7 +1,7 @@
 @import '../../assets/styles/app';
 
 .header {
-  height: $header-spacing;
+  height: 72px;
   background-color: $blue-gffl;
 }
 
@@ -12,5 +12,5 @@
 }
 
 .card-content {
-  padding: $medium-spacing;
+  padding: $base-spacing;
 }
