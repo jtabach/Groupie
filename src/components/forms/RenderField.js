@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './RenderField.module.scss';
 
 const RenderField = ({
   input,
@@ -10,9 +11,14 @@ const RenderField = ({
   <div>
     <label>{label}</label>
     <div>
-      <input {...input} placeholder={placeholder || label} type={type} />
+      <input
+        className={error && touched ? styles["error-input"] : ""}
+        placeholder={placeholder || label}
+        type={type}
+        {...input}
+      />
       {touched &&
-        ((error && <span>{error}</span>) ||
+        ((error && <span className={styles["error-message"]}>{error}</span>) ||
           (warning && <span>{warning}</span>))}
     </div>
   </div>
