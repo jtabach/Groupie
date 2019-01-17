@@ -1,6 +1,7 @@
 import {
   REGISTER_USER_COMPLETED,
   REGISTER_USER_FAILED,
+  LOGIN_USER,
   LOGIN_USER_COMPLETED,
   LOGIN_USER_FAILED,
   LOGOUT_USER_COMPLETED,
@@ -43,6 +44,14 @@ export default (state = initialState, action) => {
         ...initialState,
         _id: false
       };
+      break;
+
+    case LOGIN_USER:
+      state = {
+        ...initialState,
+        _id: false,
+        loading: true
+      }
       break;
 
     case LOGIN_USER_COMPLETED:
