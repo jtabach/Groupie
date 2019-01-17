@@ -2,6 +2,7 @@ import {
   REGISTER_USER_COMPLETED,
   REGISTER_USER_FAILED,
   LOGIN_USER_COMPLETED,
+  LOGIN_USER_FAILED,
   LOGOUT_USER_COMPLETED,
   FETCH_USER_COMPLETED,
   FETCH_USER_FAILED
@@ -25,10 +26,13 @@ const initialState = {
   firstName: null,
   lastName: null,
   teams: [],
-  notifications: []
+  notifications: [],
+  loading: false,
+  errorMessage: ''
 };
 
 export default (state = initialState, action) => {
+  console.log(action.type);
   switch (action.type) {
     case REGISTER_USER_COMPLETED:
       state = action.payload.data.user;
@@ -42,7 +46,20 @@ export default (state = initialState, action) => {
       break;
 
     case LOGIN_USER_COMPLETED:
-      state = action.payload.data.user;
+      state = {
+        ...action.payload.data.user,
+        loading: false,
+        errorMessage: ''
+      };
+      break;
+
+    case LOGIN_USER_FAILED:
+    console.log(action.payload.data);
+      state = {
+        ...initialState,
+        _id: false,
+        errorMessage: action.payload.data.message
+      }
       break;
 
     case FETCH_USER_COMPLETED:

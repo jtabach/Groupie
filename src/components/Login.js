@@ -17,11 +17,16 @@ class Login extends Component {
     return (
       <div>
         <div className='offset-4 col-4'>
-          <Loading />
           <Card>
             <FormWrapper
               formTitle={'Login With Your Email'}
-              form={<LoginForm onSubmit={this.handleSubmit} />}
+              form={
+                <LoginForm
+                  onSubmit={this.handleSubmit}
+                  errorMessage={this.props.user.errorMessage}
+                  isLoading={this.props.user.loading}
+                />
+              }
             />
           </Card>
         </div>
@@ -30,4 +35,8 @@ class Login extends Component {
   }
 }
 
-export default connect(null, { loginUser })(Login);
+function mapStateToProps({ user }) {
+  return { user };
+}
+
+export default connect(mapStateToProps, { loginUser })(Login);

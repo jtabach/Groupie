@@ -3,6 +3,7 @@ import { getRequest, postRequest } from './helpers/request';
 import {
   LOGIN_USER,
   LOGIN_USER_COMPLETED,
+  LOGIN_USER_FAILED,
   FETCH_USER,
   FETCH_USER_COMPLETED,
   FETCH_USER_FAILED,
@@ -22,8 +23,7 @@ function* loginUserRequest(action) {
   if (response.user) {
     yield put({ type: LOGIN_USER_COMPLETED, payload: { data: response } });
   } else {
-    // invoke some other action
-    console.log('handle failed login');
+    yield put({ type: LOGIN_USER_FAILED, payload: { data: response } });
   }
 }
 
