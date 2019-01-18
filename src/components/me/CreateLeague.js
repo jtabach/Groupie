@@ -13,15 +13,27 @@ class CreateLeague extends Component {
   };
 
   render() {
+    const { errorMessage, loading } = this.props.formLoading.createLeague;
+
     return (
       <Card>
         <FormWrapper
           formTitle={'Create Your League'}
-          form={<CreateLeagueForm onSubmit={this.handleSubmit} />}
+          form={
+            <CreateLeagueForm
+              onSubmit={this.handleSubmit}
+              errorMessage={errorMessage}
+              isLoading={loading}
+            />
+          }
         />
       </Card>
     );
   }
 }
 
-export default connect(null, { createLeague })(CreateLeague);
+function mapStateToProps({ formLoading }) {
+  return { formLoading };
+}
+
+export default connect(mapStateToProps, { createLeague })(CreateLeague);

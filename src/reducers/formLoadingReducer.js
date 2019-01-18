@@ -48,6 +48,33 @@ export default (state = initialState, action) => {
         }
       };
       break;
+    case CREATE_LEAGUE:
+      state = {
+        ...initialState,
+        createLeague: {
+          errorMessage: '',
+          loading: true
+        }
+      };
+      break;
+    case CREATE_LEAGUE_COMPLETED:
+      state = {
+        ...initialState,
+        createLeague: {
+          errorMessage: '',
+          loading: false
+        }
+      };
+      break;
+    case CREATE_LEAGUE_FAILED:
+      state = {
+        ...initialState,
+        createLeague: {
+          errorMessage: action.payload.data.message,
+          loading: false
+        }
+      };
+      break;
     default:
       return state;
   }

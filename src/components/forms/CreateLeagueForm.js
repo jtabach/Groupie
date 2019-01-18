@@ -7,10 +7,11 @@ import ButtonTest from '../common/ButtonTest';
 import { validate } from './validation/createLeague';
 
 let CreateLeagueForm = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, errorMessage, isLoading } = props;
 
   return (
     <form onSubmit={handleSubmit}>
+      <p className={styles["error-message"]}>{errorMessage}</p>
       <div className={styles["field"]}>
         <Field
           name="leagueName"
@@ -53,6 +54,7 @@ let CreateLeagueForm = props => {
           type="submit"
           size="large"
           variant="primary"
+          isLoading={isLoading}
         />
       </div>
     </form>

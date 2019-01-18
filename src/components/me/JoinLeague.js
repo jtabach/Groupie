@@ -14,6 +14,7 @@ class JoinLeague extends Component {
 
   render() {
     const { errorMessage, loading } = this.props.formLoading.joinLeague;
+    
     return (
       <Card>
         <FormWrapper

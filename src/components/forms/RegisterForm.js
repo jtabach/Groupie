@@ -10,7 +10,7 @@ let RegisterForm = props => {
   const { handleSubmit, errorMessage, isLoading } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <p className={styles["error-message"]}>{ errorMessage }</p>
+      <p className={styles["error-message"]}>{errorMessage}</p>
       <div className={styles["field"]}>
         <Field
           name="firstName"

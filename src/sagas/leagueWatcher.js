@@ -10,6 +10,7 @@ import {
   CLEAR_LEAGUE_COMPLETED,
   CREATE_LEAGUE,
   CREATE_LEAGUE_COMPLETED,
+  CREATE_LEAGUE_FAILED,
   JOIN_LEAGUE,
   JOIN_LEAGUE_COMPLETED,
   JOIN_LEAGUE_FAILED
@@ -38,13 +39,12 @@ function* createLeagueRequest(action) {
     'http://localhost:5000/api/league',
     action.payload
   );
-  // TODO: some conditional to show league created successfully
+  
   if (response.team) {
     yield put({ type: CREATE_LEAGUE_COMPLETED, payload: { data: response } });
     history.push(`/league/${response.team.league._id}`);
   } else {
-    // invoke some other action
-    console.log('handle failed league creation');
+    yield put({ type: CREATE_LEAGUE_FAILED, payload: { data: response } });
   }
 }
 
@@ -54,7 +54,7 @@ function* joinLeagueRequest(action) {
     'http://localhost:5000/api/team',
     action.payload
   );
-  // TODO: some conditional to show league was joined successfully
+
   if (response.team) {
     yield put({ type: JOIN_LEAGUE_COMPLETED, payload: { data: response } });
     history.push(`/league/${response.team.league._id}`);
