@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import FormWrapper from './forms/FormWrapper';
 import LoginForm from './forms/LoginForm';
 import Card from './common/Card';
-import Loading from './common/Loading';
 
 import { loginUser } from '../actions/authActions';
 

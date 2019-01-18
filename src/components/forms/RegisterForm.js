@@ -7,9 +7,10 @@ import { validate, warn } from './validation/register';
 import styles from './Form.module.scss';
 
 let RegisterForm = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, errorMessage, isLoading } = props;
   return (
     <form onSubmit={handleSubmit}>
+      <p className={styles["error-message"]}>{ errorMessage }</p>
       <div className={styles["field"]}>
         <Field
           name="firstName"
@@ -56,6 +57,7 @@ let RegisterForm = props => {
           type="submit"
           size="large"
           variant="primary"
+          isLoading={isLoading}
         />
       </div>
     </form>

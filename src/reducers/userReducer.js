@@ -1,4 +1,5 @@
 import {
+  REGISTER_USER,
   REGISTER_USER_COMPLETED,
   REGISTER_USER_FAILED,
   LOGIN_USER,
@@ -33,17 +34,29 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
+    case REGISTER_USER:
+      state = {
+        ...initialState,
+        _id: false,
+        loading: true
+      }
+      break;
+
     case REGISTER_USER_COMPLETED:
-      state = action.payload.data.user;
+      state = {
+        ...action.payload.data.user,
+        loading: false,
+        errorMessage: ''
+      };
       break;
 
     case REGISTER_USER_FAILED:
       state = {
         ...initialState,
-        _id: false
-      };
+        _id: false,
+        errorMessage: action.payload.data.message
+      }
       break;
 
     case LOGIN_USER:
@@ -63,7 +76,6 @@ export default (state = initialState, action) => {
       break;
 
     case LOGIN_USER_FAILED:
-    console.log(action.payload.data);
       state = {
         ...initialState,
         _id: false,

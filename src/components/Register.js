@@ -24,7 +24,13 @@ class Register extends Component {
           <Card>
             <FormWrapper
               formTitle={'Register With Your Email'}
-              form={<RegisterForm onSubmit={this.handleSubmit} />}
+              form={
+                <RegisterForm
+                  onSubmit={this.handleSubmit}
+                  errorMessage={this.props.user.errorMessage}
+                  isLoading={this.props.user.loading}
+                />
+              }
             />
           </Card>
         </div>
@@ -33,4 +39,8 @@ class Register extends Component {
   }
 }
 
-export default connect(null, { registerUser })(Register);
+function mapStateToProps({ user }) {
+  return { user };
+}
+
+export default connect(mapStateToProps, { registerUser })(Register);
