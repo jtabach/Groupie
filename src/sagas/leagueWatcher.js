@@ -11,7 +11,8 @@ import {
   CREATE_LEAGUE,
   CREATE_LEAGUE_COMPLETED,
   JOIN_LEAGUE,
-  JOIN_LEAGUE_COMPLETED
+  JOIN_LEAGUE_COMPLETED,
+  JOIN_LEAGUE_FAILED
 } from '../types/leagueTypes';
 
 function* fetchLeagueRequest(action) {
@@ -58,8 +59,7 @@ function* joinLeagueRequest(action) {
     yield put({ type: JOIN_LEAGUE_COMPLETED, payload: { data: response } });
     history.push(`/league/${response.team.league._id}`);
   } else {
-    // invoke some other action
-    console.log('handle failed join league');
+    yield put({ type: JOIN_LEAGUE_FAILED, payload: { data: response } });
   }
 }
 

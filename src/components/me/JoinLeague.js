@@ -13,15 +13,26 @@ class JoinLeague extends Component {
   };
 
   render() {
+    const { errorMessage, loading } = this.props.formLoading.joinLeague;
     return (
       <Card>
         <FormWrapper
           formTitle={'Join A League'}
-          form={<JoinLeagueForm onSubmit={this.handleSubmit} />}
+          form={
+            <JoinLeagueForm
+              onSubmit={this.handleSubmit}
+              errorMessage={errorMessage}
+              isLoading={loading}
+            />
+          }
         />
       </Card>
     );
   }
 }
 
-export default connect(null, { joinLeague })(JoinLeague);
+function mapStateToProps({ formLoading }) {
+  return { formLoading };
+}
+
+export default connect(mapStateToProps, { joinLeague })(JoinLeague);

@@ -7,6 +7,7 @@ import leagueReducer from './leagueReducer';
 import teamReducer from './teamReducer';
 import newsReducer from './newsReducer';
 import fantasyReducer from './fantasyReducer';
+import formLoadingReducer from './formLoadingReducer';
 
 export default combineReducers({
   demo: demoReducer,
@@ -15,5 +16,6 @@ export default combineReducers({
   league: leagueReducer,
   team: teamReducer,
   news: newsReducer,
-  fantasy: fantasyReducer
+  fantasy: fantasyReducer,
+  formLoading: formLoadingReducer
 });

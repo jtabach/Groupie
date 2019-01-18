@@ -7,9 +7,10 @@ import { validate } from './validation/joinLeague';
 import styles from './Form.module.scss';
 
 let JoinLeague = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, errorMessage, isLoading } = props;
   return (
     <form onSubmit={handleSubmit}>
+      <p className={styles["error-message"]}>{ errorMessage }</p>
       <div className={styles["field"]}>
         <Field
           name="leagueId"
@@ -43,6 +44,7 @@ let JoinLeague = props => {
           type="submit"
           size="large"
           variant="primary"
+          isLoading={isLoading}
         />
       </div>
     </form>
