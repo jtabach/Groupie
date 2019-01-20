@@ -7,7 +7,7 @@ class ModalCard extends Component {
   static propTypes = {
     children: PropTypes.node,
     variant: PropTypes.oneOf(['light', 'dark']),
-    onHandleClick: PropTypes.function
+    onHandleClick: PropTypes.func
   };
 
   static defaultProps = {

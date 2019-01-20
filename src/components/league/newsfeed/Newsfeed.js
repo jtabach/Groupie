@@ -2,11 +2,37 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Newsfeed.module.scss';
 
-import Card from '../../common/Card';
 import ModalCard from '../../common/ModalCard';
 import NewsCard from './NewsCard';
+import NewsModal from './NewsModal';
 
 class Newsfeed extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleModalOpen = this.handleModalOpen.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
+  }
+  state = {
+    isModalOpen: false,
+    newsContent: {}
+  }
+
+  handleModalOpen(item) {
+    console.log(item);
+    this.setState({
+      isModalOpen: true,
+      newsContent: item
+    });
+  }
+
+  handleModalClose() {
+    this.setState({
+      isModalOpen: false,
+      newsContent: {}
+    });
+  }
+
   renderPlayerNews() {
     const { news } = this.props;
     if (!news.length) {
@@ -15,7 +41,7 @@ class Newsfeed extends Component {
     return news.map(item => {
       return (
         <li key={item.id} className={styles["newsfeed__list--item"]}>
-          <ModalCard>
+          <ModalCard onHandleClick={() => this.handleModalOpen(item)}>
             <div className={styles["newsfeed__list--card"]}>
               <h6 className={styles["newsfeed__list--name"]}>{item.teamAbbr} - {item.position} - {item.firstName} {item.lastName}</h6>
               <h5 className={styles["newsfeed__list--headline"]}>{item.headline}</h5>
@@ -36,6 +62,10 @@ class Newsfeed extends Component {
       <div className={styles["newsfeed"]}>
         <h5 className={styles["newsfeed__header"]}>Player News</h5>
         <ul className={styles["newsfeed__list"]}>{this.renderPlayerNews()}</ul>
+        <NewsModal
+          isOpen={this.state.isModalOpen}
+          onHandleClose={this.handleModalClose}
+          content={this.state.newsContent}>Test</NewsModal>
       </div>
     );
   }
