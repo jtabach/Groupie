@@ -1,16 +1,34 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
+import UIHelper from '../../../helpers/uiHelper';
+
 class NewsModal extends Component {
+  _replaceHTMLCharRef(str) {
+    return str.replace(/&apos;/g, '\'');
+  }
+
   render() {
     const { isOpen, onHandleClose, content } = this.props;
-    console.log(content);
+    
     return (
       <Modal
         isOpen={isOpen}
         onRequestClose={onHandleClose}
       >
-        <div>This is a modal</div>
+      {
+        content.headline
+        ?
+        <div>
+          <p>{content.firstName} {content.lastName}</p>
+          <p>{content.teamAbbr}</p>
+          <p>{content.position}</p>
+          <p>{UIHelper.replaceHTMLCharRef(content.headline)}</p>
+          <p>{UIHelper.replaceHTMLCharRef(content.body)}</p>
+          <p>{UIHelper.replaceHTMLCharRef(content.analysis)}</p>
+        </div>
+        : null
+      }
       </Modal>
     );
   }

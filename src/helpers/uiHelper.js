@@ -26,6 +26,10 @@ const uiHelper = {
 
   formatCommentDate: function(date) {
     return moment(date).fromNow();
+  },
+
+  replaceHTMLCharRef: function (str) {
+    return str.replace(/&apos;/g, '\'');
   }
 };
 

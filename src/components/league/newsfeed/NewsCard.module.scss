@@ -1,0 +1,19 @@
+.news-card {
+  margin-bottom: 12px;
+
+  &__item {
+    padding: 12px;
+  }
+  &__name {
+    font-size: 11px;
+    padding-bottom: 6px;
+  }
+  &__headline {
+    font-size: 13px;
+    line-height: 22px;
+    padding-bottom: 6px;
+  }
+  &__body {
+    font-size: 12px;
+  }
+}
