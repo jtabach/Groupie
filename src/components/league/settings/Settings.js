@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import SettingsList from './SettingsList';
+
 class Settings extends Component {
   renderSettingsList() {
     const { league, user } = this.props;
 
     const isAdmin = league.admin === user._id;
 
-    return <div>List</div>
+    return <SettingsList isAdmin={isAdmin} league={league} user={user} />
   }
 
   render() {

@@ -18,7 +18,10 @@ class Standings extends Component {
     if (!fantasyLeagueId) {
       if (user._id === league.admin) {
         return (
-          <FantasyLeagueIdPrompt />
+          <FantasyLeagueIdPrompt
+            league={league}
+            promptText={'An ESPN Fantasy League Id has not been entered yet'}
+          />
         );
       } else {
         return (
