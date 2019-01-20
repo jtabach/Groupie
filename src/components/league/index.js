@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 import NavLayout from '../layouts/NavLayout';
 import LeagueRoutes from './LeagueRoutes';
 import LeagueMenu from './menu/LeagueMenu';
-import LeagueFeed from './LeagueFeed';
+import Newsfeed from './newsfeed/Newsfeed';
 
 class League extends Component {
   static propTypes = {
@@ -27,14 +27,14 @@ class League extends Component {
           <div className={`${styles["league"]}`}>
             <div className="container">
               <div className="row">
-                <div className="col-3">
+                <div className="col-2">
                   <LeagueMenu match={match} league={league} />
                 </div>
                 <div className="col-6">
                   <LeagueRoutes match={match} />
                 </div>
-                <div className="col-3">
-                  <LeagueFeed />
+                <div className="col-4">
+                  <Newsfeed />
                 </div>
               </div>
             </div>

@@ -44,7 +44,7 @@ class PostEditModal extends Component {
           type="button"
           variant="primary"
           size="small"
-          label="post"
+          label="save"
           onClick={() => onPostEditInputSubmit(this.textarea.value)}
         />
         <ButtonTest

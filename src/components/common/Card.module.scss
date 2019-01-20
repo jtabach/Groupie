@@ -43,3 +43,17 @@
   @extend %card-hover;
   background: $gray-medium;
 }
+
+.modal-card-light {
+  @extend %card;
+  @extend %card-hover;
+  background: $white;
+  cursor: pointer;
+}
+.modal-card-dark {
+  @extend %card;
+  @extend %card-hover;
+  background: $gray-medium;
+  cursor: pointer;
+}
+
