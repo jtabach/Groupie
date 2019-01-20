@@ -10,6 +10,7 @@ import OpposingTeam from './team/OpposingTeam';
 import LeagueInfo from './LeagueInfo';
 import Standings from './standings/Standings';
 import Scoreboard from './scoreboard/Scoreboard';
+import Settings from './settings/Settings';
 
 class LeagueRoutes extends Component {
   static propTypes = {
@@ -30,6 +31,7 @@ class LeagueRoutes extends Component {
         <Route exact path={`${match.url}/leagueInfo`} component={LeagueInfo} />
         <Route exact path={`${match.url}/standings`} component={Standings} />
         <Route exact path={`${match.url}/scoreboard`} component={Scoreboard} />
+        <Route exact path={`${match.url}/settings`} component={Settings} />
         {/* TODO: wildcard may want to show 'error' page with redirect links */}
         <Route path={`${match.url}/*`} component={Timeline} />
       </Switch>
