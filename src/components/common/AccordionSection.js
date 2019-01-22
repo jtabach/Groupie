@@ -11,11 +11,10 @@ class AccordionSection extends Component {
 
     return (
       <div className={styles['accordion-section']}>
-        <div className={styles['accordion-header']}>
+        <div className={styles['accordion-header']} onClick={this.handleClick}>
           <div className={styles['accordion-label']}>{label}</div>
           <div
             className={styles['accordion-icon']}
-            onClick={this.handleClick}
           >
             {
               isOpen

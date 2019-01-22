@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import FantasyLeagueIdPrompt from '../../../common/FantasyLeagueIdPrompt';
 import AccordionSection from '../../../common/AccordionSection';
+import Accordion from '../../../common/Accordion';
 
 class AdminSettings extends Component {
   render() {
@@ -9,13 +10,30 @@ class AdminSettings extends Component {
     return (
       <div>
         <h3>Admin Settings</h3>
-        <AccordionSection
-          isOpen={true}
-          label={'testing123'}
-          onHandleClick={() => { console.log('click')}}
-        >
-          <div>Test</div>
-        </AccordionSection>
+        <Accordion>
+          <div label='Alligator Mississippiensis'>
+            <p>
+              <strong>Common Name:</strong> American Alligator
+            </p>
+            <p>
+              <strong>Distribution:</strong> Texas to North Carolina, US
+            </p>
+            <p>
+              <strong>Endangered Status:</strong> Currently Not Endangered
+            </p>
+          </div>
+          <div label='Alligator Sinensis'>
+            <p>
+              <strong>Common Name:</strong> Chinese Alligator
+            </p>
+            <p>
+              <strong>Distribution:</strong> Eastern China
+            </p>
+            <p>
+              <strong>Endangered Status:</strong> Critically Endangered
+            </p>
+          </div>
+        </Accordion>
         <ul>
           <li>
             <FantasyLeagueIdPrompt
