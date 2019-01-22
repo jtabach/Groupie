@@ -20,9 +20,15 @@
   cursor: pointer;
   border-bottom: 1px solid $gray-light;
   padding: 16px 16px;
-  &__disabled {
-    background: $gray-dark;
-  }
+}
+.accordion-header-disabled {
+  background-color: $gray-lightest;
+  opacity: 0.5;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid $gray-light;
+  padding: 16px 16px;
 }
 
 .accordion-label {

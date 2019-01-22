@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './AdminSettings.module.scss';
 
 import AddFantasyLeagueIdSetting from './AddFantasyLeagueIdSetting';
 import EditFantasyLeagueIdSetting from './EditFantasyLeagueIdSetting';
@@ -8,19 +9,36 @@ import Accordion from '../../../common/Accordion';
 class AdminSettings extends Component {
   render() {
     const { league } = this.props;
+
+    const settingsList = [
+      {
+        label: 'Add ESPN Fantasy League Id',
+        component: <AddFantasyLeagueIdSetting league={league} />,
+        isDisabled: league.fantasyLeagueId ? true : false
+      },
+      {
+        label: 'Change ESPN Fantasy League Id',
+        component: <EditFantasyLeagueIdSetting league={league} />,
+        isDisabled: !league.fantasyLeagueId ? true : false
+      },
+      {
+        label: 'Delete ESPN Fantasy League Id',
+        component: <DeleteFantasyLeagueIdSetting league={league} />,
+        isDisabled: !league.fantasyLeagueId ? true : false
+      }
+    ];
+
     return (
-      <div>
+      <div className={styles['settings-list']}>
         <h3>Admin Settings</h3>
         <Accordion>
-          <div label='Add ESPN Fantasy League Id'>
-            <AddFantasyLeagueIdSetting league={league} />
-          </div>
-          <div label='Change ESPN Fantasy League Id'>
-            <EditFantasyLeagueIdSetting league={league} />
-          </div>
-          <div label='Delete ESPN Fantasy League Id'>
-            <DeleteFantasyLeagueIdSetting league={league} />
-          </div>
+          {settingsList.map((setting, i) => {
+            return (
+              <div label={setting.label} isDisabled={setting.isDisabled} key={i}>
+                {setting.component}
+              </div>
+            )
+          })}
         </Accordion>
       </div>
     )

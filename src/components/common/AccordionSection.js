@@ -7,21 +7,23 @@ class AccordionSection extends Component {
   }
 
   render() {
-    const { label, isOpen } = this.props;
+    const { label, isOpen, isDisabled } = this.props;
+
+    const accordionHeaderStyleName = isDisabled ? 'accordion-header-disabled' : 'accordion-header';
 
     return (
       <div className={styles['accordion-section']}>
-        <div className={styles['accordion-header']} onClick={this.handleClick}>
+        <div className={styles[accordionHeaderStyleName]} onClick={this.handleClick}>
           <div className={styles['accordion-label']}>{label}</div>
           <div
             className={styles['accordion-icon']}
           >
             {
-              isOpen
-              ?
-              <span>&#9660;</span>
-              :
-              <span>&#9650;</span>
+              isDisabled
+              ? <span>&#120;</span>
+              : isOpen
+              ? <span>&#9660;</span>
+              : <span>&#9650;</span>
             }
           </div>
         </div>

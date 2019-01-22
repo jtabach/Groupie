@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import FantasyLeagueIdPrompt from '../../../common/FantasyLeagueIdPrompt';
-
 class DeleteFantasyLeagueIdSetting extends Component {
   render() {
     const { league } = this.props;

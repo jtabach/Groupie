@@ -11,7 +11,7 @@ class FantasyLeagueIdPrompt extends Component {
   };
 
   render() {
-    const { promptText, league } = this.props;
+    const { promptText } = this.props;
 
     return (
       <div>
