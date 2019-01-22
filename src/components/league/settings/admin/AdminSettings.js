@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import AddFantasyLeagueIdSetting from './AddFantasyLeagueIdSetting';
 import EditFantasyLeagueIdSetting from './EditFantasyLeagueIdSetting';
+import DeleteFantasyLeagueIdSetting from './DeleteFantasyLeagueIdSetting';
 import Accordion from '../../../common/Accordion';
 
 class AdminSettings extends Component {
@@ -18,7 +19,7 @@ class AdminSettings extends Component {
             <EditFantasyLeagueIdSetting league={league} />
           </div>
           <div label='Delete ESPN Fantasy League Id'>
-            <div>Are you sure?</div>
+            <DeleteFantasyLeagueIdSetting league={league} />
           </div>
         </Accordion>
       </div>

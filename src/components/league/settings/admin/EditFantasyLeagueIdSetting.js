@@ -19,7 +19,7 @@ class EditFantasyLeagueIdSetting extends Component {
           <p>Fantasy League Id has not yet been set</p>
         }
       </div>
-    )
+    );
   }
 }
 

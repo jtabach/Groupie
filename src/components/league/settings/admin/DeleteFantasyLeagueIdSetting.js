@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import FantasyLeagueIdPrompt from '../../../common/FantasyLeagueIdPrompt';
 
-class AddFantasyLeagueIdSetting extends Component {
+class DeleteFantasyLeagueIdSetting extends Component {
   render() {
     const { league } = this.props;
 
@@ -11,16 +11,13 @@ class AddFantasyLeagueIdSetting extends Component {
         {
           league.fantasyLeagueId
           ?
-          <p>The fantasy league Id has already been set</p>
+          <p>some action for deleting the fantasy league id</p>
           :
-          <FantasyLeagueIdPrompt
-            league={league}
-            promptText={'Add ESPN Fantasy League Id'}
-          />
+          <p>Fantasy League Id has not yet been set</p>
         }
       </div>
     );
   }
 }
 
-export default AddFantasyLeagueIdSetting;
+export default DeleteFantasyLeagueIdSetting;
