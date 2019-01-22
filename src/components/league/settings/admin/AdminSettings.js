@@ -4,6 +4,7 @@ import styles from './AdminSettings.module.scss';
 import AddFantasyLeagueIdSetting from './AddFantasyLeagueIdSetting';
 import EditFantasyLeagueIdSetting from './EditFantasyLeagueIdSetting';
 import DeleteFantasyLeagueIdSetting from './DeleteFantasyLeagueIdSetting';
+import RemoveTeamFromLeagueSetting from './RemoveTeamFromLeagueSetting';
 import Accordion from '../../../common/Accordion';
 
 class AdminSettings extends Component {
@@ -25,6 +26,11 @@ class AdminSettings extends Component {
         label: 'Delete ESPN Fantasy League Id',
         component: <DeleteFantasyLeagueIdSetting league={league} />,
         isDisabled: !league.fantasyLeagueId ? true : false
+      },
+      {
+        label: 'Remove Team From League',
+        component: <RemoveTeamFromLeagueSetting league={league} />,
+        isDisabled: false
       }
     ];
 
