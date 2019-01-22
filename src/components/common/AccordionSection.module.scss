@@ -1,0 +1,24 @@
+.accordion-section {
+  background: #aaaaaa;
+  border: 1px solid #008f68;
+  padding: 5px 10px;
+}
+
+.accordion-header {
+  cursor: pointer;
+}
+
+.accordion-label {
+  color: blue;
+}
+
+.accordion-icon {
+  float: right;
+}
+
+.accordion-body {
+  background: '#6db65b';
+  border: 2px solid #008f68;
+  margin-top: 10;
+  padding: 10px 20px;
+}
