@@ -6,7 +6,7 @@ import UserSettings from './user/UserSettings';
 
 class Settings extends Component {
   renderSettingsList() {
-    const { league, user } = this.props;
+    const { league, user, team } = this.props;
 
     const isAdmin = league.admin === user._id;
 
@@ -19,7 +19,7 @@ class Settings extends Component {
           :
           null
         }
-        <UserSettings league={league} user={user} />
+        <UserSettings league={league} user={user} team={team} />
       </div>
     );
   }
@@ -34,8 +34,8 @@ class Settings extends Component {
   }
 }
 
-function mapStateToProps({ league, user }) {
-  return { league, user };
+function mapStateToProps({ league, user, team }) {
+  return { league, user, team };
 }
 
 export default connect(mapStateToProps)(Settings);
