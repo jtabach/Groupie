@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import FantasyLeagueIdPrompt from '../../../common/FantasyLeagueIdPrompt';
+import Accordion from '../../../common/Accordion';
 
 class AdminSettings extends Component {
   render() {
@@ -8,14 +9,23 @@ class AdminSettings extends Component {
     return (
       <div>
         <h3>Admin Settings</h3>
-        <ul>
-          <li>
+        <Accordion>
+          <div label='Add ESPN League Id'>
             <FantasyLeagueIdPrompt
               league={league}
               promptText={'Add ESPN Fantasy League Id'}
             />
-          </li>
-        </ul>
+          </div>
+          <div label='Change ESPN League Id'>
+            <FantasyLeagueIdPrompt
+              league={league}
+              promptText={'Change ESPN Fantasy League Id'}
+            />
+          </div>
+          <div label='Delete ESPN League Id'>
+            <div>Are you sure?</div>
+          </div>
+        </Accordion>
       </div>
     )
   }

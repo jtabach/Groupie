@@ -1,0 +1,40 @@
+@import '../../assets/styles/helpers/variables';
+
+.accordion-section {
+  &:last-of-type {
+    .accordion-header,
+    .accordion-body {
+      border-bottom: none;
+    }
+  }
+  &:last-of-type {
+    .accordion-body {
+      border-top: 1px solid $gray-light;
+    }
+  }
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid $gray-light;
+  padding: 16px 16px;
+  &__disabled {
+    background: $gray-dark;
+  }
+}
+
+.accordion-label {
+  color: $gray-dark;
+}
+
+.accordion-icon {
+  float: right;
+}
+
+.accordion-body {
+  background: $white;
+  padding: 16px 16px;
+  border-bottom: 1px solid $gray-light;
+}
