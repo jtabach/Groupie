@@ -23,6 +23,9 @@ class AdminSettings extends Component {
               promptText={'Change ESPN Fantasy League Id'}
             />
           </div>
+          <div label='Delete ESPN League Id'>
+            <div>Are you sure?</div>
+          </div>
         </Accordion>
       </div>
     )
