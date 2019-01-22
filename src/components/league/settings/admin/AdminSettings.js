@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import FantasyLeagueIdPrompt from '../../../common/FantasyLeagueIdPrompt';
+import AddFantasyLeagueIdSetting from './AddFantasyLeagueIdSetting';
+import EditFantasyLeagueIdSetting from './EditFantasyLeagueIdSetting';
 import Accordion from '../../../common/Accordion';
 
 class AdminSettings extends Component {
@@ -10,19 +11,13 @@ class AdminSettings extends Component {
       <div>
         <h3>Admin Settings</h3>
         <Accordion>
-          <div label='Add ESPN League Id'>
-            <FantasyLeagueIdPrompt
-              league={league}
-              promptText={'Add ESPN Fantasy League Id'}
-            />
+          <div label='Add ESPN Fantasy League Id'>
+            <AddFantasyLeagueIdSetting league={league} />
           </div>
-          <div label='Change ESPN League Id'>
-            <FantasyLeagueIdPrompt
-              league={league}
-              promptText={'Change ESPN Fantasy League Id'}
-            />
+          <div label='Change ESPN Fantasy League Id'>
+            <EditFantasyLeagueIdSetting league={league} />
           </div>
-          <div label='Delete ESPN League Id'>
+          <div label='Delete ESPN Fantasy League Id'>
             <div>Are you sure?</div>
           </div>
         </Accordion>
