@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
 import styles from './Accordion.module.scss';
+import PropTypes from 'prop-types';
 
 import AccordionSection from './AccordionSection';
 
 class Accordion extends Component {
+  static propTypes = {
+    children: function (props, propName, componentName) {
+      const prop = props[propName]
+
+      let error = null
+      React.Children.forEach(prop, function (child) {
+        console.log(child);
+        if (child.type !== AccordionSection) {
+          error = new Error('`' + componentName + '` children should be of type `AccordionSection`.');
+        }
+      })
+      return error
+  }
+  };
+
   constructor(props) {
     super(props);
   }

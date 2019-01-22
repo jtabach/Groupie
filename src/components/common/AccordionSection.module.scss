@@ -1,15 +1,30 @@
+@import '../../assets/styles/helpers/variables';
+
 .accordion-section {
-  background: #aaaaaa;
-  border: 1px solid #008f68;
-  padding: 5px 10px;
+  &:last-of-type {
+    .accordion-header,
+    .accordion-body {
+      border-bottom: none;
+    }
+  }
+  &:last-of-type {
+    .accordion-body {
+      border-top: 1px solid $gray-light;
+    }
+  }
 }
 
 .accordion-header {
+  display: flex;
+  justify-content: space-between;
   cursor: pointer;
+  border-bottom: 1px solid $gray-light;
+  padding: 16px 16px;
+
 }
 
 .accordion-label {
-  color: blue;
+  color: $gray-dark;
 }
 
 .accordion-icon {
@@ -17,8 +32,7 @@
 }
 
 .accordion-body {
-  background: '#6db65b';
-  border: 2px solid #008f68;
-  margin-top: 10;
-  padding: 10px 20px;
+  background: $white;
+  padding: 16px 16px;
+  border-bottom: 1px solid $gray-light;
 }

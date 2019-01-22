@@ -11,37 +11,19 @@ class AdminSettings extends Component {
       <div>
         <h3>Admin Settings</h3>
         <Accordion>
-          <div label='Alligator Mississippiensis'>
-            <p>
-              <strong>Common Name:</strong> American Alligator
-            </p>
-            <p>
-              <strong>Distribution:</strong> Texas to North Carolina, US
-            </p>
-            <p>
-              <strong>Endangered Status:</strong> Currently Not Endangered
-            </p>
-          </div>
-          <div label='Alligator Sinensis'>
-            <p>
-              <strong>Common Name:</strong> Chinese Alligator
-            </p>
-            <p>
-              <strong>Distribution:</strong> Eastern China
-            </p>
-            <p>
-              <strong>Endangered Status:</strong> Critically Endangered
-            </p>
-          </div>
-        </Accordion>
-        <ul>
-          <li>
+        <div label='Add ESPN League Id'>
+          <FantasyLeagueIdPrompt
+            league={league}
+            promptText={'Add ESPN Fantasy League Id'}
+          />
+        </div>
+          <div label='Change ESPN League Id'>
             <FantasyLeagueIdPrompt
               league={league}
-              promptText={'Add ESPN Fantasy League Id'}
+              promptText={'Change ESPN Fantasy League Id'}
             />
-          </li>
-        </ul>
+          </div>
+        </Accordion>
       </div>
     )
   }
