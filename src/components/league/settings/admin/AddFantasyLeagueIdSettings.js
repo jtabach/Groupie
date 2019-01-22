@@ -10,15 +10,9 @@ class FantasyLeagueIdSettings extends Component {
 
   render() {
     const { league } = this.props;
+    console.log(league);
     return (
       <div>
-        <div>
-          <p>ESPN Fantasy League Id</p>
-          <ButtonTest
-            type={'button'}
-            variant={'primary'}
-            label={'Add'}/>
-        </div>
         <FantasyLeagueIdPrompt
           league={league}
           promptText={'Add ESPN Fantasy League Id'}
