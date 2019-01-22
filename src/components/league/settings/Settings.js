@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SettingsList from './SettingsList';
+import AdminSettings from './admin/AdminSettings';
+import UserSettings from './user/UserSettings';
 
 class Settings extends Component {
   renderSettingsList() {
@@ -9,14 +10,24 @@ class Settings extends Component {
 
     const isAdmin = league.admin === user._id;
 
-    return <SettingsList isAdmin={isAdmin} league={league} user={user} />
+    return (
+      <div>
+        {
+          isAdmin
+          ?
+          <AdminSettings league={league}/>
+          :
+          null
+        }
+        <UserSettings league={league} user={user} />
+      </div>
+    );
   }
 
   render() {
-
     return (
       <div>
-        <h2>Settings</h2>
+        <h2 style={{ marginBottom: '12px' }}>Settings</h2>
         {this.renderSettingsList()}
       </div>
     )
