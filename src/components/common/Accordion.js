@@ -51,7 +51,7 @@ class Accordion extends Component {
           this.props.children.map((child, i) => (
             <AccordionSection
               key={i}
-              isOpen={!!this.state.openSections[child.props.label]}
+              isOpen={!child.props.isDisabled && !!this.state.openSections[child.props.label]}
               label={child.props.label}
               onHandleClick={!child.props.isDisabled ? this.handleClick : () => {}}
               isDisabled={child.props.isDisabled}
