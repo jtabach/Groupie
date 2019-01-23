@@ -4,6 +4,7 @@ import {
   FETCH_FANTASY_ROSTER,
   CLEAR_FANTASY_DATA,
   SET_FANTASY_LEAGUE_ID,
+  DELETE_FANTASY_LEAGUE_ID,
   SET_FANTASY_ESPN_COOKIES
 } from '../types/fantasyTypes';
 
@@ -30,6 +31,11 @@ export const clearFantasyData = () => ({
 export const setFantasyLeagueId = (fantasyLeagueId, leagueId) => ({
   type: SET_FANTASY_LEAGUE_ID,
   payload: { fantasyLeagueId, leagueId }
+});
+
+export const deleteFantasyLeagueId = leagueId => ({
+  type: DELETE_FANTASY_LEAGUE_ID,
+  payload: { leagueId }
 });
 
 export const setFantasyEspnCookies = (fantasyEspnCookies, teamId) => ({

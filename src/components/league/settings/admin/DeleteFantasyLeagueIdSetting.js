@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { deleteFantasyLeagueId } from '../../../../actions/fantasyActions';
 
 class DeleteFantasyLeagueIdSetting extends Component {
   render() {
@@ -9,7 +12,10 @@ class DeleteFantasyLeagueIdSetting extends Component {
         {
           league.fantasyLeagueId
           ?
-          <p>some action for deleting the fantasy league id</p>
+          <div>
+            <p>Deleting the league Id will not allow any members to view any fantasy data</p>
+            <button onClick={() => this.props.deleteFantasyLeagueId(league._id)}>Delete</button>
+          </div>
           :
           <p>Fantasy League Id has not yet been set</p>
         }
@@ -18,4 +24,4 @@ class DeleteFantasyLeagueIdSetting extends Component {
   }
 }
 
-export default DeleteFantasyLeagueIdSetting;
+export default connect(null, { deleteFantasyLeagueId })(DeleteFantasyLeagueIdSetting);

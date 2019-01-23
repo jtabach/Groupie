@@ -1,6 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
 
+import history from '../history';
+
 import CONFIG from '../config';
 
 import {
@@ -14,6 +16,8 @@ import {
   CLEAR_FANTASY_DATA_COMPLETE,
   SET_FANTASY_LEAGUE_ID,
   SET_FANTASY_LEAGUE_ID_COMPLETED,
+  DELETE_FANTASY_LEAGUE_ID,
+  DELETE_FANTASY_LEAGUE_ID_COMPLETED,
   SET_FANTASY_ESPN_COOKIES,
   SET_FANTASY_ESPN_COOKIES_COMPLETED
 } from '../types/fantasyTypes';
@@ -77,6 +81,22 @@ function* setFantasyLeagueIdRequest(action) {
   }
 }
 
+function* deleteFantasyLeagueIdRequest(action) {
+  const leagueId = action.payload;
+  const response = yield call(
+    postRequest,
+    `${CONFIG.serverUrl}/league/deleteFantasyLeagueId`,
+    leagueId
+  );
+  console.log(response.league);
+  if (response.league) {
+    yield put({ type: DELETE_FANTASY_LEAGUE_ID_COMPLETED, payload: { data: response } });
+    // history.push(`/league/${response.league._id}`);
+  } else {
+    console.log('handle failed to delete fantasy league id');
+  }
+}
+
 function* setFantasyEspnCookiesRequest(action) {
   const { fantasyEspnCookies, teamId } = action.payload;
   console.log(fantasyEspnCookies);
@@ -103,5 +123,6 @@ export function* fantasyWatcher() {
   yield takeLatest(FETCH_FANTASY_ROSTER, fetchFantasyRosterRequest);
   yield takeLatest(CLEAR_FANTASY_DATA, clearFantasyDataRequest);
   yield takeLatest(SET_FANTASY_LEAGUE_ID, setFantasyLeagueIdRequest);
+  yield takeLatest(DELETE_FANTASY_LEAGUE_ID, deleteFantasyLeagueIdRequest);
   yield takeLatest(SET_FANTASY_ESPN_COOKIES, setFantasyEspnCookiesRequest);
 }

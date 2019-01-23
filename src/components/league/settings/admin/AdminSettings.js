@@ -8,26 +8,31 @@ import RemoveTeamFromLeagueSetting from './RemoveTeamFromLeagueSetting';
 import Accordion from '../../../common/Accordion';
 
 class AdminSettings extends Component {
+  state
   render() {
     const { league } = this.props;
 
-    const settingsList = [
+    let settingsList = [
       {
+        key: 'addFantasyLeagueIdSetting',
         label: 'Add ESPN Fantasy League Id',
         component: <AddFantasyLeagueIdSetting league={league} />,
         isDisabled: league.fantasyLeagueId ? true : false
       },
       {
+        key: 'changeFantasyLeagueIdSetting',
         label: 'Change ESPN Fantasy League Id',
         component: <EditFantasyLeagueIdSetting league={league} />,
         isDisabled: !league.fantasyLeagueId ? true : false
       },
       {
+        key: 'deleteFantasyLeagueIdSetting',
         label: 'Delete ESPN Fantasy League Id',
         component: <DeleteFantasyLeagueIdSetting league={league} />,
         isDisabled: !league.fantasyLeagueId ? true : false
       },
       {
+        key: 'removeTeamFromLeagueSetting',
         label: 'Remove Team From League',
         component: <RemoveTeamFromLeagueSetting league={league} />,
         isDisabled: false
