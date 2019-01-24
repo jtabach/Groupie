@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import styles from './AccordionSection.module.scss';
+import { connect } from 'react-redux';
+
+import { clearFormMessages } from '../../actions/formActions';
 
 class AccordionSection extends Component {
   handleClick = () => {
     this.props.onHandleClick(this.props.label);
-    // TODO: clear forms on click
+    this.props.clearFormMessages();
   }
 
   render() {
@@ -40,4 +43,4 @@ class AccordionSection extends Component {
   }
 }
 
-export default AccordionSection;
+export default connect(null, { clearFormMessages })(AccordionSection);

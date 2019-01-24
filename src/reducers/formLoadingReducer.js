@@ -13,6 +13,10 @@ import {
   SET_FANTASY_LEAGUE_ID_FAILED
 } from '../types/fantasyTypes';
 
+import {
+  CLEAR_FORM_MESSAGES
+} from '../types/formTypes';
+
 const initialState = {
   joinLeague: {
     loading: false,
@@ -118,7 +122,11 @@ export default (state = initialState, action) => {
         }
       };
       break;
-      
+
+    case CLEAR_FORM_MESSAGES:
+      state = initialState;
+      break;
+
     default:
       return state;
   }
