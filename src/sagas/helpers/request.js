@@ -19,6 +19,17 @@ export function postRequest(url, data) {
   }).then(response => response.json());
 }
 
+export function putRequest(url, data) {
+  return fetch(url, {
+    method: 'PUT',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(response => response.json());
+}
+
 
 export function deleteRequest(url, data) {
   return fetch(url, {
