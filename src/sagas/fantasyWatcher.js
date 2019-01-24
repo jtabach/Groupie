@@ -16,6 +16,7 @@ import {
   CLEAR_FANTASY_DATA_COMPLETE,
   SET_FANTASY_LEAGUE_ID,
   SET_FANTASY_LEAGUE_ID_COMPLETED,
+  SET_FANTASY_LEAGUE_ID_FAILED,
   DELETE_FANTASY_LEAGUE_ID,
   DELETE_FANTASY_LEAGUE_ID_COMPLETED,
   SET_FANTASY_ESPN_COOKIES,
@@ -77,7 +78,7 @@ function* setFantasyLeagueIdRequest(action) {
   if (response.fantasyLeagueId) {
     yield put({ type: SET_FANTASY_LEAGUE_ID_COMPLETED, payload: { data: response } });
   } else {
-    console.log('handle failed to set fantasy league id');
+    yield put({ type: SET_FANTASY_LEAGUE_ID_FAILED, payload: { data: response } });
   }
 }
 

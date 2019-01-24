@@ -4,6 +4,7 @@ import styles from './AccordionSection.module.scss';
 class AccordionSection extends Component {
   handleClick = () => {
     this.props.onHandleClick(this.props.label);
+    // TODO: clear forms on click
   }
 
   render() {

@@ -1,4 +1,3 @@
-
 import {
   CREATE_LEAGUE,
   CREATE_LEAGUE_COMPLETED,
@@ -8,6 +7,12 @@ import {
   JOIN_LEAGUE_FAILED
 } from '../types/leagueTypes';
 
+import {
+  SET_FANTASY_LEAGUE_ID,
+  SET_FANTASY_LEAGUE_ID_COMPLETED,
+  SET_FANTASY_LEAGUE_ID_FAILED
+} from '../types/fantasyTypes';
+
 const initialState = {
   joinLeague: {
     loading: false,
@@ -16,6 +21,11 @@ const initialState = {
   createLeague: {
     loading: false,
     errorMessage: ''
+  },
+  fantasyLeagueId: {
+    loading: false,
+    errorMessage: '',
+    successMessage: ''
   }
 };
 
@@ -75,6 +85,40 @@ export default (state = initialState, action) => {
         }
       };
       break;
+
+    case SET_FANTASY_LEAGUE_ID:
+      state = {
+        ...initialState,
+        fantasyLeagueId: {
+          errorMessage: '',
+          successMessage: '',
+          loading: true
+        }
+      };
+      break;
+
+    case SET_FANTASY_LEAGUE_ID_COMPLETED:
+      state = {
+        ...initialState,
+        fantasyLeagueId: {
+          errorMessage: '',
+          successMessage: action.payload.data.message,
+          loading: false
+        }
+      };
+      break;
+
+    case SET_FANTASY_LEAGUE_ID_FAILED:
+      state = {
+        ...initialState,
+        fantasyLeagueId: {
+          errorMessage: action.payload.data.message,
+          successMessage: '',
+          loading: false
+        }
+      };
+      break;
+      
     default:
       return state;
   }

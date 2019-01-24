@@ -7,10 +7,12 @@ import { validate } from './validation/fantasyLeagueId';
 import styles from './Form.module.scss';
 
 let FantasyLeagueIdForm = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, errorMessage, successMessage, isLoading } = props;
 
   return (
     <form onSubmit={handleSubmit}>
+      <p className={styles["error-message"]}>{errorMessage}</p>
+      <p className={styles["success-message"]}>{successMessage}</p>
       <div className={styles["field"]}>
         <Field
           name="fantasyLeagueId"
@@ -25,6 +27,7 @@ let FantasyLeagueIdForm = props => {
         type="submit"
         size="large"
         variant="primary"
+        isLoading={isLoading}
       />
     </form>
   );

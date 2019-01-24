@@ -12,14 +12,24 @@ class FantasyLeagueIdPrompt extends Component {
 
   render() {
     const { promptText } = this.props;
+    const { errorMessage, successMessage, loading } = this.props.formLoading.fantasyLeagueId;
 
     return (
       <div>
         <h4>{promptText}</h4>
-        <FantasyLeagueIdForm onSubmit={this.handleSubmit} />
+        <FantasyLeagueIdForm
+          onSubmit={this.handleSubmit}
+          errorMessage={errorMessage}
+          successMessage={successMessage}
+          isLoading={loading}
+        />
       </div>
     );
   }
 }
 
-export default connect(null, { setFantasyLeagueId })(FantasyLeagueIdPrompt);
+function mapStateToProps({ formLoading }) {
+  return { formLoading };
+}
+
+export default connect(mapStateToProps, { setFantasyLeagueId })(FantasyLeagueIdPrompt);
