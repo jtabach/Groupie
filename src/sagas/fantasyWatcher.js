@@ -88,7 +88,7 @@ function* deleteFantasyLeagueIdRequest(action) {
     `${CONFIG.serverUrl}/league/fantasyLeagueId/${leagueId}`,
   );
 
-  if (response.league) {
+  if (response.verify) {
     yield put({ type: DELETE_FANTASY_LEAGUE_ID_COMPLETED, payload: { data: response } });
   } else {
     console.log('handle failed to delete fantasy league id');
