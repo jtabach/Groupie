@@ -7,9 +7,22 @@ export function getRequest(url) {
     }
   }).then(response => response.json());
 }
+
 export function postRequest(url, data) {
   return fetch(url, {
     method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(response => response.json());
+}
+
+
+export function deleteRequest(url, data) {
+  return fetch(url, {
+    method: 'DELETE',
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json'

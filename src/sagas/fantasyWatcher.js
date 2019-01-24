@@ -1,5 +1,5 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { getRequest, postRequest } from './helpers/request';
+import { getRequest, postRequest, deleteRequest } from './helpers/request';
 
 import history from '../history';
 
@@ -70,7 +70,7 @@ function* setFantasyLeagueIdRequest(action) {
   const { fantasyLeagueId, leagueId } = action.payload;
   const response = yield call(
     postRequest,
-    `${CONFIG.serverUrl}/league/setFantasyLeagueId/${leagueId}`,
+    `${CONFIG.serverUrl}/league/fantasyLeagueId/${leagueId}`,
     fantasyLeagueId
   );
 
@@ -82,11 +82,10 @@ function* setFantasyLeagueIdRequest(action) {
 }
 
 function* deleteFantasyLeagueIdRequest(action) {
-  const leagueId = action.payload;
+  const { leagueId } = action.payload;
   const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/league/deleteFantasyLeagueId`,
-    leagueId
+    deleteRequest,
+    `${CONFIG.serverUrl}/league/fantasyLeagueId/${leagueId}`,
   );
 
   if (response.league) {
