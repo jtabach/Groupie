@@ -1,8 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest, deleteRequest } from './helpers/request';
 
-import history from '../history';
-
 import CONFIG from '../config';
 
 import {

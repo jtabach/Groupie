@@ -8,7 +8,6 @@ import UIHelper from '../../../helpers/uiHelper';
 class NewsCard extends Component {
   render() {
     const { content, onHandleClick } = this.props;
-    console.log(content);
 
     return (
       <li className={styles['news-card']}>
