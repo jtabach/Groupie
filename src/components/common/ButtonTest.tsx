@@ -5,27 +5,17 @@ import _ from 'lodash';
 
 import ButtonLoading from './ButtonLoading';
 
-class ButtonTest extends Component {
-  static propTypes = {
-    type: PropTypes.oneOf(['button', 'submit']),
-    variant: PropTypes.oneOf([
-      'primary',
-      'secondary',
-      'secondary-inverse',
-      'outline',
-      'primary-inverse',
-      'green',
-      'green-inverse',
-      'red',
-      'red-inverse'
-    ]),
-    size: PropTypes.oneOf(['large', 'small']),
-    onClick: PropTypes.func,
-    label: PropTypes.string,
-    children: PropTypes.node,
-    isLoading: PropTypes.bool
-  };
+interface Props {
+  type: 'button'|'submit';
+  variant: 'primary'|'secondary'|'secondary-inverse'|'outline'|'primary-inverse'|'green'|'green-inverse'|'red'|'red-inverse';
+  size: 'large'|'small';
+  onClick: any;
+  label: string;
+  children: any;
+  isLoading: boolean;
+}
 
+class ButtonTest extends Component<Props> {
   static defaultProps: {
     type: 'button',
     variant: 'primary',
