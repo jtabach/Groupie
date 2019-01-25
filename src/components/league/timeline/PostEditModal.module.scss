@@ -1,0 +1,24 @@
+@import '../../../assets/styles/helpers/variables';
+
+.edit-modal {
+  padding: 12px;
+
+  &__textarea {
+    border: 1px solid $gray-light;
+    margin-bottom: 12px;
+
+    textarea {
+      padding: $small-spacing;
+      border: none;
+      box-shadow: none;
+      resize: none;
+    }
+  }
+
+  &__button-wrapper {
+    button {
+      float: right;
+      margin-left: 12px;
+    }
+  }
+}
