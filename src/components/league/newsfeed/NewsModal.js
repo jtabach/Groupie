@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import styles from './NewsModal.module.scss';
+
 import Modal from '../../common/Modal';
 
 import UIHelper from '../../../helpers/uiHelper';
@@ -19,13 +21,12 @@ class NewsModal extends Component {
         {
           content.headline
           ?
-          <div>
-            <p>{content.firstName} {content.lastName}</p>
-            <p>{content.teamAbbr}</p>
-            <p>{content.position}</p>
-            <p>{UIHelper.replaceHTMLCharRef(content.headline)}</p>
-            <p>{UIHelper.replaceHTMLCharRef(content.body)}</p>
-            <p>{UIHelper.replaceHTMLCharRef(content.analysis)}</p>
+          <div className={styles['news-modal']}>
+            <h4 className={styles['news-modal__name']}>{content.firstName} {content.lastName}</h4>
+            <h6 className={styles['news-modal__position']}>{content.teamAbbr} - {content.position}</h6>
+            <h5 className={styles['news-modal__headline']}>{UIHelper.replaceHTMLCharRef(content.headline)}</h5>
+            <p className={styles['news-modal__body']}>{UIHelper.replaceHTMLCharRef(content.body)}</p>
+            <p className={styles['news-modal__analysis']}>{UIHelper.replaceHTMLCharRef(content.analysis)}</p>
           </div>
           : null
         }

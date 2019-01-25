@@ -1,0 +1,18 @@
+@import '../../../assets/styles/helpers/variables';
+
+.news-modal {
+  padding: 12px;
+  &__name {
+    color: $blue-dark
+  }
+  &__position {
+    color: $red-dark;
+    margin-bottom: 12px;
+  }
+  &__headline {
+    margin-bottom: 12px;
+  }
+  &__body {
+    margin-bottom: 12px;
+  }
+}
