@@ -7,19 +7,13 @@ interface Props {
   variant: 'light' | 'dark';
 }
 
-class Card extends React.Component<Props> {
-  public static defaultProps = {
-    children: null,
-    variant: 'light'
-  };
+const Card: React.StatelessComponent<Props> = ({ variant, children }) => {
+  return <div className={styles[`card-${variant}`]}>{children}</div>;
+};
 
-  public render() {
-    const { variant } = this.props;
-
-    return (
-      <div className={styles[`card-${variant}`]}>{this.props.children}</div>
-    );
-  }
-}
+Card.defaultProps = {
+  children: null,
+  variant: 'light'
+};
 
 export default Card;
