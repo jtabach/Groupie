@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './Button.module.scss';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import styles from './Button.module.scss';
 
 import ButtonLoading from './ButtonLoading';
 
 interface Props {
   type: 'button'|'submit';
-  variant: 'primary'|'secondary'|'secondary-inverse'|'outline'|'primary-inverse'|'green'|'green-inverse'|'red'|'red-inverse';
+  variant: 'primary'|'secondary'|'secondary-inverse'|'outline'|
+    'primary-inverse'|'green'|'green-inverse'|'red'|'red-inverse';
   size: 'large'|'small';
   onClick: any;
   label: string;
@@ -16,15 +17,15 @@ interface Props {
 }
 
 class ButtonTest extends Component<Props> {
-  static defaultProps: {
+  public static defaultProps: {
     type: 'button',
     variant: 'primary',
     size: 'large',
     label: '',
-    children: null
+    children: null,
   };
 
-  render() {
+  public render() {
     const { type, variant, size, onClick, label, children, isLoading } = this.props;
 
     return (
