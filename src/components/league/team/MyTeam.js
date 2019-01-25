@@ -5,20 +5,15 @@ import FantasyLeagueIdPrompt from '../../common/FantasyLeagueIdPrompt';
 import FantasyEspnCookiePrompt from '../../common/FantasyEspnCookiePrompt';
 import Roster from './Roster';
 
-
 class MyTeam extends Component {
   renderMyTeam() {
     const { league, team } = this.props;
 
     if (!league.fantasyLeagueId) {
       if (team.user === league.admin) {
-        return (
-          <FantasyLeagueIdPrompt />
-        )
+        return <FantasyLeagueIdPrompt />;
       } else {
-        return (
-          <div>The admin has not yet added the fantasy league id</div>
-        )
+        return <div>The admin has not yet added the fantasy league id</div>;
       }
     } else if (!team.espnCookieString) {
       return (
@@ -26,11 +21,9 @@ class MyTeam extends Component {
           <FantasyEspnCookiePrompt teamId={team._id} />
           <div>Some instructions for figuring out the fantasy team id</div>
         </div>
-      )
+      );
     } else {
-      return (
-        <Roster league={league} team={team} />
-      )
+      return <Roster league={league} team={team} />;
     }
   }
 
@@ -39,7 +32,9 @@ class MyTeam extends Component {
     return (
       <div>
         <h2>My Team</h2>
-        <h4>{user.firstName} {user.lastName}</h4>
+        <h4>
+          {user.firstName} {user.lastName}
+        </h4>
         {this.renderMyTeam()}
       </div>
     );
@@ -47,7 +42,7 @@ class MyTeam extends Component {
 }
 
 function mapStateToProps({ team, user, league }) {
-  return { team, user, league }
+  return { team, user, league };
 }
 
 export default connect(mapStateToProps)(MyTeam);

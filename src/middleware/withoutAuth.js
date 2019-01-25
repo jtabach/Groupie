@@ -31,7 +31,10 @@ function withoutAuth(InnerComponent) {
     return { user };
   }
 
-  return connect(mapStateToProps, { fetchUser })(ProtectedRoute);
+  return connect(
+    mapStateToProps,
+    { fetchUser }
+  )(ProtectedRoute);
 }
 
 export default withoutAuth;

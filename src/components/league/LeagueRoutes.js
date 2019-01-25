@@ -27,7 +27,11 @@ class LeagueRoutes extends Component {
         <Route exact path={`${match.url}`} component={Timeline} />
         <Route exact path={`${match.url}/members`} component={Members} />
         <Route exact path={`${match.url}/myteam`} component={MyTeam} />
-        <Route exact path={`${match.url}/team/:teamId`} component={OpposingTeam} />
+        <Route
+          exact
+          path={`${match.url}/team/:teamId`}
+          component={OpposingTeam}
+        />
         <Route exact path={`${match.url}/leagueInfo`} component={LeagueInfo} />
         <Route exact path={`${match.url}/standings`} component={Standings} />
         <Route exact path={`${match.url}/scoreboard`} component={Scoreboard} />

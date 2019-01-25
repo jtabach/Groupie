@@ -9,10 +9,12 @@ class Division extends Component {
 
     return (
       <li className={styles['division']}>
-        <h3 className={styles['division__header']}>{this.props.division[0].division.divisionName}</h3>
+        <h3 className={styles['division__header']}>
+          {this.props.division[0].division.divisionName}
+        </h3>
         <DivisionCard division={division} />
       </li>
-    )
+    );
   }
 }
 

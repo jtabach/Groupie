@@ -20,7 +20,7 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <div className='offset-4 col-4'>
+        <div className="offset-4 col-4">
           <Card>
             <FormWrapper
               formTitle={'Register With Your Email'}
@@ -43,4 +43,7 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps, { registerUser })(Register);
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(Register);

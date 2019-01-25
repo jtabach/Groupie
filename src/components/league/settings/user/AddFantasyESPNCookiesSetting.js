@@ -6,8 +6,8 @@ class AddFantasyESPNCookiesSetting extends Component {
       <div>
         <p>Add espn fantasy cookies here</p>
       </div>
-    )
+    );
   }
 }
 
-export default AddFantasyESPNCookiesSetting
+export default AddFantasyESPNCookiesSetting;

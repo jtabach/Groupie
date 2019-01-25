@@ -11,7 +11,7 @@ let FantasyEspnCookieForm = props => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="espnCookieS2"
           type="text"
@@ -20,7 +20,7 @@ let FantasyEspnCookieForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="espnCookieSwid"
           type="text"

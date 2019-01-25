@@ -11,7 +11,7 @@ class LeagueList extends Component {
 
     return teams.map((team, i) => {
       return (
-        <li className={styles["league-list-item"]} key={team._id}>
+        <li className={styles['league-list-item']} key={team._id}>
           <LinkCard path={`/league/${team.league._id}`}>
             <p>{team.league.name}</p>
           </LinkCard>
@@ -23,7 +23,7 @@ class LeagueList extends Component {
   render() {
     return (
       <div>
-        <h5 style={{ marginBottom: '12px'}}>List of the leagues</h5>
+        <h5 style={{ marginBottom: '12px' }}>List of the leagues</h5>
         <ul>{this.renderLeagues()}</ul>
       </div>
     );

@@ -30,7 +30,7 @@ class MenuList extends Component {
   }
 
   render() {
-    return <ul className={styles["menu-list"]}>{this.renderMenuItems()}</ul>;
+    return <ul className={styles['menu-list']}>{this.renderMenuItems()}</ul>;
   }
 }
 

@@ -36,4 +36,7 @@ function mapStateToProps({ formLoading }) {
   return { formLoading };
 }
 
-export default connect(mapStateToProps, { createLeague })(CreateLeague);
+export default connect(
+  mapStateToProps,
+  { createLeague }
+)(CreateLeague);

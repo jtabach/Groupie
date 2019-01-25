@@ -21,4 +21,7 @@ class FantasyEspnCookiePrompt extends Component {
   }
 }
 
-export default connect(null, { setFantasyEspnCookies })(FantasyEspnCookiePrompt);
+export default connect(
+  null,
+  { setFantasyEspnCookies }
+)(FantasyEspnCookiePrompt);

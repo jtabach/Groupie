@@ -11,8 +11,8 @@ let CreateLeagueForm = props => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className={styles["error-message"]}>{errorMessage}</p>
-      <div className={styles["field"]}>
+      <p className={styles['error-message']}>{errorMessage}</p>
+      <div className={styles['field']}>
         <Field
           name="leagueName"
           type="text"
@@ -21,7 +21,7 @@ let CreateLeagueForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="fantasyLeagueId"
           type="text"
@@ -30,7 +30,7 @@ let CreateLeagueForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="espnCookieS2"
           type="text"
@@ -39,7 +39,7 @@ let CreateLeagueForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="espnCookieSwid"
           type="text"
@@ -48,7 +48,7 @@ let CreateLeagueForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["button"]}>
+      <div className={styles['button']}>
         <ButtonTest
           label="Create League"
           type="submit"

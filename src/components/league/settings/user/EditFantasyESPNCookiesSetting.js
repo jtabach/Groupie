@@ -6,7 +6,7 @@ class EditFantasyESPNCookiesSetting extends Component {
       <div>
         <p>Change espn fantasy cookies here</p>
       </div>
-    )
+    );
   }
 }
 

@@ -24,4 +24,7 @@ class Home extends Component {
   }
 }
 
-export default connect(null, { fetchUser })(Home);
+export default connect(
+  null,
+  { fetchUser }
+)(Home);

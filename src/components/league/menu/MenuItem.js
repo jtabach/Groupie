@@ -18,7 +18,7 @@ class MenuItem extends Component {
     const { item, match } = this.props;
 
     return (
-      <li className={styles["menu-item"]}>
+      <li className={styles['menu-item']}>
         <Link to={`${match.url}${item.path}`}>{item.name}</Link>
       </li>
     );

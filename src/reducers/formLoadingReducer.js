@@ -13,9 +13,7 @@ import {
   SET_FANTASY_LEAGUE_ID_FAILED
 } from '../types/fantasyTypes';
 
-import {
-  CLEAR_FORM_MESSAGES
-} from '../types/formTypes';
+import { CLEAR_FORM_MESSAGES } from '../types/formTypes';
 
 const initialState = {
   joinLeague: {

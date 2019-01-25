@@ -15,7 +15,10 @@ import {
 } from '../types/fantasyTypes';
 
 import { CREATE_COMMENT_COMPLETED } from '../types/commentTypes';
-import { LIKE_POST_COMPLETED, DELETE_LIKE_POST_COMPLETED } from '../types/likeTypes';
+import {
+  LIKE_POST_COMPLETED,
+  DELETE_LIKE_POST_COMPLETED
+} from '../types/likeTypes';
 
 const initialState = {
   _id: null,
@@ -104,11 +107,14 @@ export default (state = initialState, action) => {
       break;
 
     case SET_FANTASY_LEAGUE_ID_COMPLETED:
-      state = { ...state, fantasyLeagueId: action.payload.data.fantasyLeagueId }
+      state = {
+        ...state,
+        fantasyLeagueId: action.payload.data.fantasyLeagueId
+      };
       break;
 
     case DELETE_FANTASY_LEAGUE_ID_COMPLETED:
-      state = { ...state, fantasyLeagueId: null }
+      state = { ...state, fantasyLeagueId: null };
       break;
 
     default:

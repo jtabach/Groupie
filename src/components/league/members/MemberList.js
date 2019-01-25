@@ -6,21 +6,21 @@ class MemberList extends Component {
   renderLeagueMembers(league) {
     return league.teams.map(team => {
       return (
-        <li className={styles["member-item"]} key={team._id}>
+        <li className={styles['member-item']} key={team._id}>
           <Link to={`/league/${league._id}/team/${team._id}`}>
             {team.user.firstName} {team.user.lastName}
           </Link>
         </li>
-      )
+      );
     });
   }
 
   render() {
     return (
-      <ul className={styles["member-list"]}>
+      <ul className={styles['member-list']}>
         {this.renderLeagueMembers(this.props.league)}
       </ul>
-    )
+    );
   }
 }
 

@@ -18,4 +18,7 @@ class LogoutButton extends Component {
   }
 }
 
-export default connect(null, { logoutUser, fetchUser })(LogoutButton);
+export default connect(
+  null,
+  { logoutUser, fetchUser }
+)(LogoutButton);

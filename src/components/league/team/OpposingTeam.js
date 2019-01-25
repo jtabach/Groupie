@@ -8,7 +8,9 @@ class OpposingTeam extends Component {
     const team = this._getTeamFromTeamIdParam();
 
     return (
-      <h4>{team.user.firstName} {team.user.lastName}</h4>
+      <h4>
+        {team.user.firstName} {team.user.lastName}
+      </h4>
     );
   }
 
@@ -17,19 +19,15 @@ class OpposingTeam extends Component {
     const team = this._getTeamFromTeamIdParam();
 
     if (!league.fantasyLeagueId) {
-      return (
-        <div>This league has not yet been set up for fantasy</div>
-      )
+      return <div>This league has not yet been set up for fantasy</div>;
     } else if (!team.espnCookieString) {
       return (
         <div>
           <div>This team has not yet added their fantasy espn auth</div>
         </div>
-      )
+      );
     } else {
-      return (
-        <Roster league={league} team={team} />
-      )
+      return <Roster league={league} team={team} />;
     }
   }
 
@@ -53,7 +51,7 @@ class OpposingTeam extends Component {
 }
 
 function mapStateToProps({ league }) {
-  return { league }
+  return { league };
 }
 
 export default connect(mapStateToProps)(OpposingTeam);

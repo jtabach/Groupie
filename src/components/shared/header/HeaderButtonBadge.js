@@ -18,14 +18,14 @@ class HeaderButtonBadge extends Component {
       return null;
     } else if (notificationCount < 10) {
       return (
-        <div className={styles["badge"]}>
-          <div className={styles["count"]}>{notificationCount}</div>
+        <div className={styles['badge']}>
+          <div className={styles['count']}>{notificationCount}</div>
         </div>
       );
     } else {
       return (
-        <div className={styles["badge"]}>
-          <div className={styles["count"]}>!</div>
+        <div className={styles['badge']}>
+          <div className={styles['count']}>!</div>
         </div>
       );
     }

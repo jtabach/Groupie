@@ -14,9 +14,9 @@ class HeaderButton extends Component {
   render() {
     const { icon, badge, actionList, onHandleClick, buttonType } = this.props;
     return (
-      <div className={styles["header-button-wrapper"]}>
+      <div className={styles['header-button-wrapper']}>
         <div
-          className={styles["header-button"]}
+          className={styles['header-button']}
           onClick={() => onHandleClick(buttonType)}
         >
           {icon}

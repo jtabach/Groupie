@@ -39,7 +39,7 @@ function* createLeagueRequest(action) {
     'http://localhost:5000/api/league',
     action.payload
   );
-  
+
   if (response.team) {
     yield put({ type: CREATE_LEAGUE_COMPLETED, payload: { data: response } });
     history.push(`/league/${response.team.league._id}`);

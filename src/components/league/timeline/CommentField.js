@@ -16,7 +16,7 @@ class CommentField extends Component {
     const { onCommentInputChange, onCommentInputSubmit } = this.props;
 
     return (
-      <div className={styles["comment-field"]}>
+      <div className={styles['comment-field']}>
         <Textarea
           inputRef={tag => (this.textarea = tag)}
           type="text"

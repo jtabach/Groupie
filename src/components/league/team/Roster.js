@@ -26,17 +26,21 @@ class Roster extends Component {
 
     return (
       <div>
-        { roster ?
+        {roster ? (
           <div>
-            <p>{roster.info.teamLocation} {roster.info.teamNickname}</p>
-            <p>Division Rank: {roster.info.divisionStanding} {roster.info.divisionName}</p>
-            <p>Overall Rank: {roster.info.overallStanding }</p>
+            <p>
+              {roster.info.teamLocation} {roster.info.teamNickname}
+            </p>
+            <p>
+              Division Rank: {roster.info.divisionStanding}{' '}
+              {roster.info.divisionName}
+            </p>
+            <p>Overall Rank: {roster.info.overallStanding}</p>
             {this.renderRosterCards(roster)}
           </div>
-          : null
-        }
+        ) : null}
       </div>
-    )
+    );
   }
 }
 
@@ -44,4 +48,7 @@ function mapStateToProps({ fantasy }) {
   return { fantasy };
 }
 
-export default connect(mapStateToProps, {fetchFantasyRoster})(Roster);
+export default connect(
+  mapStateToProps,
+  { fetchFantasyRoster }
+)(Roster);

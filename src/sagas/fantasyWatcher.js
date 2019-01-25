@@ -31,7 +31,10 @@ function* fetchFantasyStandingsRequest(action) {
     `${CONFIG.serverUrl}/fantasy/standings/${fantasyLeagueId}`
   );
   if (response.standings) {
-    yield put({ type: FETCH_FANTASY_STANDINGS_COMPLETE, payload: { data: response } });
+    yield put({
+      type: FETCH_FANTASY_STANDINGS_COMPLETE,
+      payload: { data: response }
+    });
   } else {
     console.log('handle failed to fetch fantasy standings');
   }
@@ -42,11 +45,16 @@ function* fetchFantasyScoresRequest(action) {
 
   const response = yield call(
     getRequest,
-    `${CONFIG.serverUrl}/fantasy/scoreboard/${fantasyLeagueId}/${matchupPeriodId}`
+    `${
+      CONFIG.serverUrl
+    }/fantasy/scoreboard/${fantasyLeagueId}/${matchupPeriodId}`
   );
 
   if (response.scores) {
-    yield put({ type: FETCH_FANTASY_SCOREBOARD_COMPLETE, payload: { data: response } });
+    yield put({
+      type: FETCH_FANTASY_SCOREBOARD_COMPLETE,
+      payload: { data: response }
+    });
   } else {
     console.log('handle failed to fetch fantasy scores');
   }
@@ -61,7 +69,10 @@ function* fetchFantasyRosterRequest(action) {
   );
 
   if (response.roster) {
-    yield put({ type: FETCH_FANTASY_ROSTER_COMPLETE, payload: { data: response } });
+    yield put({
+      type: FETCH_FANTASY_ROSTER_COMPLETE,
+      payload: { data: response }
+    });
   } else {
     console.log('handle failed to fetch fantasy roster');
   }
@@ -76,9 +87,15 @@ function* setFantasyLeagueIdRequest(action) {
   );
 
   if (response.fantasyLeagueId) {
-    yield put({ type: SET_FANTASY_LEAGUE_ID_COMPLETED, payload: { data: response } });
+    yield put({
+      type: SET_FANTASY_LEAGUE_ID_COMPLETED,
+      payload: { data: response }
+    });
   } else {
-    yield put({ type: SET_FANTASY_LEAGUE_ID_FAILED, payload: { data: response } });
+    yield put({
+      type: SET_FANTASY_LEAGUE_ID_FAILED,
+      payload: { data: response }
+    });
   }
 }
 
@@ -86,11 +103,14 @@ function* deleteFantasyLeagueIdRequest(action) {
   const { leagueId } = action.payload;
   const response = yield call(
     deleteRequest,
-    `${CONFIG.serverUrl}/league/fantasyLeagueId/${leagueId}`,
+    `${CONFIG.serverUrl}/league/fantasyLeagueId/${leagueId}`
   );
 
   if (response.verify) {
-    yield put({ type: DELETE_FANTASY_LEAGUE_ID_COMPLETED, payload: { data: response } });
+    yield put({
+      type: DELETE_FANTASY_LEAGUE_ID_COMPLETED,
+      payload: { data: response }
+    });
   } else {
     console.log('handle failed to delete fantasy league id');
   }
@@ -106,7 +126,10 @@ function* setFantasyEspnCookiesRequest(action) {
   );
 
   if (response.espnCookieString) {
-    yield put({ type: SET_FANTASY_ESPN_COOKIES_COMPLETED, payload: { data: response } });
+    yield put({
+      type: SET_FANTASY_ESPN_COOKIES_COMPLETED,
+      payload: { data: response }
+    });
   } else {
     console.log('handle failed to set fantasy espn cookies');
   }

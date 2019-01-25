@@ -14,7 +14,7 @@ class JoinLeague extends Component {
 
   render() {
     const { errorMessage, loading } = this.props.formLoading.joinLeague;
-    
+
     return (
       <Card>
         <FormWrapper
@@ -36,4 +36,7 @@ function mapStateToProps({ formLoading }) {
   return { formLoading };
 }
 
-export default connect(mapStateToProps, { joinLeague })(JoinLeague);
+export default connect(
+  mapStateToProps,
+  { joinLeague }
+)(JoinLeague);

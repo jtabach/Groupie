@@ -17,11 +17,11 @@ class PostActions extends Component {
 
   render() {
     return (
-      <div className={styles["actions"]}>
-        <ul className={styles["actions__list"]}>
+      <div className={styles['actions']}>
+        <ul className={styles['actions__list']}>
           {this.props.children.map(child => {
             return (
-              <li className={styles["actions__list--item"]} key={Math.random()}>
+              <li className={styles['actions__list--item']} key={Math.random()}>
                 {child}
               </li>
             );

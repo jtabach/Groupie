@@ -13,14 +13,16 @@ class CommentItem extends Component {
     const { comment } = this.props;
 
     return (
-      <li className={styles["comment-item"]}>
-        <p className={styles["comment-text"]}>
-          <strong className={styles["team-name"]}>
+      <li className={styles['comment-item']}>
+        <p className={styles['comment-text']}>
+          <strong className={styles['team-name']}>
             {comment.team.user.firstName} {comment.team.user.lastName}
           </strong>{' '}
           {comment.text}
         </p>
-        <p className={styles["comment-date"]}>{uiHelper.formatCommentDate(comment.date)}</p>
+        <p className={styles['comment-date']}>
+          {uiHelper.formatCommentDate(comment.date)}
+        </p>
       </li>
     );
   }

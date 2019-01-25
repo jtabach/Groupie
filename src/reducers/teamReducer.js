@@ -19,7 +19,10 @@ export default (state = initialState, action) => {
       break;
 
     case SET_FANTASY_ESPN_COOKIES_COMPLETED:
-      state = { ...state, espnCookieString: action.payload.data.espnCookieString }
+      state = {
+        ...state,
+        espnCookieString: action.payload.data.espnCookieString
+      };
       break;
 
     default:

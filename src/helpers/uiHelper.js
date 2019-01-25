@@ -15,7 +15,7 @@ const uiHelper = {
 
     if (time + DAY > Date.now()) {
       formattedDate = moment(date).fromNow();
-    } else if (time + YEAR > Date.now()){
+    } else if (time + YEAR > Date.now()) {
       formattedDate = moment(date).format('MMMM Do, h:mma');
     } else {
       formattedDate = moment(date).format('MMMM Do YYYY, h:mma');
@@ -28,8 +28,8 @@ const uiHelper = {
     return moment(date).fromNow();
   },
 
-  replaceHTMLCharRef: function (str) {
-    return str.replace(/&apos;/g, '\'');
+  replaceHTMLCharRef: function(str) {
+    return str.replace(/&apos;/g, "'");
   }
 };
 

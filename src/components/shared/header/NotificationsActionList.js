@@ -56,20 +56,25 @@ class NotificationsActionList extends Component {
     const { user } = this.props;
 
     return (
-      <div className={styles["notifications"]}>
-        <div className={styles["notifications__header"]}>
-          <p className={styles["notifications__header--title"]}>Notifications</p>
+      <div className={styles['notifications']}>
+        <div className={styles['notifications__header']}>
+          <p className={styles['notifications__header--title']}>
+            Notifications
+          </p>
           <div
-            className={styles["notifications__header--button"]}
+            className={styles['notifications__header--button']}
             onClick={this.handleViewAllNotificationsClick}
           >
             Mark All as Read
           </div>
         </div>
-        <ul className={styles["notifications__list"]}>
+        <ul className={styles['notifications__list']}>
           {[...user.notifications].reverse().map(notification => {
             return (
-              <li className={styles["notifications__list--item"]} key={notification._id}>
+              <li
+                className={styles['notifications__list--item']}
+                key={notification._id}
+              >
                 <Notification
                   notification={notification}
                   onHandleClick={this.handleNotificationClick}
@@ -87,7 +92,10 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps, {
-  viewNotification,
-  viewAllNotifications
-})(withRouter(onClickOutside(NotificationsActionList)));
+export default connect(
+  mapStateToProps,
+  {
+    viewNotification,
+    viewAllNotifications
+  }
+)(withRouter(onClickOutside(NotificationsActionList)));

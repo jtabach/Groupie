@@ -66,7 +66,13 @@ class PostItem extends Component {
   }
 
   handleCommentInputSubmit(text) {
-    const { league, team, post, createComment, createNotification } = this.props;
+    const {
+      league,
+      team,
+      post,
+      createComment,
+      createNotification
+    } = this.props;
     const commentData = {
       text,
       leagueId: league._id,
@@ -148,7 +154,14 @@ class PostItem extends Component {
 
   // TODO: break into seperate functions
   onHandleLikeToggle(likeStr) {
-    const { league, team, post, likePost, deleteLikePost, createNotification } = this.props;
+    const {
+      league,
+      team,
+      post,
+      likePost,
+      deleteLikePost,
+      createNotification
+    } = this.props;
 
     const likeData = {
       leagueId: league._id,
@@ -201,7 +214,7 @@ class PostItem extends Component {
             </PostActionsList>
           ) : null}
 
-          <img src={threeDots} alt="" className={styles["dots"]} />
+          <img src={threeDots} alt="" className={styles['dots']} />
         </div>
       );
     } else {
@@ -213,7 +226,7 @@ class PostItem extends Component {
     const { post } = this.props;
 
     return (
-      <div className={styles["post-item__summary"]}>
+      <div className={styles['post-item__summary']}>
         <div data-tip data-for={`likes-${post._id}`}>
           likes: {post.likes.length}
         </div>
@@ -221,7 +234,11 @@ class PostItem extends Component {
           <ReactTooltip id={`likes-${post._id}`} effect="solid">
             <ul>
               {post.likes.map(like => {
-                return <li key={like._id}>{like.team.user.firstName} {like.team.user.lastName}</li>;
+                return (
+                  <li key={like._id}>
+                    {like.team.user.firstName} {like.team.user.lastName}
+                  </li>
+                );
               })}
             </ul>
           </ReactTooltip>
@@ -234,7 +251,9 @@ class PostItem extends Component {
             <ul>
               {post.comments
                 .map(comment => {
-                  return `${comment.team.user.firstName} ${comment.team.user.lastName}`;
+                  return `${comment.team.user.firstName} ${
+                    comment.team.user.lastName
+                  }`;
                 })
                 .filter((value, index, self) => {
                   return self.indexOf(value) === index;
@@ -268,25 +287,29 @@ class PostItem extends Component {
     const { post } = this.props;
 
     return (
-      <li className={styles["post-item"]}>
-        <div className={styles["post-item__header"]}>
-          <div className={styles["post-item__header--content"]}>
-            <h5>{post.team.user.firstName} {post.team.user.lastName}</h5>
-            <p className={styles["post-item__header--date"]}>{uiHelper.formatPostDate(post.date)}</p>
+      <li className={styles['post-item']}>
+        <div className={styles['post-item__header']}>
+          <div className={styles['post-item__header--content']}>
+            <h5>
+              {post.team.user.firstName} {post.team.user.lastName}
+            </h5>
+            <p className={styles['post-item__header--date']}>
+              {uiHelper.formatPostDate(post.date)}
+            </p>
             <p>{post.text}</p>
           </div>
-          <div className={styles["post-item__header--actions"]}>
+          <div className={styles['post-item__header--actions']}>
             {this.renderPostActions()}
           </div>
         </div>
-        <div className={styles["post-item__spacer"]} />
+        <div className={styles['post-item__spacer']} />
         {this.renderPostSummary()}
-        <div className={styles["post-item__spacer"]} />
-        <div className={styles["post-item__reaction"]}>
+        <div className={styles['post-item__spacer']} />
+        <div className={styles['post-item__reaction']}>
           {this.renderPostLikeButton()}
           <div onClick={this.focusCommentInput}>CommentHere</div>
         </div>
-        <div className={styles["post-item__spacer"]} />
+        <div className={styles['post-item__spacer']} />
         <CommentList post={post} />
         <CommentField
           onCommentInputChange={this.handleCommentInputChange}
@@ -303,11 +326,14 @@ function mapStateToProps({ league, team }) {
   return { league, team };
 }
 
-export default connect(mapStateToProps, {
-  createComment,
-  deletePost,
-  editPost,
-  likePost,
-  deleteLikePost,
-  createNotification
-})(PostItem);
+export default connect(
+  mapStateToProps,
+  {
+    createComment,
+    deletePost,
+    editPost,
+    likePost,
+    deleteLikePost,
+    createNotification
+  }
+)(PostItem);
