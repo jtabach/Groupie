@@ -76,4 +76,7 @@ function mapStateToProps({ league, team, user }) {
   return { league, team, user };
 }
 
-export default connect(mapStateToProps, { createPost, createNotification })(Timeline);
+export default connect(
+  mapStateToProps,
+  { createPost, createNotification }
+)(Timeline);

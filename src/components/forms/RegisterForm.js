@@ -10,8 +10,8 @@ let RegisterForm = props => {
   const { handleSubmit, errorMessage, isLoading } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <p className={styles["error-message"]}>{errorMessage}</p>
-      <div className={styles["field"]}>
+      <p className={styles['error-message']}>{errorMessage}</p>
+      <div className={styles['field']}>
         <Field
           name="firstName"
           type="text"
@@ -19,7 +19,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="lastName"
           type="text"
@@ -27,7 +27,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="email"
           type="email"
@@ -35,7 +35,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="password1"
           type="password"
@@ -43,7 +43,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="password2"
           type="password"
@@ -51,7 +51,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["button"]}>
+      <div className={styles['button']}>
         <ButtonTest
           label="Register"
           type="submit"

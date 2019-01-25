@@ -12,28 +12,33 @@ class Notification extends Component {
     switch (notification.onModel) {
       case 'PostOnTimeline':
         return (
-          <div className={styles["notification-buffer"]}>
+          <div className={styles['notification-buffer']}>
             <p>
-              <strong>{notification.actor.firstName} {notification.actor.lastName}</strong> posted in{' '}
-              <strong>{notification.league.name}</strong>
+              <strong>
+                {notification.actor.firstName} {notification.actor.lastName}
+              </strong>{' '}
+              posted in <strong>{notification.league.name}</strong>
             </p>
           </div>
         );
       case 'LikeOnPost':
         return (
-          <div className={styles["notification-buffer"]}>
+          <div className={styles['notification-buffer']}>
             <p>
-              <strong>{notification.actor.firstName} {notification.actor.lastName}</strong>{' '}
-              liked your post in{' '}
-              <strong>{notification.league.name}</strong>
+              <strong>
+                {notification.actor.firstName} {notification.actor.lastName}
+              </strong>{' '}
+              liked your post in <strong>{notification.league.name}</strong>
             </p>
           </div>
         );
       case 'CommentOnPost':
         return (
-          <div className={styles["notification-buffer"]}>
+          <div className={styles['notification-buffer']}>
             <p>
-              <strong>{notification.actor.firstName} {notification.actor.lastName}</strong>{' '}
+              <strong>
+                {notification.actor.firstName} {notification.actor.lastName}
+              </strong>{' '}
               commented on your post in{' '}
               <strong>{notification.league.name}</strong>
             </p>
@@ -51,7 +56,7 @@ class Notification extends Component {
     return (
       <div
         onClick={() => onHandleClick(notification)}
-        className={`${styles["notification"]} ${styles[hasViewed]}`}
+        className={`${styles['notification']} ${styles[hasViewed]}`}
       >
         {this.renderNotification(notification)}
       </div>

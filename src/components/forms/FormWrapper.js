@@ -7,14 +7,12 @@ class FormWrapper extends Component {
 
     return (
       <div>
-        <div className={styles["header"]}>
-          <h2 className={styles["title"]}>{formTitle}</h2>
+        <div className={styles['header']}>
+          <h2 className={styles['title']}>{formTitle}</h2>
         </div>
-        <div className={styles["card-content"]}>
-          {form}
-        </div>
+        <div className={styles['card-content']}>{form}</div>
       </div>
-    )
+    );
   }
 }
 export default FormWrapper;

@@ -15,7 +15,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div className='offset-4 col-4'>
+        <div className="offset-4 col-4">
           <Card>
             <FormWrapper
               formTitle={'Login With Your Email'}
@@ -38,4 +38,7 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);

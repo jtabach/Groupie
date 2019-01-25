@@ -26,11 +26,14 @@ class ActionList extends Component {
     const childrenArray = [].concat(children);
 
     return (
-      <div className={styles["listType"]}>
+      <div className={styles['listType']}>
         <ul className={styles[`${listType}__list`]}>
           {childrenArray.map(child => {
             return (
-              <li className={styles[`${listType}__list--item`]} key={Math.random()}>
+              <li
+                className={styles[`${listType}__list--item`]}
+                key={Math.random()}
+              >
                 {child}
               </li>
             );

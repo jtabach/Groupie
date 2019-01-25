@@ -34,7 +34,11 @@ class SideDrawer extends Component {
   render() {
     const { isVisible } = this.props;
     return (
-      <div className={isVisible ? styles['side-drawer-open'] : styles['side-drawer']}>
+      <div
+        className={
+          isVisible ? styles['side-drawer-open'] : styles['side-drawer']
+        }
+      >
         <ul>{this.renderAuthLinks()}</ul>
       </div>
     );

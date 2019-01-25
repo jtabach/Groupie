@@ -22,7 +22,7 @@ class Me extends Component {
 
     return (
       <NavLayout>
-        <div className={`${styles["me"]}`}>
+        <div className={`${styles['me']}`}>
           <div className="container">
             <div className="row">
               <div className="col-3">
@@ -43,4 +43,7 @@ class Me extends Component {
   }
 }
 
-export default connect(null, { fetchUser })(Me);
+export default connect(
+  null,
+  { fetchUser }
+)(Me);

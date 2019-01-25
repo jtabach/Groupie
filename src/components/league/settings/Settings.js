@@ -12,13 +12,7 @@ class Settings extends Component {
 
     return (
       <div>
-        {
-          isAdmin
-          ?
-          <AdminSettings league={league}/>
-          :
-          null
-        }
+        {isAdmin ? <AdminSettings league={league} /> : null}
         <UserSettings league={league} user={user} team={team} />
       </div>
     );
@@ -30,7 +24,7 @@ class Settings extends Component {
         <h2 style={{ marginBottom: '12px' }}>Settings</h2>
         {this.renderSettingsList()}
       </div>
-    )
+    );
   }
 }
 

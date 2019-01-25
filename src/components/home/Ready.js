@@ -6,21 +6,26 @@ import LinkButton from '../common/LinkButton';
 
 const Ready = () => {
   return (
-    <div className={styles["ready"]}>
+    <div className={styles['ready']}>
       <div className="container">
         <div className="row">
-          <div className={`${styles["ready__content"]} col-12`}>
-            <div className={styles["ready__content--image"]}>
+          <div className={`${styles['ready__content']} col-12`}>
+            <div className={styles['ready__content--image']}>
               <FaConnectdevelop />
             </div>
-            <div className={styles["ready__content--description"]}>
+            <div className={styles['ready__content--description']}>
               <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit, eum magnam porro molestias laboriosam sapiente accusantium animi ut nihil doloribus minus aspernatur minima, tempora consectetur unde.</p>
-              <div className={styles["ready__cta"]}>
-                <h5 className={styles["ready__cta--copy"]}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Aliquam odit, eum magnam porro molestias laboriosam sapiente
+                accusantium animi ut nihil doloribus minus aspernatur minima,
+                tempora consectetur unde.
+              </p>
+              <div className={styles['ready__cta']}>
+                <h5 className={styles['ready__cta--copy']}>
                   Let's get started!
                 </h5>
-                <div className={styles["ready__cta--button"]}>
+                <div className={styles['ready__cta--button']}>
                   <LinkButton
                     path="/register"
                     variant="primary"
@@ -34,7 +39,7 @@ const Ready = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Ready;

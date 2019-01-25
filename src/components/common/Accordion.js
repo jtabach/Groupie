@@ -13,7 +13,7 @@ class Accordion extends Component {
           openSections: {
             [child.props.label]: true
           }
-        })
+        });
       }
     });
   }
@@ -42,26 +42,29 @@ class Accordion extends Component {
         }
       });
     }
-  }
+  };
 
   render() {
     return (
       <div className={styles['accordion']}>
-        {
-          this.props.children.map((child, i) => (
-            <AccordionSection
-              key={i}
-              isOpen={!child.props.isDisabled && !!this.state.openSections[child.props.label]}
-              label={child.props.label}
-              onHandleClick={!child.props.isDisabled ? this.handleClick : () => {}}
-              isDisabled={child.props.isDisabled}
-            >
-              {child.props.children}
-            </AccordionSection>
-          ))
-        }
+        {this.props.children.map((child, i) => (
+          <AccordionSection
+            key={i}
+            isOpen={
+              !child.props.isDisabled &&
+              !!this.state.openSections[child.props.label]
+            }
+            label={child.props.label}
+            onHandleClick={
+              !child.props.isDisabled ? this.handleClick : () => {}
+            }
+            isDisabled={child.props.isDisabled}
+          >
+            {child.props.children}
+          </AccordionSection>
+        ))}
       </div>
-    )
+    );
   }
 }
 

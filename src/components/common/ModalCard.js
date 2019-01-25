@@ -20,9 +20,7 @@ class ModalCard extends Component {
     const { variant, onHandleClick } = this.props;
 
     return (
-      <div
-        className={styles[`modal-card-${variant}`]}
-        onClick={onHandleClick}>
+      <div className={styles[`modal-card-${variant}`]} onClick={onHandleClick}>
         {this.props.children}
       </div>
     );

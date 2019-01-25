@@ -16,7 +16,7 @@ class Newsfeed extends Component {
   state = {
     isModalOpen: false,
     newsContent: {}
-  }
+  };
 
   handleModalOpen(item) {
     this.setState({
@@ -35,24 +35,29 @@ class Newsfeed extends Component {
   renderPlayerNews() {
     const { news } = this.props;
     if (!news.length) {
-      return null
+      return null;
     }
     return news.map(item => {
       return (
-        <NewsCard key={item.id} content={item} onHandleClick={this.handleModalOpen}/>
+        <NewsCard
+          key={item.id}
+          content={item}
+          onHandleClick={this.handleModalOpen}
+        />
       );
     });
   }
 
   render() {
     return (
-      <div className={styles["newsfeed"]}>
-        <h5 className={styles["newsfeed__header"]}>Player News</h5>
+      <div className={styles['newsfeed']}>
+        <h5 className={styles['newsfeed__header']}>Player News</h5>
         <ul>{this.renderPlayerNews()}</ul>
         <NewsModal
           isOpen={this.state.isModalOpen}
           onHandleClose={this.handleModalClose}
-          content={this.state.newsContent} />
+          content={this.state.newsContent}
+        />
       </div>
     );
   }

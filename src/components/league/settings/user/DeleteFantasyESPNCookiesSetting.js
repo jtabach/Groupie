@@ -6,7 +6,7 @@ class DeleteFantasyESPNCookiesSetting extends Component {
       <div>
         <p>Delete espn fantasy cookies here</p>
       </div>
-    )
+    );
   }
 }
 

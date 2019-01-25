@@ -8,16 +8,14 @@ class EditFantasyLeagueIdSetting extends Component {
 
     return (
       <div>
-        {
-          league.fantasyLeagueId
-          ?
+        {league.fantasyLeagueId ? (
           <FantasyLeagueIdPrompt
             league={league}
             promptText={'Change ESPN Fantasy League Id'}
           />
-          :
+        ) : (
           <p>Fantasy League Id has not yet been set</p>
-        }
+        )}
       </div>
     );
   }

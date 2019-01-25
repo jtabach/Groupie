@@ -7,25 +7,31 @@ import { validate } from './validation/fantasyLeagueId';
 import styles from './Form.module.scss';
 
 class FantasyLeagueIdForm extends Component {
-  componentWillMount () {
-    this.props.initialize({ fantasyLeagueId: this.props.currentFantasyLeagueId });
+  componentWillMount() {
+    this.props.initialize({
+      fantasyLeagueId: this.props.currentFantasyLeagueId
+    });
   }
 
   render() {
-    const { handleSubmit, errorMessage, successMessage, isLoading } = this.props;
+    const {
+      handleSubmit,
+      errorMessage,
+      successMessage,
+      isLoading
+    } = this.props;
 
     return (
       <form onSubmit={handleSubmit}>
-        <p className={styles["error-message"]}>{errorMessage}</p>
-        <p className={styles["success-message"]}>{successMessage}</p>
-        <div className={styles["field"]}>
+        <p className={styles['error-message']}>{errorMessage}</p>
+        <p className={styles['success-message']}>{successMessage}</p>
+        <div className={styles['field']}>
           <Field
             name="fantasyLeagueId"
             type="text"
             label="Fantasy League Id *"
             placeholder="espn fantasy league id"
             component={RenderField}
-
           />
         </div>
         <ButtonTest
@@ -38,7 +44,7 @@ class FantasyLeagueIdForm extends Component {
       </form>
     );
   }
-};
+}
 
 FantasyLeagueIdForm = reduxForm({
   form: 'fantasyLeagueId',

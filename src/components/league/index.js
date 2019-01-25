@@ -24,7 +24,7 @@ class League extends Component {
     return (
       <div>
         <NavLayout>
-          <div className={`${styles["league"]}`}>
+          <div className={`${styles['league']}`}>
             <div className="container">
               <div className="row">
                 <div className="col-2">

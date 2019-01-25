@@ -30,7 +30,6 @@ export function putRequest(url, data) {
   }).then(response => response.json());
 }
 
-
 export function deleteRequest(url, data) {
   return fetch(url, {
     method: 'DELETE',

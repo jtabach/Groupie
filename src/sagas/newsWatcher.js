@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 
 import {
   FETCH_PLAYER_NEWS,
-  FETCH_PLAYER_NEWS_COMPLETED,
+  FETCH_PLAYER_NEWS_COMPLETED
 } from '../types/newsTypes';
 
 const socketServerURL = 'http://localhost:5000';
@@ -13,7 +13,7 @@ let socket;
 // wrapping function for socket.on
 const connect = () => {
   socket = io(socketServerURL);
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     socket.on('connect', () => {
       resolve(socket);
     });
@@ -21,18 +21,18 @@ const connect = () => {
 };
 
 // This is how a channel is created
-const createSocketChannel = socket => eventChannel((emit) => {
-  const handler = (data) => {
-    emit(data);
-  };
-  socket.on('updated news', handler);
-  return () => {
-    socket.off('updated news', handler);
-  };
-});
+const createSocketChannel = socket =>
+  eventChannel(emit => {
+    const handler = data => {
+      emit(data);
+    };
+    socket.on('updated news', handler);
+    return () => {
+      socket.off('updated news', handler);
+    };
+  });
 
 function* fetchPlayerNewsRequest(action) {
-
   // connect to the server
   const socket = yield call(connect);
 
@@ -43,7 +43,10 @@ function* fetchPlayerNewsRequest(action) {
   while (true) {
     const response = yield take(socketChannel);
     if (response.news) {
-      yield put({ type: FETCH_PLAYER_NEWS_COMPLETED, payload: { data: response } });
+      yield put({
+        type: FETCH_PLAYER_NEWS_COMPLETED,
+        payload: { data: response }
+      });
     } else {
       console.log('handle failed to fetch player news');
     }
@@ -53,4 +56,3 @@ function* fetchPlayerNewsRequest(action) {
 export function* newsWatcher() {
   yield takeLatest(FETCH_PLAYER_NEWS, fetchPlayerNewsRequest);
 }
-

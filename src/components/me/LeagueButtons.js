@@ -10,13 +10,13 @@ class LeagueButtons extends Component {
 
     return (
       <Card variant="dark">
-        <div className={styles["card-content"]}>
-          <h5 className={styles["title"]}>Join the Community</h5>
-          <p className={styles["copy"]}>
+        <div className={styles['card-content']}>
+          <h5 className={styles['title']}>Join the Community</h5>
+          <p className={styles['copy']}>
             Talk with your friends and get a custom feed with updates from all
             your players
           </p>
-          <div className={styles["button"]}>
+          <div className={styles['button']}>
             <LinkButton
               path={`${match.url}/joinLeague`}
               label="Join League"
@@ -24,7 +24,7 @@ class LeagueButtons extends Component {
               size="large"
             />
           </div>
-          <div className={styles["button"]}>
+          <div className={styles['button']}>
             <LinkButton
               path={`${match.url}/createLeague`}
               label="Create League"

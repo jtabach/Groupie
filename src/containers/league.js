@@ -58,9 +58,7 @@ class League extends Component {
         />
       );
     } else {
-      return (
-        <div>loading...</div>
-      );
+      return <div>loading...</div>;
     }
   }
 }
@@ -69,13 +67,16 @@ function mapStateToProps({ league, user, team }) {
   return { league, user, team };
 }
 
-export default connect(mapStateToProps, {
-  fetchLeague,
-  fetchUser,
-  fetchTeam,
-  clearLeague,
-  clearTeam,
-  clearFantasyData,
-  fetchNotifications,
-  fetchPlayerNews
-})(League);
+export default connect(
+  mapStateToProps,
+  {
+    fetchLeague,
+    fetchUser,
+    fetchTeam,
+    clearLeague,
+    clearTeam,
+    clearFantasyData,
+    fetchNotifications,
+    fetchPlayerNews
+  }
+)(League);

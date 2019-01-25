@@ -18,7 +18,7 @@ class CommentList extends Component {
   }
 
   render() {
-    return <ul className={styles["comment-list"]}>{this.renderComments()}</ul>;
+    return <ul className={styles['comment-list']}>{this.renderComments()}</ul>;
   }
 }
 

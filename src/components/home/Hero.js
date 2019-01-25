@@ -10,13 +10,19 @@ const SCROLL_ANIMATION_DURATION = 500;
 class Hero extends Component {
   render() {
     return (
-      <div className={styles["hero"]}>
+      <div className={styles['hero']}>
         <div className="container">
           <div className="row">
-            <h1 className={`${styles["hero__title"]} col-12`}>Welcome to Group Fantasy Football League</h1>
-            <p className={`${styles["hero__description"]} col-6`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur sit, voluptate minima tempora id labore quisquam unde minus nisi possimus.</p>
-            <div className={`${styles["hero__buttons"]} col-12`}>
-              <div className={styles["hero__buttons--wrapper"]}>
+            <h1 className={`${styles['hero__title']} col-12`}>
+              Welcome to Group Fantasy Football League
+            </h1>
+            <p className={`${styles['hero__description']} col-6`}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Aspernatur sit, voluptate minima tempora id labore quisquam unde
+              minus nisi possimus.
+            </p>
+            <div className={`${styles['hero__buttons']} col-12`}>
+              <div className={styles['hero__buttons--wrapper']}>
                 <LinkButton
                   path="/register"
                   variant="green"
@@ -24,7 +30,7 @@ class Hero extends Component {
                   label="create account"
                 />
               </div>
-              <div className={styles["hero__buttons--wrapper"]}>
+              <div className={styles['hero__buttons--wrapper']}>
                 <Scrollchor
                   to="#about"
                   animate={{ duration: SCROLL_ANIMATION_DURATION }}
@@ -37,13 +43,13 @@ class Hero extends Component {
                     label="learn more"
                     onClick={() => {}}
                   />
-               </Scrollchor>
+                </Scrollchor>
               </div>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

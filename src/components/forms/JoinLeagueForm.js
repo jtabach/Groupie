@@ -10,8 +10,8 @@ let JoinLeague = props => {
   const { handleSubmit, errorMessage, isLoading } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <p className={styles["error-message"]}>{errorMessage}</p>
-      <div className={styles["field"]}>
+      <p className={styles['error-message']}>{errorMessage}</p>
+      <div className={styles['field']}>
         <Field
           name="leagueId"
           type="text"
@@ -20,7 +20,7 @@ let JoinLeague = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="espnCookieS2"
           type="text"
@@ -29,7 +29,7 @@ let JoinLeague = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["field"]}>
+      <div className={styles['field']}>
         <Field
           name="espnCookieSwid"
           type="text"
@@ -38,7 +38,7 @@ let JoinLeague = props => {
           component={RenderField}
         />
       </div>
-      <div className={styles["button"]}>
+      <div className={styles['button']}>
         <ButtonTest
           label="Join League"
           type="submit"

@@ -16,7 +16,7 @@ class PostField extends Component {
     const { onPostInputChange, onPostInputSubmit } = this.props;
 
     return (
-      <div className={styles["post-field"]}>
+      <div className={styles['post-field']}>
         <Textarea
           inputRef={tag => (this.textarea = tag)}
           type="text"

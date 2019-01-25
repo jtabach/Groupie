@@ -6,7 +6,7 @@ class LeaveLeagueSetting extends Component {
       <div>
         <p>Leave this league here</p>
       </div>
-    )
+    );
   }
 }
 

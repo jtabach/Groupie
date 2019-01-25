@@ -14,14 +14,19 @@ class Scoreboard extends Component {
 
   componentDidMount() {
     if (this.props.league.fantasyLeagueId) {
-      this.props.fetchFantasyScoreboard(this.props.league.fantasyLeagueId, this.state.matchupPeriod)
+      this.props.fetchFantasyScoreboard(
+        this.props.league.fantasyLeagueId,
+        this.state.matchupPeriod
+      );
     }
   }
 
   handleMatchupPeriodChange(event) {
-    this.setState(
-      { matchupPeriod: event.target.value },
-      () => this.props.fetchFantasyScoreboard(this.props.league.fantasyLeagueId, this.state.matchupPeriod)
+    this.setState({ matchupPeriod: event.target.value }, () =>
+      this.props.fetchFantasyScoreboard(
+        this.props.league.fantasyLeagueId,
+        this.state.matchupPeriod
+      )
     );
   }
 
@@ -38,9 +43,7 @@ class Scoreboard extends Component {
           />
         );
       } else {
-        return (
-          <div>The admin has not yet added the fantasy league id</div>
-        );
+        return <div>The admin has not yet added the fantasy league id</div>;
       }
     }
 
@@ -62,10 +65,8 @@ class Scoreboard extends Component {
     }
 
     return scores.map(score => {
-      return (
-        <ScoreCard key={Math.random()} matchups={score.teams}/>
-      );
-    })
+      return <ScoreCard key={Math.random()} matchups={score.teams} />;
+    });
   }
 
   render() {
@@ -82,4 +83,7 @@ function mapStateToProps({ fantasy, league, user }) {
   return { fantasy, league, user };
 }
 
-export default connect(mapStateToProps, { fetchFantasyScoreboard })(Scoreboard);
+export default connect(
+  mapStateToProps,
+  { fetchFantasyScoreboard }
+)(Scoreboard);

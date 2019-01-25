@@ -24,14 +24,10 @@ class Standings extends Component {
           />
         );
       } else {
-        return (
-          <div>The admin has not yet added the fantasy league id</div>
-        );
+        return <div>The admin has not yet added the fantasy league id</div>;
       }
     }
-    return (
-      <ul>{this.renderDivisions()}</ul>
-    );
+    return <ul>{this.renderDivisions()}</ul>;
   }
 
   renderDivisions() {
@@ -41,8 +37,8 @@ class Standings extends Component {
     }
 
     return Object.keys(standings).map(division => {
-      return (<Division key={Math.random()} division={standings[division]} />)
-    })
+      return <Division key={Math.random()} division={standings[division]} />;
+    });
   }
 
   render() {
@@ -51,7 +47,7 @@ class Standings extends Component {
         <h2>Standings</h2>
         {this.renderStandings()}
       </div>
-    )
+    );
   }
 }
 
@@ -59,4 +55,7 @@ function mapStateToProps({ fantasy, league, user }) {
   return { fantasy, league, user };
 }
 
-export default connect(mapStateToProps, { fetchFantasyStandings })(Standings);
+export default connect(
+  mapStateToProps,
+  { fetchFantasyStandings }
+)(Standings);

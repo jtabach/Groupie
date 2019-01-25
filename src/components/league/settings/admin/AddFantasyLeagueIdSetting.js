@@ -8,16 +8,14 @@ class AddFantasyLeagueIdSetting extends Component {
 
     return (
       <div>
-        {
-          league.fantasyLeagueId
-          ?
+        {league.fantasyLeagueId ? (
           <p>The fantasy league Id has already been set</p>
-          :
+        ) : (
           <FantasyLeagueIdPrompt
             league={league}
             promptText={'Add ESPN Fantasy League Id'}
           />
-        }
+        )}
       </div>
     );
   }

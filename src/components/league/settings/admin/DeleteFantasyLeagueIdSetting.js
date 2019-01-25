@@ -11,24 +11,28 @@ class DeleteFantasyLeagueIdSetting extends Component {
 
     return (
       <div>
-        {
-          league.fantasyLeagueId
-          ?
+        {league.fantasyLeagueId ? (
           <div>
-            <p>Deleting the league Id will not allow any members to view any fantasy data</p>
+            <p>
+              Deleting the league Id will not allow any members to view any
+              fantasy data
+            </p>
             <ButtonTest
-              type='button'
-              variant='red'
-              label='Delete'
+              type="button"
+              variant="red"
+              label="Delete"
               onClick={() => this.props.deleteFantasyLeagueId(league._id)}
             />
           </div>
-          :
+        ) : (
           <p>Fantasy League Id has not yet been set</p>
-        }
+        )}
       </div>
     );
   }
 }
 
-export default connect(null, { deleteFantasyLeagueId })(DeleteFantasyLeagueIdSetting);
+export default connect(
+  null,
+  { deleteFantasyLeagueId }
+)(DeleteFantasyLeagueIdSetting);

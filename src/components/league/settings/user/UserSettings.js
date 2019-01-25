@@ -19,12 +19,16 @@ class UserSettings extends Component {
       },
       {
         label: 'Change ESPN Cookies',
-        component: <EditFantasyESPNCookiesSetting league={league} user={user} />,
+        component: (
+          <EditFantasyESPNCookiesSetting league={league} user={user} />
+        ),
         isDisabled: !team.espnCookieString ? true : false
       },
       {
         label: 'Delete ESPN Cookies',
-        component: <DeleteFantasyESPNCookiesSetting league={league} user={user} />,
+        component: (
+          <DeleteFantasyESPNCookiesSetting league={league} user={user} />
+        ),
         isDisabled: !team.espnCookieString ? true : false
       },
       {
@@ -40,14 +44,18 @@ class UserSettings extends Component {
         <Accordion>
           {settingsList.map((setting, i) => {
             return (
-              <div label={setting.label} isDisabled={setting.isDisabled} key={i}>
+              <div
+                label={setting.label}
+                isDisabled={setting.isDisabled}
+                key={i}
+              >
                 {setting.component}
               </div>
-            )
+            );
           })}
         </Accordion>
       </div>
-    )
+    );
   }
 }
 

@@ -8,7 +8,7 @@ import RemoveTeamFromLeagueSetting from './RemoveTeamFromLeagueSetting';
 import Accordion from '../../../common/Accordion';
 
 class AdminSettings extends Component {
-  state
+  state;
   render() {
     const { league } = this.props;
 
@@ -45,14 +45,18 @@ class AdminSettings extends Component {
         <Accordion>
           {settingsList.map((setting, i) => {
             return (
-              <div label={setting.label} isDisabled={setting.isDisabled} key={i}>
+              <div
+                label={setting.label}
+                isDisabled={setting.isDisabled}
+                key={i}
+              >
                 {setting.component}
               </div>
-            )
+            );
           })}
         </Accordion>
       </div>
-    )
+    );
   }
 }
 

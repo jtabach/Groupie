@@ -40,7 +40,7 @@ export default (state = initialState, action) => {
         ...initialState,
         _id: false,
         loading: true
-      }
+      };
       break;
 
     case REGISTER_USER_COMPLETED:
@@ -56,7 +56,7 @@ export default (state = initialState, action) => {
         ...initialState,
         _id: false,
         errorMessage: action.payload.data.message
-      }
+      };
       break;
 
     case LOGIN_USER:
@@ -64,7 +64,7 @@ export default (state = initialState, action) => {
         ...initialState,
         _id: false,
         loading: true
-      }
+      };
       break;
 
     case LOGIN_USER_COMPLETED:
@@ -80,7 +80,7 @@ export default (state = initialState, action) => {
         ...initialState,
         _id: false,
         errorMessage: action.payload.data.message
-      }
+      };
       break;
 
     case FETCH_USER_COMPLETED:

@@ -149,14 +149,16 @@ class Header extends Component {
 
   render() {
     return (
-      <div className={styles["header"]}>
+      <div className={styles['header']}>
         <div className={`styles["contain"] container`}>
-          <div className={styles["navigation"]}>
+          <div className={styles['navigation']}>
             <DrawerToggleButton click={this.props.handleDrawerToggleClick} />
-            <div className={styles["logo"]}>
+            <div className={styles['logo']}>
               <Link to="/me">GFFL</Link>
             </div>
-            <div className={styles["navigation-items"]}>{this.renderAuthLinks()}</div>
+            <div className={styles['navigation-items']}>
+              {this.renderAuthLinks()}
+            </div>
           </div>
         </div>
       </div>
@@ -168,4 +170,7 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps, { dismissNotifications })(Header);
+export default connect(
+  mapStateToProps,
+  { dismissNotifications }
+)(Header);

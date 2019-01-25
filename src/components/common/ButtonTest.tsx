@@ -6,10 +6,18 @@ import styles from './Button.module.scss';
 import ButtonLoading from './ButtonLoading';
 
 interface Props {
-  type: 'button'|'submit';
-  variant: 'primary'|'secondary'|'secondary-inverse'|'outline'|
-    'primary-inverse'|'green'|'green-inverse'|'red'|'red-inverse';
-  size: 'large'|'small';
+  type: 'button' | 'submit';
+  variant:
+    | 'primary'
+    | 'secondary'
+    | 'secondary-inverse'
+    | 'outline'
+    | 'primary-inverse'
+    | 'green'
+    | 'green-inverse'
+    | 'red'
+    | 'red-inverse';
+  size: 'large' | 'small';
   onClick: any;
   label: string;
   children: any;
@@ -18,15 +26,23 @@ interface Props {
 
 class ButtonTest extends Component<Props> {
   public static defaultProps: {
-    type: 'button',
-    variant: 'primary',
-    size: 'large',
-    label: '',
-    children: null,
+    type: 'button';
+    variant: 'primary';
+    size: 'large';
+    label: '';
+    children: null;
   };
 
   public render() {
-    const { type, variant, size, onClick, label, children, isLoading } = this.props;
+    const {
+      type,
+      variant,
+      size,
+      onClick,
+      label,
+      children,
+      isLoading
+    } = this.props;
 
     return (
       <button
@@ -34,11 +50,7 @@ class ButtonTest extends Component<Props> {
         className={`${styles[variant]} ${styles[size]}`}
         onClick={type === 'submit' ? () => _.noop() : onClick}
       >
-      {
-        isLoading
-        ? <ButtonLoading />
-        : label || children
-      }
+        {isLoading ? <ButtonLoading /> : label || children}
       </button>
     );
   }
