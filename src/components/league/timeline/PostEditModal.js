@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Modal from 'react-modal';
+import Modal from '../../common/Modal';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import Textarea from 'react-textarea-autosize';
 
 import ButtonTest from '../../common/ButtonTest';
-
-Modal.setAppElement('#root'); // for screen readers
 
 class PostEditModal extends Component {
   static propTypes = {

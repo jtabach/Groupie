@@ -4,6 +4,7 @@ import styles from './Newsfeed.module.scss';
 
 import NewsCard from './NewsCard';
 import NewsModal from './NewsModal';
+import Modal from '../../common/Modal';
 
 class Newsfeed extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class Newsfeed extends Component {
         <NewsModal
           isOpen={this.state.isModalOpen}
           onHandleClose={this.handleModalClose}
-          content={this.state.newsContent}>Test</NewsModal>
+          content={this.state.newsContent} />
       </div>
     );
   }
