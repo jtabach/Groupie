@@ -18,7 +18,10 @@ class MyTeam extends Component {
     } else if (!team.espnCookieString) {
       return (
         <div>
-          <FantasyEspnCookiePrompt team={team} />
+          <FantasyEspnCookiePrompt
+            team={team}
+            promptText={"ESPN Fantasy Cookies have not yet been set"}
+          />
           <div>Some instructions for figuring out the fantasy team id</div>
         </div>
       );

@@ -7,7 +7,11 @@ import { setFantasyEspnCookies } from "../../actions/fantasyActions";
 
 class FantasyEspnCookiePrompt extends Component {
   handleSubmit = values => {
-    this.props.setFantasyEspnCookies(values, this.props.team._id);
+    this.props.setFantasyEspnCookies(
+      values,
+      this.props.team._id,
+      this.props.league.fantasyLeagueId
+    );
   };
 
   render() {
@@ -16,11 +20,11 @@ class FantasyEspnCookiePrompt extends Component {
       errorMessage,
       successMessage,
       loading
-    } = this.props.formLoading.fantasyLeagueId;
+    } = this.props.formLoading.fantasyEspnCookie;
 
     return (
       <div>
-        <h4>An ESPN Auth Cookies have not been entered yet</h4>
+        <h4>{promptText}</h4>
         <FantasyEspnCookieForm
           onSubmit={this.handleSubmit}
           errorMessage={errorMessage}

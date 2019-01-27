@@ -1,7 +1,7 @@
-import { put, takeLatest, call } from 'redux-saga/effects';
-import { getRequest, postRequest, deleteRequest } from './helpers/request';
+import { put, takeLatest, call } from "redux-saga/effects";
+import { getRequest, postRequest, deleteRequest } from "./helpers/request";
 
-import CONFIG from '../config';
+import CONFIG from "../config";
 
 import {
   FETCH_FANTASY_STANDINGS,
@@ -18,8 +18,9 @@ import {
   DELETE_FANTASY_LEAGUE_ID,
   DELETE_FANTASY_LEAGUE_ID_COMPLETED,
   SET_FANTASY_ESPN_COOKIES,
-  SET_FANTASY_ESPN_COOKIES_COMPLETED
-} from '../types/fantasyTypes';
+  SET_FANTASY_ESPN_COOKIES_COMPLETED,
+  SET_FANTASY_ESPN_COOKIES_FAILED
+} from "../types/fantasyTypes";
 
 function* fetchFantasyStandingsRequest(action) {
   const fantasyLeagueId = action.payload;
@@ -34,7 +35,7 @@ function* fetchFantasyStandingsRequest(action) {
       payload: { data: response }
     });
   } else {
-    console.log('handle failed to fetch fantasy standings');
+    console.log("handle failed to fetch fantasy standings");
   }
 }
 
@@ -54,7 +55,7 @@ function* fetchFantasyScoresRequest(action) {
       payload: { data: response }
     });
   } else {
-    console.log('handle failed to fetch fantasy scores');
+    console.log("handle failed to fetch fantasy scores");
   }
 }
 
@@ -72,7 +73,7 @@ function* fetchFantasyRosterRequest(action) {
       payload: { data: response }
     });
   } else {
-    console.log('handle failed to fetch fantasy roster');
+    console.log("handle failed to fetch fantasy roster");
   }
 }
 
@@ -110,16 +111,18 @@ function* deleteFantasyLeagueIdRequest(action) {
       payload: { data: response }
     });
   } else {
-    console.log('handle failed to delete fantasy league id');
+    console.log("handle failed to delete fantasy league id");
   }
 }
 
 function* setFantasyEspnCookiesRequest(action) {
-  const { fantasyEspnCookies, teamId } = action.payload;
-  console.log(fantasyEspnCookies);
+  const { fantasyEspnCookies, teamId, fantasyLeagueId } = action.payload;
+
   const response = yield call(
     postRequest,
-    `${CONFIG.serverUrl}/team/setFantasyEspnCookies/${teamId}`,
+    `${
+      CONFIG.serverUrl
+    }/team/setFantasyEspnCookies/${teamId}/${fantasyLeagueId}`,
     fantasyEspnCookies
   );
 
@@ -129,7 +132,10 @@ function* setFantasyEspnCookiesRequest(action) {
       payload: { data: response }
     });
   } else {
-    console.log('handle failed to set fantasy espn cookies');
+    yield put({
+      type: SET_FANTASY_ESPN_COOKIES_FAILED,
+      payload: { data: response }
+    });
   }
 }
 

@@ -12,7 +12,7 @@ class EditFantasyESPNCookiesSetting extends Component {
           <FantasyEspnCookiePrompt
             league={league}
             team={team}
-            promptText={"Change ESPN Fantasy League Id"}
+            promptText={"Change ESPN Fantasy Cookies"}
           />
         ) : (
           <p>Fantasy League Id has not yet been set</p>
