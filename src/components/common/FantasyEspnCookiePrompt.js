@@ -15,7 +15,7 @@ class FantasyEspnCookiePrompt extends Component {
   };
 
   render() {
-    const { promptText, league, team } = this.props;
+    const { promptText } = this.props;
     const {
       errorMessage,
       successMessage,

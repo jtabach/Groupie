@@ -19,7 +19,9 @@ import {
   DELETE_FANTASY_LEAGUE_ID_COMPLETED,
   SET_FANTASY_ESPN_COOKIES,
   SET_FANTASY_ESPN_COOKIES_COMPLETED,
-  SET_FANTASY_ESPN_COOKIES_FAILED
+  SET_FANTASY_ESPN_COOKIES_FAILED,
+  DELETE_FANTASY_ESPN_COOKIES,
+  DELETE_FANTASY_ESPN_COOKIES_COMPLETED
 } from "../types/fantasyTypes";
 
 function* fetchFantasyStandingsRequest(action) {
@@ -121,9 +123,7 @@ function* setFantasyEspnCookiesRequest(action) {
 
   const response = yield call(
     postRequest,
-    `${
-      CONFIG.serverUrl
-    }/team/setFantasyEspnCookies/${teamId}/${fantasyLeagueId}`,
+    `${CONFIG.serverUrl}/team/fantasyEspnCookies/${teamId}/${fantasyLeagueId}`,
     fantasyEspnCookies
   );
 
@@ -140,6 +140,24 @@ function* setFantasyEspnCookiesRequest(action) {
   }
 }
 
+function* deleteFantasyEspnCookiesRequest(action) {
+  const { teamId } = action.payload;
+  const response = yield call(
+    deleteRequest,
+    `${CONFIG.serverUrl}/team/fantasyEspnCookies/${teamId}`
+  );
+
+  if (response.verify) {
+    yield put({
+      type: DELETE_FANTASY_ESPN_COOKIES_COMPLETED,
+      payload: { data: response }
+    });
+    yield put({ type: CLEAR_FANTASY_DATA });
+  } else {
+    console.log("handle failed to delete fantasy espn cookies");
+  }
+}
+
 function* clearFantasyDataRequest(action) {
   yield put({ type: CLEAR_FANTASY_DATA_COMPLETE, payload: { data: {} } });
 }
@@ -152,4 +170,8 @@ export function* fantasyWatcher() {
   yield takeLatest(SET_FANTASY_LEAGUE_ID, setFantasyLeagueIdRequest);
   yield takeLatest(DELETE_FANTASY_LEAGUE_ID, deleteFantasyLeagueIdRequest);
   yield takeLatest(SET_FANTASY_ESPN_COOKIES, setFantasyEspnCookiesRequest);
+  yield takeLatest(
+    DELETE_FANTASY_ESPN_COOKIES,
+    deleteFantasyEspnCookiesRequest
+  );
 }
