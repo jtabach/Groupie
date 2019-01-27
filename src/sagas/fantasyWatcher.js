@@ -110,6 +110,7 @@ function* deleteFantasyLeagueIdRequest(action) {
       type: DELETE_FANTASY_LEAGUE_ID_COMPLETED,
       payload: { data: response }
     });
+    yield put({ type: CLEAR_FANTASY_DATA });
   } else {
     console.log("handle failed to delete fantasy league id");
   }

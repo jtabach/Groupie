@@ -8,7 +8,7 @@ class EditFantasyESPNCookiesSetting extends Component {
 
     return (
       <div>
-        {league.fantasyLeagueId && team.espnCookieString ? (
+        {team.espnCookieString ? (
           <FantasyEspnCookiePrompt
             league={league}
             team={team}
