@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import FantasyLeagueIdPrompt from '../../../common/FantasyLeagueIdPrompt';
+import FantasyLeagueIdPrompt from "../../../common/FantasyLeagueIdPrompt";
 
 class AddFantasyLeagueIdSetting extends Component {
   render() {
@@ -13,7 +13,7 @@ class AddFantasyLeagueIdSetting extends Component {
         ) : (
           <FantasyLeagueIdPrompt
             league={league}
-            promptText={'Add ESPN Fantasy League Id'}
+            promptText={"Add ESPN Fantasy League Id"}
           />
         )}
       </div>

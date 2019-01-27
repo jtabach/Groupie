@@ -1,46 +1,48 @@
-import React, { Component } from 'react';
-import styles from './AdminSettings.module.scss';
+import React, { Component } from "react";
+import styles from "./AdminSettings.module.scss";
 
-import AddFantasyLeagueIdSetting from './AddFantasyLeagueIdSetting';
-import EditFantasyLeagueIdSetting from './EditFantasyLeagueIdSetting';
-import DeleteFantasyLeagueIdSetting from './DeleteFantasyLeagueIdSetting';
-import RemoveTeamFromLeagueSetting from './RemoveTeamFromLeagueSetting';
-import Accordion from '../../../common/Accordion';
+import {
+  AddFantasyLeagueIdSetting,
+  EditFantasyLeagueIdSetting,
+  DeleteFantasyLeagueIdSetting,
+  RemoveTeamFromLeagueSetting
+} from "./index";
+
+import Accordion from "../../../common/Accordion";
 
 class AdminSettings extends Component {
-  state;
   render() {
     const { league } = this.props;
 
     let settingsList = [
       {
-        key: 'addFantasyLeagueIdSetting',
-        label: 'Add ESPN Fantasy League Id',
+        key: "addFantasyLeagueIdSetting",
+        label: "Add ESPN Fantasy League Id",
         component: <AddFantasyLeagueIdSetting league={league} />,
         isDisabled: league.fantasyLeagueId ? true : false
       },
       {
-        key: 'changeFantasyLeagueIdSetting',
-        label: 'Change ESPN Fantasy League Id',
+        key: "changeFantasyLeagueIdSetting",
+        label: "Change ESPN Fantasy League Id",
         component: <EditFantasyLeagueIdSetting league={league} />,
         isDisabled: !league.fantasyLeagueId ? true : false
       },
       {
-        key: 'deleteFantasyLeagueIdSetting',
-        label: 'Delete ESPN Fantasy League Id',
+        key: "deleteFantasyLeagueIdSetting",
+        label: "Delete ESPN Fantasy League Id",
         component: <DeleteFantasyLeagueIdSetting league={league} />,
         isDisabled: !league.fantasyLeagueId ? true : false
       },
       {
-        key: 'removeTeamFromLeagueSetting',
-        label: 'Remove Team From League',
+        key: "removeTeamFromLeagueSetting",
+        label: "Remove Team From League",
         component: <RemoveTeamFromLeagueSetting league={league} />,
         isDisabled: false
       }
     ];
 
     return (
-      <div className={styles['settings-list']}>
+      <div className={styles["settings-list"]}>
         <h3>Admin Settings</h3>
         <Accordion>
           {settingsList.map((setting, i) => {
