@@ -36,7 +36,7 @@ class UserSettings extends Component {
       {
         label: "Leave This League",
         component: <LeaveLeagueSetting league={league} user={user} />,
-        isDisabled: false
+        isDisabled: true
       }
     ];
 

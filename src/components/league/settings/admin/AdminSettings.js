@@ -37,7 +37,7 @@ class AdminSettings extends Component {
         key: "removeTeamFromLeagueSetting",
         label: "Remove Team From League",
         component: <RemoveTeamFromLeagueSetting league={league} />,
-        isDisabled: false
+        isDisabled: true
       }
     ];
 
