@@ -1,10 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+
+import FantasyEspnCookiePrompt from "../../../common/FantasyEspnCookiePrompt";
 
 class EditFantasyESPNCookiesSetting extends Component {
   render() {
+    const { league, team } = this.props;
+
     return (
       <div>
-        <p>Change espn fantasy cookies here</p>
+        {league.fantasyLeagueId && team.espnCookieString ? (
+          <FantasyEspnCookiePrompt
+            league={league}
+            team={team}
+            promptText={"Change ESPN Fantasy League Id"}
+          />
+        ) : (
+          <p>Fantasy League Id has not yet been set</p>
+        )}
       </div>
     );
   }

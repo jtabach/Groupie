@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import styles from './UserSettings.module.scss';
+import React, { Component } from "react";
+import styles from "./UserSettings.module.scss";
 
-import Accordion from '../../../common/Accordion';
-import AddFantasyESPNCookiesSetting from './AddFantasyESPNCookiesSetting';
-import EditFantasyESPNCookiesSetting from './EditFantasyESPNCookiesSetting';
-import DeleteFantasyESPNCookiesSetting from './DeleteFantasyESPNCookiesSetting';
-import LeaveLeagueSetting from './LeaveLeagueSetting';
+import Accordion from "../../../common/Accordion";
+import AddFantasyESPNCookiesSetting from "./AddFantasyESPNCookiesSetting";
+import EditFantasyESPNCookiesSetting from "./EditFantasyESPNCookiesSetting";
+import DeleteFantasyESPNCookiesSetting from "./DeleteFantasyESPNCookiesSetting";
+import LeaveLeagueSetting from "./LeaveLeagueSetting";
 
 class UserSettings extends Component {
   render() {
@@ -13,33 +13,33 @@ class UserSettings extends Component {
 
     const settingsList = [
       {
-        label: 'Add ESPN Cookies',
-        component: <AddFantasyESPNCookiesSetting league={league} user={user} />,
+        label: "Add ESPN Cookies",
+        component: <AddFantasyESPNCookiesSetting league={league} team={team} />,
         isDisabled: team.espnCookieString ? true : false
       },
       {
-        label: 'Change ESPN Cookies',
+        label: "Change ESPN Cookies",
         component: (
-          <EditFantasyESPNCookiesSetting league={league} user={user} />
+          <EditFantasyESPNCookiesSetting league={league} team={team} />
         ),
         isDisabled: !team.espnCookieString ? true : false
       },
       {
-        label: 'Delete ESPN Cookies',
+        label: "Delete ESPN Cookies",
         component: (
-          <DeleteFantasyESPNCookiesSetting league={league} user={user} />
+          <DeleteFantasyESPNCookiesSetting league={league} team={team} />
         ),
         isDisabled: !team.espnCookieString ? true : false
       },
       {
-        label: 'Leave This League',
+        label: "Leave This League",
         component: <LeaveLeagueSetting league={league} user={user} />,
         isDisabled: false
       }
     ];
 
     return (
-      <div className={styles['settings-list']}>
+      <div className={styles["settings-list"]}>
         <h3>User Settings</h3>
         <Accordion>
           {settingsList.map((setting, i) => {

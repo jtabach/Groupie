@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import FantasyLeagueIdPrompt from '../../common/FantasyLeagueIdPrompt';
-import FantasyEspnCookiePrompt from '../../common/FantasyEspnCookiePrompt';
-import Roster from './Roster';
+import FantasyLeagueIdPrompt from "../../common/FantasyLeagueIdPrompt";
+import FantasyEspnCookiePrompt from "../../common/FantasyEspnCookiePrompt";
+import Roster from "./Roster";
 
 class MyTeam extends Component {
   renderMyTeam() {
@@ -18,7 +18,7 @@ class MyTeam extends Component {
     } else if (!team.espnCookieString) {
       return (
         <div>
-          <FantasyEspnCookiePrompt teamId={team._id} />
+          <FantasyEspnCookiePrompt team={team} />
           <div>Some instructions for figuring out the fantasy team id</div>
         </div>
       );
