@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import styles from "./UserSettings.module.scss";
 
 import Accordion from "../../../common/Accordion";
-import AddFantasyESPNCookiesSetting from "./AddFantasyESPNCookiesSetting";
-import EditFantasyESPNCookiesSetting from "./EditFantasyESPNCookiesSetting";
-import DeleteFantasyESPNCookiesSetting from "./DeleteFantasyESPNCookiesSetting";
-import LeaveLeagueSetting from "./LeaveLeagueSetting";
+import {
+  AddFantasyESPNCookiesSetting,
+  EditFantasyESPNCookiesSetting,
+  DeleteFantasyESPNCookiesSetting,
+  LeaveLeagueSetting
+} from "./index";
 
 class UserSettings extends Component {
   render() {
