@@ -28,7 +28,9 @@ class NotificationsActionList extends Component {
     user: CustomPropTypes.user.isRequired
   };
 
-  handleClickOutside = evt => {
+  handleClickOutside = (evt) => {
+    console.log(evt);
+    evt.stopPropagation();
     this.props.onHandleClickOutside(this.props.buttonType);
   };
 
@@ -42,7 +44,7 @@ class NotificationsActionList extends Component {
 
   handleViewAllNotificationsClick() {
     const { user, viewAllNotifications, onHandleClickOutside } = this.props;
-    const notificationsArray = user.notifications.filter(notification => {
+    const notificationsArray = user.notifications.filter((notification) => {
       return !notification.hasViewed;
     });
 
@@ -69,7 +71,7 @@ class NotificationsActionList extends Component {
           </div>
         </div>
         <ul className={styles['notifications__list']}>
-          {[...user.notifications].reverse().map(notification => {
+          {[...user.notifications].reverse().map((notification) => {
             return (
               <li
                 className={styles['notifications__list--item']}

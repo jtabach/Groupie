@@ -127,7 +127,6 @@ class PostItem extends Component {
   }
 
   handlePostEditInputSubmit(text) {
-    // dispatch action for editing post
     const post = {
       ...this.props.post,
       text
@@ -183,7 +182,7 @@ class PostItem extends Component {
       };
       createNotification(notificationData);
     } else {
-      likeData._id = post.likes.find(like => {
+      likeData._id = post.likes.find((like) => {
         return like.team._id === team._id;
       })._id;
 
@@ -214,7 +213,7 @@ class PostItem extends Component {
             </PostActionsList>
           ) : null}
 
-          <img src={threeDots} alt="" className={styles['dots']} />
+          <img src={threeDots} alt='' className={styles['dots']} />
         </div>
       );
     } else {
@@ -231,9 +230,9 @@ class PostItem extends Component {
           likes: {post.likes.length}
         </div>
         {post.likes.length ? (
-          <ReactTooltip id={`likes-${post._id}`} effect="solid">
+          <ReactTooltip id={`likes-${post._id}`} effect='solid'>
             <ul>
-              {post.likes.map(like => {
+              {post.likes.map((like) => {
                 return (
                   <li key={like._id}>
                     {like.team.user.firstName} {like.team.user.lastName}
@@ -247,10 +246,10 @@ class PostItem extends Component {
           comments: {post.comments.length}
         </div>
         {post.comments.length ? (
-          <ReactTooltip id={`comments-${post._id}`} effect="solid">
+          <ReactTooltip id={`comments-${post._id}`} effect='solid'>
             <ul>
               {post.comments
-                .map(comment => {
+                .map((comment) => {
                   return `${comment.team.user.firstName} ${
                     comment.team.user.lastName
                   }`;
@@ -258,7 +257,7 @@ class PostItem extends Component {
                 .filter((value, index, self) => {
                   return self.indexOf(value) === index;
                 })
-                .map(name => {
+                .map((name) => {
                   return <li key={Math.random()}>{name}</li>;
                 })}
             </ul>
@@ -271,7 +270,7 @@ class PostItem extends Component {
   renderPostLikeButton() {
     const { post, team } = this.props;
 
-    const hasPostBeenLikedByTeam = post.likes.some(like => {
+    const hasPostBeenLikedByTeam = post.likes.some((like) => {
       return like.team._id === team._id;
     });
 
