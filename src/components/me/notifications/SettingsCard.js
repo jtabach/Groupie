@@ -3,6 +3,9 @@ import styles from './SettingsCard.module.scss';
 import { connect } from 'react-redux';
 import Switch from 'react-switch';
 import Card from '../../common/Card';
+import ButtonTest from '../../common/ButtonTest';
+
+import { changeNotificationSettings } from '../../../actions/notificationActions';
 
 const settingsData = [
   {
@@ -33,6 +36,10 @@ class SettingsCard extends Component {
     });
   }
 
+  handleClick() {
+    this.props.changeNotificationSettings(this.state.notificationSettings);
+  }
+
   renderSettingsList() {
     return settingsData.map((setting) => {
       return (
@@ -42,6 +49,8 @@ class SettingsCard extends Component {
             <Switch
               uncheckedIcon={false}
               checkedIcon={false}
+              height={24}
+              width={48}
               onChange={(bool) => this.handleChange(bool, setting.key)}
               checked={this.state.notificationSettings[setting.key]}
               id={setting.key}
@@ -61,6 +70,12 @@ class SettingsCard extends Component {
           <ul className={styles['settings-card__list']}>
             {this.renderSettingsList()}
           </ul>
+          <ButtonTest
+            label={'Save'}
+            onClick={() => this.handleClick()}
+            variant={'primary'}
+            type={'button'}
+          />
         </div>
       </Card>
     );
@@ -71,4 +86,7 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps)(SettingsCard);
+export default connect(
+  mapStateToProps,
+  { changeNotificationSettings }
+)(SettingsCard);

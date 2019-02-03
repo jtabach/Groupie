@@ -10,7 +10,10 @@ import {
   VIEW_ALL_NOTIFICATIONS,
   VIEW_ALL_NOTIFICATIONS_COMPLETED,
   DISMISS_NOTIFICATIONS,
-  DISMISS_NOTIFICATIONS_COMPLETED
+  DISMISS_NOTIFICATIONS_COMPLETED,
+  CHANGE_NOTIFICATION_SETTINGS,
+  CHANGE_NOTIFICATION_SETTINGS_COMPLETED,
+  CHANGE_NOTIFICATION_SETTINGS_FAILED
 } from '../types/notificationTypes';
 
 function* createNotificationRequest(action) {
@@ -87,11 +90,35 @@ function* dismissNotificationsRequest(action) {
   }
 }
 
+function* changeNotificationSettingsRequest(action) {
+  console.log(action.payload);
+  const response = yield call(
+    postRequest,
+    `http://localhost:5000/api/notification/settings`,
+    action.payload
+  );
+  if (response.verify) {
+    yield put({
+      type: CHANGE_NOTIFICATION_SETTINGS_COMPLETED,
+      payload: { data: response }
+    });
+  } else {
+    console.log('failed settings');
+    yield put({
+      type: CHANGE_NOTIFICATION_SETTINGS_FAILED,
+      payload: { data: response }
+    });
+  }
+}
+
 export function* notificationWatcher() {
   yield takeLatest(CREATE_NOTIFICATION, createNotificationRequest);
   yield takeLatest(FETCH_NOTIFICATIONS, fetchNotificationsRequest);
-  // yield takeLatest(FETCH_NOTIFICATIONS, () => {});
   yield takeLatest(VIEW_NOTIFICATION, viewNotificationRequest);
   yield takeLatest(VIEW_ALL_NOTIFICATIONS, viewAllNotifications);
   yield takeLatest(DISMISS_NOTIFICATIONS, dismissNotificationsRequest);
+  yield takeLatest(
+    CHANGE_NOTIFICATION_SETTINGS,
+    changeNotificationSettingsRequest
+  );
 }
