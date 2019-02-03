@@ -19,7 +19,7 @@ class SettingsActionList extends Component {
         onHandleClickOutside={onHandleClickOutside}
         buttonType={buttonType}
       >
-        <Link to='/notification-settings'>Notification Settings</Link>
+        <Link to='/me/notification-settings'>Notification Settings</Link>
         <LogoutButton />
       </ActionList>
     );
