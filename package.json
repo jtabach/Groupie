@@ -24,6 +24,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-scrollchor": "^6.0.0",
+    "react-switch": "^4.0.1",
     "react-textarea-autosize": "^7.1.0",
     "react-tooltip": "^3.9.0",
     "reactstrap": "^6.5.0",

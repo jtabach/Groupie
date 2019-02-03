@@ -1,0 +1,15 @@
+@import '../../../assets/styles/helpers/variables';
+
+.settings-card {
+  padding: 16px;
+  &__list {
+  }
+  &__item {
+    label {
+      height: 42px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
