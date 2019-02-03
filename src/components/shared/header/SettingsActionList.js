@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ActionList from '../../common/ActionList';
+import { Link } from 'react-router-dom';
 
+import ActionList from '../../common/ActionList';
 import LogoutButton from '../../buttons/LogoutButton';
 
 class SettingsActionList extends Component {
@@ -18,6 +19,7 @@ class SettingsActionList extends Component {
         onHandleClickOutside={onHandleClickOutside}
         buttonType={buttonType}
       >
+        <Link to='/notification-settings'>Notification Settings</Link>
         <LogoutButton />
       </ActionList>
     );

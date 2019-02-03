@@ -17,7 +17,7 @@ class ActionList extends Component {
     listType: 'actions'
   };
 
-  handleClickOutside = evt => {
+  handleClickOutside = (evt) => {
     this.props.onHandleClickOutside(this.props.buttonType);
   };
 
@@ -26,9 +26,9 @@ class ActionList extends Component {
     const childrenArray = [].concat(children);
 
     return (
-      <div className={styles['listType']}>
+      <div className={styles[listType]}>
         <ul className={styles[`${listType}__list`]}>
-          {childrenArray.map(child => {
+          {childrenArray.map((child) => {
             return (
               <li
                 className={styles[`${listType}__list--item`]}

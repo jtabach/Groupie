@@ -11,17 +11,24 @@
   max-height: 70vh;
   overflow: scroll;
   z-index: 5000;
-  padding: 6px 0;
   &__list {
-    width: 140px;
+    width: 200px;
     &--item {
       width: 100%;
       display: block;
       text-align: left;
-      padding: 0 12px;
-      margin-bottom: 6px;
-      &:last-of-type {
-        margin-bottom: 0;
+      padding: 6px 12px;
+      color: black;
+      &:hover {
+        cursor: pointer;
+        background: $gray-lightest;
+      }
+      a {
+        text-decoration: none;
+        color: black !important;
+        &:hover {
+          color: black !important;
+        }
       }
     }
   }
