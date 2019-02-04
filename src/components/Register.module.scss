@@ -1,0 +1,8 @@
+.register {
+  background: lightblue;
+  min-height: 100vh;
+  &__header {
+    padding: 48px 0;
+    text-align: center;
+  }
+}
