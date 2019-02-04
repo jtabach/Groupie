@@ -2,7 +2,11 @@
 
 .settings-card {
   padding: 16px;
+  &__header {
+    margin-bottom: 16px;
+  }
   &__list {
+    margin-bottom: 18px;
   }
   &__item {
     label {
@@ -12,4 +16,25 @@
       align-items: center;
     }
   }
+}
+
+.button-wrapper {
+  text-align: center;
+  button {
+    margin: 0 auto;
+  }
+}
+
+.message-wrapper {
+  margin-bottom: 12px;
+}
+
+.error-message {
+  color: $red-gffl;
+  text-align: center;
+}
+
+.success-message {
+  color: $green;
+  text-align: center;
 }

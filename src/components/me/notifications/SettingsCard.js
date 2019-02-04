@@ -62,28 +62,44 @@ class SettingsCard extends Component {
   }
 
   render() {
+    const {
+      loading,
+      errorMessage,
+      successMessage
+    } = this.props.formLoading.notificationSettings;
+
     return (
       <Card>
         <div className={styles['settings-card']}>
-          <h6 style={{ marginBottom: '16px' }}>Manage notification settings</h6>
+          <h6 className={styles['settings-card__header']}>
+            Manage notification settings
+          </h6>
           <h5>Notify me when:</h5>
           <ul className={styles['settings-card__list']}>
             {this.renderSettingsList()}
           </ul>
-          <ButtonTest
-            label={'Save'}
-            onClick={() => this.handleClick()}
-            variant={'primary'}
-            type={'button'}
-          />
+          <div className={styles['message-wrapper']}>
+            <p className={styles['error-message']}>{errorMessage}</p>
+            <p className={styles['success-message']}>{successMessage}</p>
+          </div>
+          <div className={styles['button-wrapper']}>
+            <ButtonTest
+              label={'Save'}
+              onClick={() => this.handleClick()}
+              variant={'primary'}
+              type={'button'}
+              size={'large'}
+              isLoading={loading}
+            />
+          </div>
         </div>
       </Card>
     );
   }
 }
 
-function mapStateToProps({ user }) {
-  return { user };
+function mapStateToProps({ user, formLoading }) {
+  return { user, formLoading };
 }
 
 export default connect(

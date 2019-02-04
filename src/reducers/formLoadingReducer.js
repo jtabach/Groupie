@@ -5,7 +5,7 @@ import {
   JOIN_LEAGUE,
   JOIN_LEAGUE_COMPLETED,
   JOIN_LEAGUE_FAILED
-} from "../types/leagueTypes";
+} from '../types/leagueTypes';
 
 import {
   SET_FANTASY_LEAGUE_ID,
@@ -14,28 +14,39 @@ import {
   SET_FANTASY_ESPN_COOKIES,
   SET_FANTASY_ESPN_COOKIES_COMPLETED,
   SET_FANTASY_ESPN_COOKIES_FAILED
-} from "../types/fantasyTypes";
+} from '../types/fantasyTypes';
 
-import { CLEAR_FORM_MESSAGES } from "../types/formTypes";
+import {
+  CHANGE_NOTIFICATION_SETTINGS,
+  CHANGE_NOTIFICATION_SETTINGS_COMPLETED,
+  CHANGE_NOTIFICATION_SETTINGS_FAILED
+} from '../types/notificationTypes';
+
+import { CLEAR_FORM_MESSAGES } from '../types/formTypes';
 
 const initialState = {
   joinLeague: {
     loading: false,
-    errorMessage: ""
+    errorMessage: ''
   },
   createLeague: {
     loading: false,
-    errorMessage: ""
+    errorMessage: ''
   },
   fantasyLeagueId: {
     loading: false,
-    errorMessage: "",
-    successMessage: ""
+    errorMessage: '',
+    successMessage: ''
   },
   fantasyEspnCookie: {
     loading: false,
-    errorMessage: "",
-    successMessage: ""
+    errorMessage: '',
+    successMessage: ''
+  },
+  notificationSettings: {
+    loading: false,
+    errorMessage: '',
+    successMessage: ''
   }
 };
 
@@ -45,7 +56,7 @@ export default (state = initialState, action) => {
       state = {
         ...initialState,
         joinLeague: {
-          errorMessage: "",
+          errorMessage: '',
           loading: true
         }
       };
@@ -54,7 +65,7 @@ export default (state = initialState, action) => {
       state = {
         ...initialState,
         joinLeague: {
-          errorMessage: "",
+          errorMessage: '',
           loading: false
         }
       };
@@ -72,7 +83,7 @@ export default (state = initialState, action) => {
       state = {
         ...initialState,
         createLeague: {
-          errorMessage: "",
+          errorMessage: '',
           loading: true
         }
       };
@@ -81,7 +92,7 @@ export default (state = initialState, action) => {
       state = {
         ...initialState,
         createLeague: {
-          errorMessage: "",
+          errorMessage: '',
           loading: false
         }
       };
@@ -100,8 +111,8 @@ export default (state = initialState, action) => {
       state = {
         ...initialState,
         fantasyLeagueId: {
-          errorMessage: "",
-          successMessage: "",
+          errorMessage: '',
+          successMessage: '',
           loading: true
         }
       };
@@ -111,7 +122,7 @@ export default (state = initialState, action) => {
       state = {
         ...initialState,
         fantasyLeagueId: {
-          errorMessage: "",
+          errorMessage: '',
           successMessage: action.payload.data.message,
           loading: false
         }
@@ -123,7 +134,7 @@ export default (state = initialState, action) => {
         ...initialState,
         fantasyLeagueId: {
           errorMessage: action.payload.data.message,
-          successMessage: "",
+          successMessage: '',
           loading: false
         }
       };
@@ -133,8 +144,8 @@ export default (state = initialState, action) => {
       state = {
         ...initialState,
         fantasyEspnCookie: {
-          errorMessage: "",
-          successMessage: "",
+          errorMessage: '',
+          successMessage: '',
           loading: true
         }
       };
@@ -144,7 +155,7 @@ export default (state = initialState, action) => {
       state = {
         ...initialState,
         fantasyEspnCookie: {
-          errorMessage: "",
+          errorMessage: '',
           successMessage: action.payload.data.message,
           loading: false
         }
@@ -156,7 +167,40 @@ export default (state = initialState, action) => {
         ...initialState,
         fantasyEspnCookie: {
           errorMessage: action.payload.data.message,
-          successMessage: "",
+          successMessage: '',
+          loading: false
+        }
+      };
+      break;
+
+    case CHANGE_NOTIFICATION_SETTINGS:
+      state = {
+        ...initialState,
+        notificationSettings: {
+          errorMessage: '',
+          successMessage: '',
+          loading: true
+        }
+      };
+      break;
+
+    case CHANGE_NOTIFICATION_SETTINGS_COMPLETED:
+      state = {
+        ...initialState,
+        notificationSettings: {
+          errorMessage: '',
+          successMessage: action.payload.data.message,
+          loading: false
+        }
+      };
+      break;
+
+    case CHANGE_NOTIFICATION_SETTINGS_FAILED:
+      state = {
+        ...initialState,
+        notificationSettings: {
+          errorMessage: action.payload.data.message,
+          successMessage: '',
           loading: false
         }
       };
