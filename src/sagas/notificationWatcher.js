@@ -1,6 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
 
+import CONFIG from '../config';
+
 import {
   CREATE_NOTIFICATION,
   FETCH_NOTIFICATIONS,
@@ -19,7 +21,7 @@ import {
 function* createNotificationRequest(action) {
   const response = yield call(
     postRequest,
-    `http://localhost:5000/api/notification/${action.payload.variant}`,
+    `${CONFIG.serverUrl}/notification/${action.payload.variant}`,
     action.payload
   );
   if (!response.success) {
@@ -28,10 +30,7 @@ function* createNotificationRequest(action) {
 }
 
 function* fetchNotificationsRequest(action) {
-  const response = yield call(
-    getRequest,
-    `http://localhost:5000/api/notification`
-  );
+  const response = yield call(getRequest, `${CONFIG.serverUrl}/notification`);
   if (response.notifications) {
     yield put({
       type: FETCH_NOTIFICATIONS_COMPLETED,
@@ -45,7 +44,7 @@ function* fetchNotificationsRequest(action) {
 function* viewNotificationRequest(action) {
   const response = yield call(
     postRequest,
-    `http://localhost:5000/api/notification/view`,
+    `${CONFIG.serverUrl}/notification/view`,
     action.payload
   );
   if (response.notification) {
@@ -61,7 +60,7 @@ function* viewNotificationRequest(action) {
 function* viewAllNotifications(action) {
   const response = yield call(
     postRequest,
-    `http://localhost:5000/api/notification/viewAll`,
+    `${CONFIG.serverUrl}/notification/viewAll`,
     action.payload
   );
   if (response.notifications) {
@@ -77,7 +76,7 @@ function* viewAllNotifications(action) {
 function* dismissNotificationsRequest(action) {
   const response = yield call(
     postRequest,
-    `http://localhost:5000/api/notification/dismiss`,
+    `${CONFIG.serverUrl}/notification/dismiss`,
     action.payload
   );
   if (response.notifications) {
@@ -94,7 +93,7 @@ function* changeNotificationSettingsRequest(action) {
   console.log(action.payload);
   const response = yield call(
     postRequest,
-    `http://localhost:5000/api/notification/settings`,
+    `${CONFIG.serverUrl}/notification/settings`,
     action.payload
   );
   if (response.verify) {

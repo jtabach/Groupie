@@ -27,7 +27,7 @@ function* createPostRequest(action) {
 function* deletePostRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/post/delete',
+    `${CONFIG.serverUrl}/post/delete`,
     action.payload
   );
   if (response.post) {
@@ -40,7 +40,7 @@ function* deletePostRequest(action) {
 function* editPostRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/post/edit',
+    `${CONFIG.serverUrl}/post/edit`,
     action.payload
   );
   if (response.post) {

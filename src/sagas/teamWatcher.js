@@ -1,5 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest } from './helpers/request';
+import CONFIG from '../config';
 
 import {
   FETCH_TEAM,
@@ -12,7 +13,7 @@ function* fetchTeamRequest(action) {
   const leagueId = action.payload;
   const response = yield call(
     getRequest,
-    `http://localhost:5000/api/team/${leagueId}`
+    `${CONFIG.serverUrl}/team/${leagueId}`
   );
   if (response.team) {
     yield put({ type: FETCH_TEAM_COMPLETED, payload: { data: response } });

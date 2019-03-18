@@ -1,6 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { postRequest } from './helpers/request';
 
+import CONFIG from '../config';
+
 import {
   LIKE_POST,
   LIKE_POST_COMPLETED,
@@ -11,7 +13,7 @@ import {
 function* likePostRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/like',
+    `${CONFIG.serverUrl}/like`,
     action.payload
   );
   if (response.like) {
@@ -24,7 +26,7 @@ function* likePostRequest(action) {
 function* unlikePostRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/like/delete',
+    `${CONFIG.serverUrl}/like/delete`,
     action.payload
   );
   if (response.like) {

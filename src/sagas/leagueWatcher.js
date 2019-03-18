@@ -1,6 +1,7 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
 
+import CONFIG from '../config';
 import history from '../history';
 
 import {
@@ -20,7 +21,7 @@ function* fetchLeagueRequest(action) {
   const leagueId = action.payload;
   const response = yield call(
     getRequest,
-    `http://localhost:5000/api/league/${leagueId}`
+    `${CONFIG.serverUrl}/league/${leagueId}`
   );
   if (response.league) {
     yield put({ type: FETCH_LEAGUE_COMPLETED, payload: { data: response } });
@@ -36,7 +37,7 @@ function* clearLeagueRequest(action) {
 function* createLeagueRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/league',
+    `${CONFIG.serverUrl}/league`,
     action.payload
   );
 
@@ -51,7 +52,7 @@ function* createLeagueRequest(action) {
 function* joinLeagueRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/team',
+    `${CONFIG.serverUrl}/team`,
     action.payload
   );
 

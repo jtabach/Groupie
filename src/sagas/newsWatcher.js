@@ -13,7 +13,7 @@ let socket;
 // wrapping function for socket.on
 const connect = () => {
   socket = io(socketServerURL);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     socket.on('connect', () => {
       resolve(socket);
     });
@@ -21,9 +21,9 @@ const connect = () => {
 };
 
 // This is how a channel is created
-const createSocketChannel = socket =>
-  eventChannel(emit => {
-    const handler = data => {
+const createSocketChannel = (socket) =>
+  eventChannel((emit) => {
+    const handler = (data) => {
       emit(data);
     };
     socket.on('updated news', handler);

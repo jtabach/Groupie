@@ -1,5 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
+
+import CONFIG from '../config';
+
 import {
   LOGIN_USER,
   LOGIN_USER_COMPLETED,
@@ -17,7 +20,7 @@ import {
 function* loginUserRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/auth/login',
+    `${CONFIG.serverUrl}/auth/login`,
     action.payload
   );
   if (response.user) {
@@ -30,7 +33,7 @@ function* loginUserRequest(action) {
 function* registerUserRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/auth/register',
+    `${CONFIG.serverUrl}/auth/register`,
     action.payload
   );
   if (response.user) {
@@ -44,7 +47,7 @@ function* registerUserRequest(action) {
 function* logoutUserRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/auth/logout',
+    `${CONFIG.serverUrl}/auth/logout`,
     action.payload
   );
   if (!response.user) {
@@ -56,7 +59,7 @@ function* logoutUserRequest(action) {
 }
 
 function* fetchUserRequest(action) {
-  const response = yield call(getRequest, 'http://localhost:5000/api/user');
+  const response = yield call(getRequest, `${CONFIG.serverUrl}/user`);
 
   if (response.user) {
     yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });

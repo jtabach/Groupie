@@ -1,6 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { postRequest } from './helpers/request';
 
+import CONFIG from '../config';
+
 import {
   CREATE_COMMENT,
   CREATE_COMMENT_COMPLETED
@@ -9,7 +11,7 @@ import {
 function* createCommenttRequest(action) {
   const response = yield call(
     postRequest,
-    'http://localhost:5000/api/comment',
+    `${CONFIG.serverUrl}/comment`,
     action.payload
   );
   if (response.comment) {
