@@ -25,6 +25,7 @@
     "react-scripts": "2.1.1",
     "react-scrollchor": "^6.0.0",
     "react-switch": "^4.0.1",
+    "react-test-renderer": "^16.8.4",
     "react-textarea-autosize": "^7.1.0",
     "react-tooltip": "^3.9.0",
     "reactstrap": "^6.5.0",
@@ -39,8 +40,9 @@
     "analyze": "source-map-explorer build/static/js/main.*",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test --env=jsdom",
-    "test:coverage": "npm test -- --coverage",
+    "test": "react-scripts test",
+    "test:ci": "CI=true react-scripts test --env=jsdom",
+    "test:coverage": "npm run test:ci -- --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -56,7 +58,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
     "gh-pages": "^2.0.1",
+    "react-addons-test-utils": "^15.6.2",
+    "redux-mock-store": "^1.5.3",
     "tslint": "^5.12.1"
   }
 }

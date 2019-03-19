@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logoutUser, fetchUser } from '../../actions/authActions';
+import { logoutUser } from '../../actions/authActions';
 
-class LogoutButton extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.props.logoutUser();
-  }
-
+export class LogoutButton extends Component {
   render() {
-    return <div onClick={this.handleClick}>logout</div>;
+    return <div onClick={() => this.props.logoutUser()}>logout</div>;
   }
 }
 
 export default connect(
   null,
-  { logoutUser, fetchUser }
+  { logoutUser }
 )(LogoutButton);
