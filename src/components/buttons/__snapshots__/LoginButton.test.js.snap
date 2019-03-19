@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginButton Link matches snapshot 1`] = `
+<a
+  href="/login"
+  onClick={[Function]}
+>
+  Login
+</a>
+`;
