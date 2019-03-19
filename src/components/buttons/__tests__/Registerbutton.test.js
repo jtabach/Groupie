@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { StaticRouter } from 'react-router';
-import RegisterButton from './RegisterButton';
+import RegisterButton from '../RegisterButton';
 
 test('RegisterButton Link matches snapshot', () => {
   const component = renderer.create(
