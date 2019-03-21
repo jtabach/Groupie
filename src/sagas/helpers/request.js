@@ -5,7 +5,7 @@ export function getRequest(url) {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(response => response.json());
+  }).then((response) => response.json());
 }
 
 export function postRequest(url, data) {
@@ -16,7 +16,7 @@ export function postRequest(url, data) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  }).then(response => response.json());
+  }).then((response) => response.json());
 }
 
 export function putRequest(url, data) {
@@ -27,7 +27,7 @@ export function putRequest(url, data) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  }).then(response => response.json());
+  }).then((response) => response.json());
 }
 
 export function deleteRequest(url, data) {
@@ -38,5 +38,5 @@ export function deleteRequest(url, data) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  }).then(response => response.json());
+  }).then((response) => response.json());
 }

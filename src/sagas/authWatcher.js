@@ -1,5 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
+import api from './api';
 
 import CONFIG from '../config';
 
@@ -17,12 +18,8 @@ import {
   LOGOUT_USER_COMPLETED
 } from '../types/authTypes';
 
-function* loginUserRequest(action) {
-  const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/auth/login`,
-    action.payload
-  );
+export function* loginUserRequest(action) {
+  const response = yield call(api.loginUser, action);
   if (response.user) {
     yield put({ type: LOGIN_USER_COMPLETED, payload: { data: response } });
   } else {
@@ -46,9 +43,7 @@ function* registerUserRequest(action) {
 
 function* logoutUserRequest(action) {
   const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/auth/logout`,
-    action.payload
+    postRequest(`${CONFIG.serverUrl}/auth/logout`, action)
   );
   if (!response.user) {
     yield put({ type: LOGOUT_USER_COMPLETED, payload: { data: response } });
