@@ -1,5 +1,5 @@
-import { getRequest, postRequest } from './helpers/request';
-import CONFIG from '../config';
+import { getRequest, postRequest } from '../helpers/request';
+import CONFIG from '../../config';
 
 export default {
   loginUser(action) {

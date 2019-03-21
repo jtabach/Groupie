@@ -3,7 +3,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
 import { loginUserRequest } from '../authWatcher';
-import api from '../api';
+import { authApi } from '../api';
 
 it('logs in the user', () => {
   const fakeUser = {
@@ -11,10 +11,10 @@ it('logs in the user', () => {
   };
   const fakePayload = { email: 'a@a.com', password: 'asdfasdf' };
 
-  return expectSaga(loginUserRequest, api)
+  return expectSaga(loginUserRequest, authApi)
     .provide({
       call(effect) {
-        if (effect.fn === api.loginUser) {
+        if (effect.fn === authApi.loginUser) {
           return fakeUser;
         }
       }
