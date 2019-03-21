@@ -1,6 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
-import api from './api';
+import { authApi } from './api/index';
 
 import CONFIG from '../config';
 
@@ -19,7 +19,7 @@ import {
 } from '../types/authTypes';
 
 export function* loginUserRequest(action) {
-  const response = yield call(api.loginUser, action);
+  const response = yield call(authApi.loginUser, action);
   if (response.user) {
     yield put({ type: LOGIN_USER_COMPLETED, payload: { data: response } });
   } else {

@@ -3,7 +3,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
 import { loginUserRequest } from '../authWatcher';
-import { authApi } from '../api';
+import { authApi } from '../api/index'; // code editor bug, must add index path :/
 
 it('logs in the user', () => {
   const fakeUser = {
