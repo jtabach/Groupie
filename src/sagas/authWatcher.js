@@ -28,7 +28,7 @@ export function* loginUserRequest(action) {
   }
 }
 
-function* registerUserRequest(action) {
+export function* registerUserRequest(action) {
   const response = yield call(authApi.registerUser, action);
 
   if (response.user) {
