@@ -20,6 +20,7 @@ import {
 
 export function* loginUserRequest(action) {
   const response = yield call(authApi.loginUser, action);
+
   if (response.user) {
     yield put({ type: LOGIN_USER_COMPLETED, payload: { data: response } });
   } else {
@@ -28,23 +29,18 @@ export function* loginUserRequest(action) {
 }
 
 function* registerUserRequest(action) {
-  const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/auth/register`,
-    action.payload
-  );
+  const response = yield call(authApi.registerUser, action);
+
   if (response.user) {
     yield put({ type: REGISTER_USER_COMPLETED, payload: { data: response } });
   } else {
-    // invoke some other action
     yield put({ type: REGISTER_USER_FAILED, payload: { data: response } });
   }
 }
 
 function* logoutUserRequest(action) {
-  const response = yield call(
-    postRequest(`${CONFIG.serverUrl}/auth/logout`, action)
-  );
+  const response = yield call(authApi.logoutUser, action);
+
   if (!response.user) {
     yield put({ type: LOGOUT_USER_COMPLETED, payload: { data: response } });
   } else {
@@ -53,8 +49,8 @@ function* logoutUserRequest(action) {
   }
 }
 
-function* fetchUserRequest(action) {
-  const response = yield call(getRequest, `${CONFIG.serverUrl}/user`);
+function* fetchUserRequest() {
+  const response = yield call(authApi.fetchUser);
 
   if (response.user) {
     yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });
