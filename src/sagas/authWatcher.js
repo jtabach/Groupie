@@ -1,6 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
-import { authApi } from './api/index';
+import { authApi } from './api/index'; // code editor bug, must add index path :/
 
 import CONFIG from '../config';
 
