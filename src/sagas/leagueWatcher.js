@@ -1,7 +1,5 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { getRequest, postRequest } from './helpers/request';
-
-import CONFIG from '../config';
+import { leagueApi } from './api';
 import history from '../history';
 
 import {
@@ -19,10 +17,7 @@ import {
 
 function* fetchLeagueRequest(action) {
   const leagueId = action.payload;
-  const response = yield call(
-    getRequest,
-    `${CONFIG.serverUrl}/league/${leagueId}`
-  );
+  const response = yield call(leagueApi.fetchLeague, action, leagueId);
   if (response.league) {
     yield put({ type: FETCH_LEAGUE_COMPLETED, payload: { data: response } });
   } else {
@@ -35,11 +30,8 @@ function* clearLeagueRequest(action) {
 }
 
 function* createLeagueRequest(action) {
-  const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/league`,
-    action.payload
-  );
+  const response = yield call(leagueApi.createLeague, action);
+  console.log(response);
 
   if (response.team) {
     yield put({ type: CREATE_LEAGUE_COMPLETED, payload: { data: response } });
@@ -50,11 +42,7 @@ function* createLeagueRequest(action) {
 }
 
 function* joinLeagueRequest(action) {
-  const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/team`,
-    action.payload
-  );
+  const response = yield call(leagueApi.joinLeague, action);
 
   if (response.team) {
     yield put({ type: JOIN_LEAGUE_COMPLETED, payload: { data: response } });
