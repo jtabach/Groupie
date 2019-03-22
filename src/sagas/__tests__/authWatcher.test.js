@@ -8,7 +8,7 @@ import {
   logoutUserRequest,
   fetchUserRequest
 } from '../authWatcher';
-import { authApi } from '../api/index'; // code editor bug, must add index path :/
+import { authApi } from '../api';
 
 describe('AuthWatcher', () => {
   describe('LoginUser', () => {
