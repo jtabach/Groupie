@@ -5,7 +5,8 @@ import { throwError } from 'redux-saga-test-plan/providers';
 import {
   loginUserRequest,
   registerUserRequest,
-  logoutUserRequest
+  logoutUserRequest,
+  fetchUserRequest
 } from '../authWatcher';
 import { authApi } from '../api/index'; // code editor bug, must add index path :/
 
@@ -134,6 +135,54 @@ describe('AuthWatcher', () => {
           payload: { data: fakeUser }
         })
         .dispatch({ type: 'LOGOUT_USER', payload: fakePayload })
+        .run();
+    });
+  });
+
+  describe('FetchUser', () => {
+    let fakeUser;
+    let fakePayload;
+    let fakeError;
+
+    beforeEach(() => {
+      fakeUser = {
+        user: { email: 'a@a.com', firstName: 'John', lastName: 'Doe' }
+      };
+      fakePayload = {};
+      fakeError = { user: false };
+    });
+
+    it('successful gets user data', () => {
+      return expectSaga(fetchUserRequest, authApi)
+        .provide({
+          call(effect) {
+            if (effect.fn === authApi.fetchUser) {
+              return fakeUser;
+            }
+          }
+        })
+        .put({
+          type: 'FETCH_USER_COMPLETED',
+          payload: { data: fakeUser }
+        })
+        .dispatch({ type: 'FETCH_USER', payload: fakePayload })
+        .run();
+    });
+
+    it('handles errors', () => {
+      return expectSaga(fetchUserRequest, authApi)
+        .provide({
+          call(effect) {
+            if (effect.fn === authApi.fetchUser) {
+              return fakeError;
+            }
+          }
+        })
+        .put({
+          type: 'FETCH_USER_FAILED',
+          payload: { data: fakeError }
+        })
+        .dispatch({ type: 'FETCH_USER', payload: fakePayload })
         .run();
     });
   });

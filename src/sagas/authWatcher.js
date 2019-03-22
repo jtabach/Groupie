@@ -49,7 +49,7 @@ export function* logoutUserRequest(action) {
   }
 }
 
-function* fetchUserRequest() {
+export function* fetchUserRequest() {
   const response = yield call(authApi.fetchUser);
 
   if (response.user) {
