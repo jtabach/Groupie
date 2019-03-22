@@ -38,7 +38,7 @@ export function* registerUserRequest(action) {
   }
 }
 
-function* logoutUserRequest(action) {
+export function* logoutUserRequest(action) {
   const response = yield call(authApi.logoutUser, action);
 
   if (!response.user) {

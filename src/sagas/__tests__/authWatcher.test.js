@@ -2,7 +2,11 @@ import { call, put, take } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
-import { loginUserRequest, registerUserRequest } from '../authWatcher';
+import {
+  loginUserRequest,
+  registerUserRequest,
+  logoutUserRequest
+} from '../authWatcher';
 import { authApi } from '../api/index'; // code editor bug, must add index path :/
 
 describe('AuthWatcher', () => {
@@ -103,6 +107,33 @@ describe('AuthWatcher', () => {
           payload: { data: fakeError }
         })
         .dispatch({ type: 'REGISTER_USER', payload: fakePayload })
+        .run();
+    });
+  });
+
+  describe('LogoutUser', () => {
+    let fakeUser;
+    let fakePayload;
+
+    beforeEach(() => {
+      fakeUser = { user: false };
+      fakePayload = {};
+    });
+
+    it('successful logs out user', () => {
+      return expectSaga(logoutUserRequest, authApi)
+        .provide({
+          call(effect) {
+            if (effect.fn === authApi.logoutUser) {
+              return fakeUser;
+            }
+          }
+        })
+        .put({
+          type: 'LOGOUT_USER_COMPLETED',
+          payload: { data: fakeUser }
+        })
+        .dispatch({ type: 'LOGOUT_USER', payload: fakePayload })
         .run();
     });
   });
