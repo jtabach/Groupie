@@ -5,7 +5,14 @@ export function getRequest(url) {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then((response) => response.json());
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      if (json.error) {
+        throw json;
+      }
+      return json;
+    });
 }
 
 export function postRequest(url, data) {

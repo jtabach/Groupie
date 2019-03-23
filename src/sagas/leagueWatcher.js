@@ -17,11 +17,11 @@ import {
 
 export function* fetchLeagueRequest(action) {
   const leagueId = action.payload;
-  const response = yield call(leagueApi.fetchLeague, action, leagueId);
-  if (response.league) {
+  try {
+    const response = yield call(leagueApi.fetchLeague, action, leagueId);
     yield put({ type: FETCH_LEAGUE_COMPLETED, payload: { data: response } });
-  } else {
-    console.log('handle failed to fetch league');
+  } catch (err) {
+    console.log(err.message);
   }
 }
 
