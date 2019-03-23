@@ -7,10 +7,12 @@ import { leagueApi } from '../api';
 describe('LeagueWatcher', () => {
   describe('FetchLeague', () => {
     let fakePayload;
+    let badPayload;
     let fakeLeague;
 
     beforeEach(() => {
       fakePayload = 'somehash';
+      badPayload = 'badhash';
       fakeLeague = {
         league: {
           teams: [],
@@ -45,7 +47,7 @@ describe('LeagueWatcher', () => {
       return expectSaga(fetchLeagueRequest, leagueApi)
         .provide([[matchers.call.fn(leagueApi.fetchLeague), throwError(error)]])
         .put({ type: 'FETCH_LEAGUE_FAILED', error })
-        .dispatch({ type: 'FETCH_LEAGUE', payload: fakePayload })
+        .dispatch({ type: 'FETCH_LEAGUE', payload: badPayload })
         .run();
     });
   });
