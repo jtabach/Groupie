@@ -3,7 +3,8 @@ import axios from 'axios';
 const config = {
   withCredentials: true,
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest'
   }
 };
 
