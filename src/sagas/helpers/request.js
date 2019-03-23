@@ -16,7 +16,14 @@ export function postRequest(url, data) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  }).then((response) => response.json());
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      if (json.error) {
+        throw json;
+      }
+      return json;
+    });
 }
 
 export function putRequest(url, data) {

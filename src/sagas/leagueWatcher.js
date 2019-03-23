@@ -15,7 +15,7 @@ import {
   JOIN_LEAGUE_FAILED
 } from '../types/leagueTypes';
 
-function* fetchLeagueRequest(action) {
+export function* fetchLeagueRequest(action) {
   const leagueId = action.payload;
   const response = yield call(leagueApi.fetchLeague, action, leagueId);
   if (response.league) {
@@ -30,14 +30,12 @@ function* clearLeagueRequest(action) {
 }
 
 function* createLeagueRequest(action) {
-  const response = yield call(leagueApi.createLeague, action);
-  console.log(response);
-
-  if (response.team) {
+  try {
+    const response = yield call(leagueApi.createLeague, action);
     yield put({ type: CREATE_LEAGUE_COMPLETED, payload: { data: response } });
     history.push(`/league/${response.team.league._id}`);
-  } else {
-    yield put({ type: CREATE_LEAGUE_FAILED, payload: { data: response } });
+  } catch (err) {
+    yield put({ type: CREATE_LEAGUE_FAILED, payload: { data: err } });
   }
 }
 
