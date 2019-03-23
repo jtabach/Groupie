@@ -21,7 +21,7 @@ export function* fetchLeagueRequest(action) {
     const response = yield call(leagueApi.fetchLeague, action, leagueId);
     yield put({ type: FETCH_LEAGUE_COMPLETED, payload: { data: response } });
   } catch (err) {
-    console.log(err.message);
+    yield put({ type: 'FETCH_LEAGUE_FAILED', error: err });
   }
 }
 

@@ -16,22 +16,20 @@ import {
 } from '../types/authTypes';
 
 export function* loginUserRequest(action) {
-  const response = yield call(authApi.loginUser, action);
-
-  if (response.user) {
+  try {
+    const response = yield call(authApi.loginUser, action);
     yield put({ type: LOGIN_USER_COMPLETED, payload: { data: response } });
-  } else {
-    yield put({ type: LOGIN_USER_FAILED, payload: { data: response } });
+  } catch (err) {
+    yield put({ type: LOGIN_USER_FAILED, error: err });
   }
 }
 
 export function* registerUserRequest(action) {
-  const response = yield call(authApi.registerUser, action);
-
-  if (response.user) {
+  try {
+    const response = yield call(authApi.registerUser, action);
     yield put({ type: REGISTER_USER_COMPLETED, payload: { data: response } });
-  } else {
-    yield put({ type: REGISTER_USER_FAILED, payload: { data: response } });
+  } catch (err) {
+    yield put({ type: REGISTER_USER_FAILED, error: err });
   }
 }
 
@@ -47,12 +45,11 @@ export function* logoutUserRequest(action) {
 }
 
 export function* fetchUserRequest() {
-  const response = yield call(authApi.fetchUser);
-
-  if (response.user) {
+  try {
+    const response = yield call(authApi.fetchUser);
     yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });
-  } else {
-    yield put({ type: FETCH_USER_FAILED, payload: { data: response } });
+  } catch (err) {
+    yield put({ type: FETCH_USER_FAILED, error: err });
   }
 }
 

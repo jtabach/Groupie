@@ -1,5 +1,6 @@
 import {
   FETCH_LEAGUE_COMPLETED,
+  FETCH_LEAGUE_FAILED,
   CLEAR_LEAGUE_COMPLETED
 } from '../types/leagueTypes';
 
@@ -34,6 +35,11 @@ export default (state = initialState, action) => {
       state = action.payload.data.league;
       break;
 
+    case FETCH_LEAGUE_FAILED:
+      console.log(action);
+      state = initialState;
+      break;
+
     case CLEAR_LEAGUE_COMPLETED:
       state = initialState;
       break;
@@ -48,7 +54,7 @@ export default (state = initialState, action) => {
     case DELETE_POST_COMPLETED:
       state = {
         ...state,
-        posts: state.posts.filter(post => {
+        posts: state.posts.filter((post) => {
           return post._id !== action.payload.data.post._id;
         })
       };
@@ -57,7 +63,7 @@ export default (state = initialState, action) => {
     case EDIT_POST_COMPLETED:
       state = {
         ...state,
-        posts: state.posts.map(post => {
+        posts: state.posts.map((post) => {
           return post._id !== action.payload.data.post._id
             ? post
             : action.payload.data.post;
@@ -66,7 +72,7 @@ export default (state = initialState, action) => {
       break;
 
     case CREATE_COMMENT_COMPLETED:
-      const postArray = state.posts.map(post => {
+      const postArray = state.posts.map((post) => {
         if (post._id !== action.payload.data.comment.post) {
           return post;
         }
@@ -79,7 +85,7 @@ export default (state = initialState, action) => {
       break;
 
     case LIKE_POST_COMPLETED:
-      const postArrayWithLikes = state.posts.map(post => {
+      const postArrayWithLikes = state.posts.map((post) => {
         if (post._id !== action.payload.data.like.post) {
           return post;
         }
@@ -92,13 +98,13 @@ export default (state = initialState, action) => {
       break;
 
     case DELETE_LIKE_POST_COMPLETED:
-      const postArrayWithDeletedLikes = state.posts.map(post => {
+      const postArrayWithDeletedLikes = state.posts.map((post) => {
         if (post._id !== action.payload.data.like.post) {
           return post;
         }
         return {
           ...post,
-          likes: post.likes.filter(like => {
+          likes: post.likes.filter((like) => {
             return like._id !== action.payload.data.like._id;
           })
         };

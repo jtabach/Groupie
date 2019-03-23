@@ -4,11 +4,11 @@ import { commentApi } from '../api';
 
 describe('CommentWatcher', () => {
   describe('CreateComment', () => {
-    let fakeComment;
     let fakePayload;
+    let fakeComment;
 
     beforeEach(() => {
-      fakeComment = {
+      fakePayload = {
         comment: {
           text: 'this is a comment',
           leagueId: '5c309027db7f2c10483f09ff',
@@ -16,7 +16,7 @@ describe('CommentWatcher', () => {
           postId: '5c5842c0679c43f34b957bc3'
         }
       };
-      fakePayload = {
+      fakeComment = {
         comment: {
           date: '2019-03-22T19:01:42.803Z',
           league: '5c309027db7f2c10483f09ff',

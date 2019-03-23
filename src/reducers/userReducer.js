@@ -76,10 +76,11 @@ export default (state = initialState, action) => {
       break;
 
     case LOGIN_USER_FAILED:
+      console.log(action.error);
       state = {
         ...initialState,
         _id: false,
-        errorMessage: action.payload.data.message
+        errorMessage: action.error.data
       };
       break;
 
@@ -116,7 +117,7 @@ export default (state = initialState, action) => {
     case VIEW_NOTIFICATION_COMPLETED:
       state = {
         ...state,
-        notifications: state.notifications.map(notification => {
+        notifications: state.notifications.map((notification) => {
           if (notification._id === action.payload.data.notification._id) {
             notification.hasViewed = true;
           }
@@ -129,7 +130,7 @@ export default (state = initialState, action) => {
     case VIEW_ALL_NOTIFICATIONS_COMPLETED:
       state = {
         ...state,
-        notifications: state.notifications.map(notification => {
+        notifications: state.notifications.map((notification) => {
           notification.hasViewed = true;
           return notification;
         })
@@ -140,7 +141,7 @@ export default (state = initialState, action) => {
     case DISMISS_NOTIFICATIONS_COMPLETED:
       state = {
         ...state,
-        notifications: state.notifications.map(notification => {
+        notifications: state.notifications.map((notification) => {
           notification.hasDismissed = true;
           return notification;
         })

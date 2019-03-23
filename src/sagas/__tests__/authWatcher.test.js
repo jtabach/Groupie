@@ -21,7 +21,7 @@ describe('AuthWatcher', () => {
         user: { email: 'a@a.com', firstName: 'John', lastName: 'Doe' }
       };
       fakePayload = { email: 'a@a.com', password: 'password' };
-      fakeError = { user: false };
+      fakeError = new Error('error');
     });
 
     it('successful and returns user data', () => {
@@ -46,17 +46,33 @@ describe('AuthWatcher', () => {
         .provide({
           call(effect) {
             if (effect.fn === authApi.loginUser) {
-              return fakeError;
+              throw fakeError;
             }
           }
         })
         .put({
           type: 'LOGIN_USER_FAILED',
-          payload: { data: fakeError }
+          error: fakeError
         })
-        .dispatch({ type: 'LOGIN_USER', payload: fakePayload })
+        .dispatch({ type: 'LOGIN_USER', payload: {} })
         .run();
     });
+    // it('handles errors', () => {
+    //   return expectSaga(loginUserRequest, authApi)
+    //     .provide({
+    //       call(effect) {
+    //         if (effect.fn === authApi.loginUser) {
+    //           return fakeError;
+    //         }
+    //       }
+    //     })
+    //     .put({
+    //       type: 'LOGIN_USER_FAILED',
+    //       payload: { data: fakeError }
+    //     })
+    //     .dispatch({ type: 'LOGIN_USER', payload: fakePayload })
+    //     .run();
+    // });
   });
 
   describe('RegisterUser', () => {
@@ -74,7 +90,7 @@ describe('AuthWatcher', () => {
         lasName: 'Doe',
         password: 'password'
       };
-      fakeError = { user: false };
+      fakeError = new Error('error');
     });
 
     it('successful and returns user data', () => {
@@ -99,15 +115,15 @@ describe('AuthWatcher', () => {
         .provide({
           call(effect) {
             if (effect.fn === authApi.registerUser) {
-              return fakeError;
+              throw fakeError;
             }
           }
         })
         .put({
           type: 'REGISTER_USER_FAILED',
-          payload: { data: fakeError }
+          error: fakeError
         })
-        .dispatch({ type: 'REGISTER_USER', payload: fakePayload })
+        .dispatch({ type: 'REGISTER_USER', payload: {} })
         .run();
     });
   });
@@ -149,7 +165,7 @@ describe('AuthWatcher', () => {
         user: { email: 'a@a.com', firstName: 'John', lastName: 'Doe' }
       };
       fakePayload = {};
-      fakeError = { user: false };
+      fakeError = new Error('error');
     });
 
     it('successful gets user data', () => {
@@ -174,15 +190,15 @@ describe('AuthWatcher', () => {
         .provide({
           call(effect) {
             if (effect.fn === authApi.fetchUser) {
-              return fakeError;
+              throw fakeError;
             }
           }
         })
         .put({
           type: 'FETCH_USER_FAILED',
-          payload: { data: fakeError }
+          error: fakeError
         })
-        .dispatch({ type: 'FETCH_USER', payload: fakePayload })
+        .dispatch({ type: 'FETCH_USER', payload: {} })
         .run();
     });
   });
