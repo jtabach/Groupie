@@ -57,22 +57,6 @@ describe('AuthWatcher', () => {
         .dispatch({ type: 'LOGIN_USER', payload: {} })
         .run();
     });
-    // it('handles errors', () => {
-    //   return expectSaga(loginUserRequest, authApi)
-    //     .provide({
-    //       call(effect) {
-    //         if (effect.fn === authApi.loginUser) {
-    //           return fakeError;
-    //         }
-    //       }
-    //     })
-    //     .put({
-    //       type: 'LOGIN_USER_FAILED',
-    //       payload: { data: fakeError }
-    //     })
-    //     .dispatch({ type: 'LOGIN_USER', payload: fakePayload })
-    //     .run();
-    // });
   });
 
   describe('RegisterUser', () => {

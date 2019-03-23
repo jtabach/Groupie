@@ -6,6 +6,7 @@ describe('CommentWatcher', () => {
   describe('CreateComment', () => {
     let fakePayload;
     let fakeComment;
+    let fakeError;
 
     beforeEach(() => {
       fakePayload = {
@@ -31,6 +32,7 @@ describe('CommentWatcher', () => {
           }
         }
       };
+      fakeError = new Error('error');
     });
 
     it('successfully creates a comment on a post', () => {
@@ -47,6 +49,23 @@ describe('CommentWatcher', () => {
           payload: { data: fakeComment }
         })
         .dispatch({ type: 'CREATE_COMMENT', payload: fakePayload })
+        .run();
+    });
+
+    it('handles errors', () => {
+      return expectSaga(createCommentRequest, commentApi)
+        .provide({
+          call(effect) {
+            if (effect.fn === commentApi.createComment) {
+              throw fakeError;
+            }
+          }
+        })
+        .put({
+          type: 'CREATE_COMMENT_FAILED',
+          error: fakeError
+        })
+        .dispatch({ type: 'CREATE_COMMENT', payload: {} })
         .run();
     });
   });
