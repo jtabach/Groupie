@@ -1,7 +1,5 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { getRequest, postRequest } from './helpers/request';
-
-import CONFIG from '../config';
+import { authApi } from './api/index'; // code editor bug, must add index path :/
 
 import {
   LOGIN_USER,
@@ -17,39 +15,27 @@ import {
   LOGOUT_USER_COMPLETED
 } from '../types/authTypes';
 
-function* loginUserRequest(action) {
-  const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/auth/login`,
-    action.payload
-  );
-  if (response.user) {
+export function* loginUserRequest(action) {
+  try {
+    const response = yield call(authApi.loginUser, action);
     yield put({ type: LOGIN_USER_COMPLETED, payload: { data: response } });
-  } else {
-    yield put({ type: LOGIN_USER_FAILED, payload: { data: response } });
+  } catch (err) {
+    yield put({ type: LOGIN_USER_FAILED, error: err });
   }
 }
 
-function* registerUserRequest(action) {
-  const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/auth/register`,
-    action.payload
-  );
-  if (response.user) {
+export function* registerUserRequest(action) {
+  try {
+    const response = yield call(authApi.registerUser, action);
     yield put({ type: REGISTER_USER_COMPLETED, payload: { data: response } });
-  } else {
-    // invoke some other action
-    yield put({ type: REGISTER_USER_FAILED, payload: { data: response } });
+  } catch (err) {
+    yield put({ type: REGISTER_USER_FAILED, error: err });
   }
 }
 
-function* logoutUserRequest(action) {
-  const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/auth/logout`,
-    action.payload
-  );
+export function* logoutUserRequest(action) {
+  const response = yield call(authApi.logoutUser, action);
+
   if (!response.user) {
     yield put({ type: LOGOUT_USER_COMPLETED, payload: { data: response } });
   } else {
@@ -58,13 +44,12 @@ function* logoutUserRequest(action) {
   }
 }
 
-function* fetchUserRequest(action) {
-  const response = yield call(getRequest, `${CONFIG.serverUrl}/user`);
-
-  if (response.user) {
+export function* fetchUserRequest() {
+  try {
+    const response = yield call(authApi.fetchUser);
     yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });
-  } else {
-    yield put({ type: FETCH_USER_FAILED, payload: { data: response } });
+  } catch (err) {
+    yield put({ type: FETCH_USER_FAILED, error: err });
   }
 }
 

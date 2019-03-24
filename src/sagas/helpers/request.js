@@ -1,42 +1,45 @@
+import axios from 'axios';
+
+const config = {
+  withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest'
+  }
+};
+
+function handleError(err) {
+  throw err.response;
+}
+
+function handleResponse(response) {
+  return response.data;
+}
+
 export function getRequest(url) {
-  return fetch(url, {
-    method: 'GET',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(response => response.json());
+  return axios
+    .get(url, config)
+    .then(handleResponse)
+    .catch(handleError);
 }
 
 export function postRequest(url, data) {
-  return fetch(url, {
-    method: 'POST',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).then(response => response.json());
+  return axios
+    .post(url, data, config)
+    .then(handleResponse)
+    .catch(handleError);
 }
 
 export function putRequest(url, data) {
-  return fetch(url, {
-    method: 'PUT',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).then(response => response.json());
+  return axios
+    .put(url, data, config)
+    .then(handleResponse)
+    .catch(handleError);
 }
 
 export function deleteRequest(url, data) {
-  return fetch(url, {
-    method: 'DELETE',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).then(response => response.json());
+  return axios
+    .delete(url, data, config)
+    .then(handleResponse)
+    .catch(handleError);
 }

@@ -1,26 +1,21 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { postRequest } from './helpers/request';
-
-import CONFIG from '../config';
+import { commentApi } from './api';
 
 import {
   CREATE_COMMENT,
-  CREATE_COMMENT_COMPLETED
+  CREATE_COMMENT_COMPLETED,
+  CREATE_COMMENT_FAILED
 } from '../types/commentTypes';
 
-function* createCommenttRequest(action) {
-  const response = yield call(
-    postRequest,
-    `${CONFIG.serverUrl}/comment`,
-    action.payload
-  );
-  if (response.comment) {
+export function* createCommentRequest(action) {
+  try {
+    const response = yield call(commentApi.createComment, action);
     yield put({ type: CREATE_COMMENT_COMPLETED, payload: { data: response } });
-  } else {
-    console.log('handle failed to create comment');
+  } catch (err) {
+    yield put({ type: CREATE_COMMENT_FAILED, error: err });
   }
 }
 
 export function* commentWatcher() {
-  yield takeLatest(CREATE_COMMENT, createCommenttRequest);
+  yield takeLatest(CREATE_COMMENT, createCommentRequest);
 }
